@@ -1,49 +1,13 @@
-Master [![Build Status](https://travis-ci.org/jn-prod/sport-roadbook.svg?branch=master)](https://travis-ci.org/jn-prod/sport-roadbook) DEV [![Build Status](https://travis-ci.org/jn-prod/sport-roadbook.svg?branch=dev)](https://travis-ci.org/jn-prod/sport-roadbook)
+# feezify
 
-# Feezily App
+> feezify is going AI-native — a training copilot as a skill + a portable markdown core. Zero infra.
 
-### Short description
-This app use Node.js, Express and Mongoose. Application de gestion d'entrainement sportif.
+It reads the day for you: objective load × subjective readiness × your own narrative memory.
+The full "SaaS → AI-native" story, the design, and how to install it on your own AI live below
+(written in [Task 11 of the build plan] — placeholder during scaffolding).
 
-### Urls
-demo : https://feezify-dev.herokuapp.com/
+🇫🇷 Version française : [`/fr/README.md`](fr/README.md)
 
-# Commands 
+## License
 
-### Version
-1.1.0
-
-### Installation
-
-```sh
-$ npm install
-```
-
-### Launch app
-
-```sh
-$ node app
-```
-
-### Test
-
-```sh
-$ npm run test
-```
-### Build assets
-
-```sh
-$ npm run build
-```
-
-### Generate local SSL
-more: https://www.kevinleary.net/self-signed-trusted-certificates-node-js-express-js/
-```sh
-$ cd certs
-$ openssl genrsa -out localhost.key 2048
-$ openssl req -new -x509 -key localhost.key -out localhost.cert -days 3650
-```
-
-
-
-
+[Apache-2.0](LICENSE).
