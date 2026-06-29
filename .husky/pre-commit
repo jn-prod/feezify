@@ -1,8 +1,35 @@
 #!/bin/sh
-# Fenêtre protégée — corp-ai SYSTEM.md §22 (mêmes règles que corp-ai)
-# Bloque les commits Lun-Ven 08:00-12:30 et 14:00-20:00 (Europe/Paris)
-# Bypass fondateur : git commit --no-verify (+ consigner dans daily log)
+# pre-commit — feezify
+# 1) Secrets : les tokens vivent UNIQUEMENT dans .env (gitignoré), jamais dans un fichier suivi.
+# 2) Fenêtre protégée §22 (mêmes règles que corp-ai).
+# Bypass fondateur (avec mention du risque) : git commit --no-verify
 
+# --- 1) Scan secrets (toujours, quelle que soit l'heure) ---
+staged_env=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^\.env($|\.)' | grep -v '^\.env\.example$' || true)
+if [ -n "$staged_env" ]; then
+  echo ""
+  echo "⛔ secret — un fichier .env est staged ($staged_env). Interdit : seul .env.example est suivi."
+  echo "Les tokens vivent uniquement dans .env (gitignoré). Voir AGENTS.md → Secrets."
+  echo ""
+  exit 1
+fi
+
+leaks=$(git diff --cached --diff-filter=ACM -U0 \
+  | grep -E '^\+' | grep -vE '^\+\+\+' \
+  | grep -iE '(client_secret|access_token|refresh_token|api_key|[a-z0-9]_token|[a-z0-9]_secret)[[:space:]]*[:=][[:space:]]*["'\'']?[A-Za-z0-9._-]{16,}' \
+  | grep -ivE 'your_|xxxx|placeholder|example|changeme|redacted|<[a-z]|\{[0-9]|git[[:space:]]grep' || true)
+if [ -n "$leaks" ]; then
+  echo ""
+  echo "⛔ secret potentiel dans le diff staged (token/secret hors .env) :"
+  echo "$leaks" | head -5
+  echo ""
+  echo "Déplace-le dans .env (gitignoré) et retire-le du fichier. Voir AGENTS.md → Secrets."
+  echo "Override conscient : git commit --no-verify"
+  echo ""
+  exit 1
+fi
+
+# --- 2) Fenêtre protégée §22 ---
 PARIS_HOUR=$(TZ=Europe/Paris date +%H%M)
 PARIS_DOW=$(TZ=Europe/Paris date +%u)
 
@@ -19,3 +46,6 @@ if [ "$PARIS_DOW" -le 5 ]; then
     exit 1
   fi
 fi
+
+# success — never let an empty grep (set -e) fail the hook
+exit 0

@@ -62,17 +62,30 @@ It's open on purpose: the method is the point, not a secret.
 
 ## Install / run
 
+Full first run — install, build, your private core, and the `.env` with adapter tokens —
+is in **[`init.md`](init.md)**. In short:
+
 ```bash
-pnpm install
-pnpm build
-cp -r core-template ~/my-feezify-core      # your portable core (profil, objectifs, journal, memory)
+pnpm install && pnpm build
+cp -r core-template ~/my-feezify-core   # your private core (profil, objectifs, journal, memory)
+cp .env.example .env                    # then add your Strava tokens (see init.md)
 node dist/lecture.js ~/my-feezify-core 2026-06-29
 ```
 
 Then point your AI at the skill — it ships as both a **Claude skill**
 (`src/adapters/claude-skill/SKILL.md`) and an **OpenClaw skill**
-(`src/adapters/openclaw-skill/SKILL.md`), same engine. Fill `profil.md` with your
-baselines, drop a daily entry in `journal/`, and ask your AI how you are today.
+(`src/adapters/openclaw-skill/SKILL.md`), same engine.
+
+> **Adapter tokens go only in `.env`** (git-ignored) — never in any other file. See
+> `init.md` and `AGENTS.md → Secrets`.
+
+## Using it day to day
+
+1. Add a journal entry: copy `templates/journal-day.md` to `journal/YYYY-MM-DD.md` and fill
+   it in — markers (sleep, fatigue, motivation, mood, stress, appetite, thirst) plus a few
+   honest sentences (how the legs felt, any niggle, what's going on in life).
+2. Ask your AI how you are today. It reads its memory (`memory/`) and your journal, runs the
+   deterministic read, and tells you **green / amber / red** and *why* — it never prescribes.
 
 ## Status
 

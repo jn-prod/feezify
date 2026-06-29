@@ -33,27 +33,7 @@ feezify reads; **you decide.**
 
 ## How to write a journal day
 
-Create `journal/YYYY-MM-DD.md`. Front-matter holds the structured markers; the body is
-your own words — the part a spreadsheet can't read and the copilot reads most.
-
-```markdown
----
-intent: training        # training | competition | rest
-blessure: false         # any injury? true/false
-maladie: false          # any illness? true/false
-hrv: 65                 # optional
-poulsRepos: 48          # optional resting HR
-poids: 72.5             # optional weight (trend only, never a verdict)
-markers:                # each 1–5, 5 = best (faim/soif: your normal, deviation matters)
-  sommeil: 4
-  recuperation: 4       # how recovered the body feels
-  lassitude: 4          # motivation
-  humeur: 4             # mood
-  stress: 4             # 5 = relaxed
-  faim: 3               # appetite vs your normal
-  soif: 3               # thirst vs your normal
----
-
-A few honest sentences: how you slept, how the legs felt, any niggle, what's going
-on in life. This is the memory the copilot reads across days.
-```
+Use the template — don't reinvent the format:
+**[`templates/journal-day.md`](templates/journal-day.md)**. Copy it to
+`journal/YYYY-MM-DD.md` and fill it in (front-matter = the structured markers; the body =
+your own words, the part a spreadsheet can't read and the copilot reads most).

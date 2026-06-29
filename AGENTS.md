@@ -4,8 +4,15 @@ Operating manifest for AI agents (and humans) working on **feezify**.
 Read natively by Claude Code, Codex, Gemini CLI, Copilot, Cursor, etc.
 
 feezify is a training **copilot**, AI-native: a skill + a portable markdown core, zero infra.
-Design doc: the hexagonal architecture spec (kept in the governance repo). The method is open
-(`src/adapters/claude-skill/method.md`).
+
+**Reference files — read the source, never restate it here (DRY):**
+- First run / project setup → [`init.md`](init.md)
+- The method (the crossing rule, open) → [`src/adapters/claude-skill/method.md`](src/adapters/claude-skill/method.md)
+- Journal entry format → [`core-template/templates/journal-day.md`](core-template/templates/journal-day.md)
+- Hexagonal architecture spec → kept in the governance repo
+
+This manifest states *rules*; the files above hold *procedures and formats*. When a rule
+needs a procedure, link to its file — don't copy it.
 
 ---
 
@@ -88,6 +95,34 @@ is beta. `core-template/memory/` ships the starter structure.
 - **Zero infra:** no server, no telemetry, no network calls outside an injected fetch.
   Everything runs on the user's machine.
 - **License:** Apache-2.0. The moat is the method, the voice, and distribution — not the code.
+
+---
+
+## Secrets (tokens)
+
+- Adapter tokens (Strava, future providers) live in **`.env` only** — git-ignored, **never**
+  in any tracked file (not code, fixtures, configs, docs, the markdown core, or the coach
+  memory). `.env.example` documents the variable **names** with **empty** values; keep it empty.
+- **Verify before every commit or save** that no token landed in a file. The `pre-commit`
+  hook scans the staged diff and blocks; you can also run the audit documented in `init.md`.
+- First run: `init.md` creates `.env` from `.env.example`.
+- A leaked token is the mistake you can't undo — if one ever reaches history, **rotate it**.
+
+---
+
+## Templates & single source of truth
+
+**Never duplicate information — reference the source file by its path.** Reusable formats
+live once, in `templates/`, and everything else links to them instead of restating them:
+
+- **Daily-log (journal) entry** →
+  [`core-template/templates/journal-day.md`](core-template/templates/journal-day.md). The
+  journal format is defined there and nowhere else; `method.md`, the skills, and `init.md`
+  point to it (it ships inside the user's portable core).
+
+When you need a format that already exists, link to its file. When a format changes, edit the
+one template — every reference updates for free. This DRY rule applies to all docs, not just
+templates: cite paths, don't copy content.
 
 ---
 

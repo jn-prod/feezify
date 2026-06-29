@@ -69,17 +69,31 @@ secret.
 
 ## Installer / lancer
 
+Le premier démarrage complet — install, build, ton cœur privé, et le `.env` avec les tokens
+des adaptateurs — est dans **[`init.md`](../init.md)**. En bref :
+
 ```bash
-pnpm install
-pnpm build
-cp -r core-template ~/my-feezify-core      # ton cœur portable (profil, objectifs, journal, memory)
+pnpm install && pnpm build
+cp -r core-template ~/my-feezify-core   # ton cœur privé (profil, objectifs, journal, memory)
+cp .env.example .env                    # puis ajoute tes tokens Strava (voir init.md)
 node dist/lecture.js ~/my-feezify-core 2026-06-29
 ```
 
 Puis pointe ton IA vers la skill — elle existe en **skill Claude**
 (`src/adapters/claude-skill/SKILL.md`) **et** en **skill OpenClaw**
-(`src/adapters/openclaw-skill/SKILL.md`), même moteur. Remplis `profil.md` avec tes repères,
-dépose une entrée quotidienne dans `journal/`, et demande à ton IA comment tu vas aujourd'hui.
+(`src/adapters/openclaw-skill/SKILL.md`), même moteur.
+
+> **Les tokens des adaptateurs vont uniquement dans `.env`** (gitignoré) — jamais dans un
+> autre fichier. Voir `init.md` et `AGENTS.md → Secrets`.
+
+## Au quotidien
+
+1. Ajoute une entrée de journal : copie `templates/journal-day.md` vers `journal/YYYY-MM-DD.md`
+   et remplis-la — les marqueurs (sommeil, fatigue, motivation, humeur, stress, faim, soif) +
+   quelques phrases honnêtes (sensations des jambes, gêne éventuelle, vie extra-sportive).
+2. Demande à ton IA comment tu vas aujourd'hui. Elle lit sa mémoire (`memory/`) et ton
+   journal, lance la lecture déterministe, et te dit **vert / orange / rouge** et *pourquoi* —
+   sans jamais prescrire.
 
 ## Statut
 
