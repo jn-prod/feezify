@@ -70,10 +70,10 @@ secret.
 ## Installer / lancer
 
 ```bash
-npm install
-npm run build
+pnpm install
+pnpm build
 cp -r core-template ~/my-feezify-core      # ton cœur portable (profil, objectifs, journal, memory)
-feezify-lecture ~/my-feezify-core 2026-06-29
+node dist/lecture.js ~/my-feezify-core 2026-06-29
 ```
 
 Puis pointe ton IA vers la skill — elle existe en **skill Claude**

@@ -63,10 +63,10 @@ It's open on purpose: the method is the point, not a secret.
 ## Install / run
 
 ```bash
-npm install
-npm run build
+pnpm install
+pnpm build
 cp -r core-template ~/my-feezify-core      # your portable core (profil, objectifs, journal, memory)
-feezify-lecture ~/my-feezify-core 2026-06-29
+node dist/lecture.js ~/my-feezify-core 2026-06-29
 ```
 
 Then point your AI at the skill — it ships as both a **Claude skill**

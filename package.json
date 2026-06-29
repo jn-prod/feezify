@@ -4,6 +4,7 @@
   "description": "A training copilot, AI-native: a skill + a portable markdown core. Zero infra.",
   "type": "module",
   "license": "Apache-2.0",
+  "packageManager": "pnpm@10.33.2",
   "bin": {
     "feezify-lecture": "dist/lecture.js"
   },
@@ -12,20 +13,28 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "pnpm build && changeset publish",
     "prepare": "husky"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=20",
+    "pnpm": ">=9"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.27.0",
     "@types/node": "^20.14.0",
     "husky": "^9.1.7",
     "tsup": "^8.1.0",
     "typescript": "^5.5.0",
     "vitest": "^1.6.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild"]
   }
 }

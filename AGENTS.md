@@ -98,8 +98,26 @@ is beta. `core-template/memory/` ships the starter structure.
   live network. Fixtures live in `test/fixtures/` and contain **no PII**.
 - Run before every commit:
   ```bash
-  npx tsc --noEmit && npx vitest run
+  pnpm typecheck && pnpm test
   ```
+
+---
+
+## Package manager & versioning
+
+- **Package manager: pnpm** (pinned via `packageManager` in `package.json`; use `corepack`).
+  Don't introduce `npm install` / `package-lock.json` / `yarn.lock` — the lockfile is
+  `pnpm-lock.yaml`. pnpm 10 blocks dependency build scripts by default; allowed builds are
+  declared in `pnpm.onlyBuiltDependencies` (currently `esbuild`).
+- **Versioning: Changesets.** Every **user-facing** change ships with a changeset:
+  ```bash
+  pnpm changeset            # add a changeset (pick bump level + summary)
+  pnpm version-packages     # consume changesets → bump version + write CHANGELOG.md
+  pnpm release              # build + changeset publish (only when actually releasing)
+  ```
+  Pre-1.0: `minor` = feature, `patch` = fix. Config in `.changeset/config.json`
+  (`baseBranch: ai-native`, `access: public`). Don't hand-edit `version` in `package.json` —
+  let Changesets do it. Tooling/internal-only changes don't need a changeset.
 
 ---
 
