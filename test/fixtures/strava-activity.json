@@ -1,0 +1,15 @@
+{
+  "id": 1234567890,
+  "type": "Ride",
+  "sport_type": "MountainBikeRide",
+  "start_date_local": "2026-06-29T07:12:00Z",
+  "moving_time": 5400,
+  "elapsed_time": 6000,
+  "distance": 34210.5,
+  "average_heartrate": 152.4,
+  "max_heartrate": 178,
+  "average_watts": 168,
+  "weighted_average_watts": 184,
+  "device_watts": false,
+  "suffer_score": 96
+}

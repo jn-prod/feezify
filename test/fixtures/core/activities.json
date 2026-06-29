@@ -1,0 +1,6 @@
+[
+  { "type": "Ride", "start_date_local": "2026-06-22T07:00:00Z", "moving_time": 5400, "average_heartrate": 150, "suffer_score": 88 },
+  { "type": "Run", "start_date_local": "2026-06-24T18:00:00Z", "moving_time": 3000, "average_heartrate": 158 },
+  { "type": "Yoga", "start_date_local": "2026-06-26T07:30:00Z", "moving_time": 2700 },
+  { "type": "Ride", "start_date_local": "2026-06-28T08:00:00Z", "moving_time": 7200, "average_heartrate": 146, "suffer_score": 120 }
+]
