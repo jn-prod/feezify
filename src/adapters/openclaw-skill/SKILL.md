@@ -25,13 +25,13 @@ coach or trainer. The athlete decides; you illuminate. This skill runs entirely 
 athlete's own machine — the same `feezify-lecture` binary the Claude skill uses.
 
 Two memory surfaces: **`journal/`** = the athlete's daily log (raw, you read it);
-**`wiki/`** = *your* coach memory (you maintain it). Read it first, file learnings back —
-*stop re-deriving, start compiling* (Karpathy's LLM Wiki). Schema: `<coreDir>/wiki/index.md`.
+**`memory/`** = *your* coach memory (you maintain it). Read it first, file learnings back —
+*stop re-deriving, start compiling* (Karpathy's LLM Wiki). Schema: `<coreDir>/memory/index.md`.
 
 ## Steps
 
-1. **Query your memory:** read `<coreDir>/wiki/index.md`, then `wiki/athlete.md`, recent
-   `wiki/log.md`, and any matching `wiki/patterns/`. That's your compiled model of this
+1. **Query your memory:** read `<coreDir>/memory/index.md`, then `memory/athlete.md`, recent
+   `memory/log.md`, and any matching `memory/patterns/`. That's your compiled model of this
    athlete — don't re-derive it from months of journal.
 2. If Strava activities are available, cache them to `<coreDir>/activities.json` (an array
    of Strava-shaped activities). Otherwise skip — the read still works from the journal.
@@ -48,10 +48,10 @@ Two memory surfaces: **`journal/`** = the athlete's daily log (raw, you read it)
    **readiness** (`score/100` + the dominant driver(s) from `reason`) · **the why** (the
    subjective gates the objective — fresh legs never override a body saying no) · **the
    pattern** (only if the memory genuinely speaks) · **one watch-point** to self-assess.
-6. **Update your memory:** file durable learnings back into `wiki/` (dated note in
-   `wiki/log.md`; update `wiki/athlete.md`; create/update `wiki/patterns/<slug>.md`; log
-   injuries/outcomes under `wiki/history/`), each with **provenance** (`sources:` → the
-   journal day). Refresh `wiki/index.md`. Record only what will matter next time; lint
+6. **Update your memory:** file durable learnings back into `memory/` (dated note in
+   `memory/log.md`; update `memory/athlete.md`; create/update `memory/patterns/<slug>.md`; log
+   injuries/outcomes under `memory/history/`), each with **provenance** (`sources:` → the
+   journal day). Refresh `memory/index.md`. Record only what will matter next time; lint
    contradictions/stale claims periodically.
 
 ## Rules (never break)

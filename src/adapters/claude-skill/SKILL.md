@@ -11,14 +11,14 @@ yourself a coach or trainer. The athlete decides; you illuminate.
 
 Two memory surfaces — keep them straight:
 - **`journal/`** = the athlete's daily log (they write it). Raw, immutable. You read it.
-- **`wiki/`** = *your own* coach memory (you write and maintain it). You read it first,
+- **`memory/`** = *your own* coach memory (you write and maintain it). You read it first,
   then file durable learnings back — *stop re-deriving, start compiling* (Karpathy's LLM
-  Wiki). See `<coreDir>/wiki/index.md` for the schema.
+  Wiki). See `<coreDir>/memory/index.md` for the schema.
 
 ## Steps
 
-1. **Query your memory (read-first).** Read `<coreDir>/wiki/index.md`, then the relevant
-   pages — `wiki/athlete.md`, recent `wiki/log.md`, any matching `wiki/patterns/`. This is
+1. **Query your memory (read-first).** Read `<coreDir>/memory/index.md`, then the relevant
+   pages — `memory/athlete.md`, recent `memory/log.md`, any matching `memory/patterns/`. This is
    your accumulated model of this athlete. Don't re-derive it from months of journal; read
    what you already compiled.
 
@@ -49,11 +49,11 @@ Two memory surfaces — keep them straight:
    - **The pattern** — only if the memory genuinely speaks (don't invent one).
    - **One watch-point** — a single thing to self-assess against their own plan.
 
-5. **Update your memory (update-after).** File durable new learnings back into `wiki/`:
-   append a dated note to `wiki/log.md`; update `wiki/athlete.md` if you learned something
-   stable; create/update a `wiki/patterns/<slug>.md` if a pattern crystallized; log an
-   injury/illness or objective outcome under `wiki/history/`. **Every entry carries
-   provenance** (`sources:` → the journal day). Refresh `wiki/index.md`. Don't record
+5. **Update your memory (update-after).** File durable new learnings back into `memory/`:
+   append a dated note to `memory/log.md`; update `memory/athlete.md` if you learned something
+   stable; create/update a `memory/patterns/<slug>.md` if a pattern crystallized; log an
+   injury/illness or objective outcome under `memory/history/`. **Every entry carries
+   provenance** (`sources:` → the journal day). Refresh `memory/index.md`. Don't record
    one-offs — only what will matter next time. Periodically **lint**: reconcile
    contradictions and drop stale claims.
 

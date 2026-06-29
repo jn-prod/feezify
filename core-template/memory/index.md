@@ -1,11 +1,11 @@
 # Coach memory — index
 
-This `wiki/` is the **AI coach's own memory** — maintained by the copilot, for the copilot.
+This `memory/` is the **AI coach's own memory** — maintained by the copilot, for the copilot.
 It is **not** your daily log. Two distinct surfaces:
 
 - **`journal/`** = *your* daily log (you write it: markers + narrative). The **raw source**,
   immutable. The copilot reads it but does not rewrite it.
-- **`wiki/`** = the *coach's* compiled understanding of you, built over time. The copilot
+- **`memory/`** = the *coach's* compiled understanding of you, built over time. The copilot
   writes and maintains it; you rarely touch it directly.
 
 Pattern: **Karpathy's LLM Wiki** — *stop re-deriving, start compiling.* Instead of

@@ -48,7 +48,7 @@ The numbers and the light are **deterministic**; the AI reads your **narrative j
 across days for the patterns a spreadsheet can't see, and writes the read.
 
 **Two memories.** Your `journal/` is *your* daily log (you write it). The copilot also keeps
-its *own* memory of you in `wiki/` — a compiled, interlinked model it reads first and updates
+its *own* memory of you in `memory/` — a compiled, interlinked model it reads first and updates
 after each session (Karpathy's LLM Wiki pattern: *stop re-deriving, start compiling*). Over
 time it stops re-reading months of journal and reads what it already learned about you, every
 claim traced back to a journal day.
@@ -65,7 +65,7 @@ It's open on purpose: the method is the point, not a secret.
 ```bash
 npm install
 npm run build
-cp -r core-template ~/my-feezify-core      # your portable core (profil, objectifs, journal, wiki)
+cp -r core-template ~/my-feezify-core      # your portable core (profil, objectifs, journal, memory)
 feezify-lecture ~/my-feezify-core 2026-06-29
 ```
 

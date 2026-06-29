@@ -21,7 +21,7 @@ from `app/` or `adapters/`. Translate at the edges; decide in the center.
 | **Adapters** | `src/adapters/` | **Editable — the extension surface** | New providers and new skill surfaces live here. Adapters translate to/from domain entities; they never embed domain logic. |
 | **App** | `src/app/` | **Editable** | Composition root (wiring). Edit to wire new adapters. |
 | **Bin** | `src/bin/` | **Editable** | CLI entry that the skills invoke. |
-| **Core template** | `core-template/` | **Editable** | The user's portable markdown core (profil, objectifs, journal). |
+| **Core template** | `core-template/` | **Editable** | The user's portable markdown core (profil, objectifs, journal, memory). |
 
 ### Why the domain is read-only
 
@@ -53,22 +53,22 @@ feezify has two distinct memories in the athlete's portable core:
 | Surface | Path | Owner | Role |
 |---------|------|-------|------|
 | **Daily log** | `journal/YYYY-MM-DD.md` | **The athlete** (user) | Raw input — markers + narrative. Immutable source. The copilot reads it, never rewrites it. |
-| **Coach wiki** | `wiki/` | **The AI coach** (the model) | The copilot's *own* compiled memory of the athlete. It reads it first, then files learnings back. |
+| **Coach memory** | `memory/` | **The AI coach** (the model) | The copilot's *own* compiled memory of the athlete. It reads it first, then files learnings back. |
 
 This is **Karpathy's LLM Wiki** pattern (*stop re-deriving, start compiling*): the journal
-is the immutable `raw/` layer; the wiki is the LLM-maintained, interlinked knowledge layer;
-`wiki/index.md` is the schema + catalog. Three operations:
+is the immutable `raw/` layer; the memory is the LLM-maintained, interlinked knowledge layer;
+`memory/index.md` is the schema + catalog. Three operations:
 
-- **Query** (read-first): the skill reads `wiki/` before writing the day's read.
+- **Query** (read-first): the skill reads `memory/` before writing the day's read.
 - **Ingest** (update-after): durable learnings are filed into `athlete.md` / `patterns/` /
   `history/` / `log.md`, each with **provenance** (`sources:` → a `journal/<date>.md`).
 - **Lint** (periodic): reconcile contradictions, drop stale claims, fix orphans.
 
-Rules: the coach wiki is **maintained by the skill (the LLM)**, not by the deterministic
-domain — it stays out of `src/domain/` (zero-IO purity holds). Every wiki claim traces to a
-journal entry; **no source, no claim**. The wiki is the v1 form of the "world model / état
+Rules: the coach memory is **maintained by the skill (the LLM)**, not by the deterministic
+domain — it stays out of `src/domain/` (zero-IO purity holds). Every memory claim traces to a
+journal entry; **no source, no claim**. The memory is the v1 form of the "world model / état
 courant"; deeper automation (auto-lint, reconciliation against the deterministic recompute)
-is beta. `core-template/wiki/` ships the starter structure.
+is beta. `core-template/memory/` ships the starter structure.
 
 ---
 
