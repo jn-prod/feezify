@@ -46,6 +46,32 @@ data**, not invented by an agent. Treat current values as defaults pending calib
 
 ---
 
+## Two memory surfaces (don't conflate them)
+
+feezify has two distinct memories in the athlete's portable core:
+
+| Surface | Path | Owner | Role |
+|---------|------|-------|------|
+| **Daily log** | `journal/YYYY-MM-DD.md` | **The athlete** (user) | Raw input — markers + narrative. Immutable source. The copilot reads it, never rewrites it. |
+| **Coach wiki** | `wiki/` | **The AI coach** (the model) | The copilot's *own* compiled memory of the athlete. It reads it first, then files learnings back. |
+
+This is **Karpathy's LLM Wiki** pattern (*stop re-deriving, start compiling*): the journal
+is the immutable `raw/` layer; the wiki is the LLM-maintained, interlinked knowledge layer;
+`wiki/index.md` is the schema + catalog. Three operations:
+
+- **Query** (read-first): the skill reads `wiki/` before writing the day's read.
+- **Ingest** (update-after): durable learnings are filed into `athlete.md` / `patterns/` /
+  `history/` / `log.md`, each with **provenance** (`sources:` → a `journal/<date>.md`).
+- **Lint** (periodic): reconcile contradictions, drop stale claims, fix orphans.
+
+Rules: the coach wiki is **maintained by the skill (the LLM)**, not by the deterministic
+domain — it stays out of `src/domain/` (zero-IO purity holds). Every wiki claim traces to a
+journal entry; **no source, no claim**. The wiki is the v1 form of the "world model / état
+courant"; deeper automation (auto-lint, reconciliation against the deterministic recompute)
+is beta. `core-template/wiki/` ships the starter structure.
+
+---
+
 ## Invariants (never break — they're also public-facing)
 
 - **L212-1 (French sport law):** output is an **educational read**, never a prescription
@@ -89,12 +115,15 @@ husky:
 Always check `TZ=Europe/Paris date` before a commit/push. Safe windows: weekends, ≥20:00,
 06:00–07:59, lunch 12:30–13:59. Founder bypass (with risk mention): `git commit --no-verify`.
 
-Privacy audit before committing:
+Privacy audit before committing — generic patterns (no PII inlined here on purpose; the
+shared corp-ai gate holds the real denylist of names/places/IDs and enforces it on push):
 ```bash
-grep -rinE "pontivy|56300|1675833|nicolas.?jouanno|[a-z0-9._-]+@[a-z0-9.-]+\.(com|fr|net|org)" \
-  . --exclude-dir=.git --exclude-dir=node_modules --exclude-dir=dist
+# personal emails (allow none) and any leftover legacy contact strings
+grep -rinE "[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,}" . \
+  --exclude-dir=.git --exclude-dir=node_modules --exclude-dir=dist
 ```
-Expected: no matches.
+Expected: no matches. The legacy SaaS PII (founder address, CNIL number, personal name) was
+scrubbed at the AI-native baseline and must never return.
 
 ---
 

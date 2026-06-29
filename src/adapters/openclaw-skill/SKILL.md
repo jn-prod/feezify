@@ -24,24 +24,35 @@ You never prescribe workouts, paces, watts, or durations, and you never call you
 coach or trainer. The athlete decides; you illuminate. This skill runs entirely on the
 athlete's own machine — the same `feezify-lecture` binary the Claude skill uses.
 
+Two memory surfaces: **`journal/`** = the athlete's daily log (raw, you read it);
+**`wiki/`** = *your* coach memory (you maintain it). Read it first, file learnings back —
+*stop re-deriving, start compiling* (Karpathy's LLM Wiki). Schema: `<coreDir>/wiki/index.md`.
+
 ## Steps
 
-1. If Strava activities are available, cache them to `<coreDir>/activities.json` (an array
+1. **Query your memory:** read `<coreDir>/wiki/index.md`, then `wiki/athlete.md`, recent
+   `wiki/log.md`, and any matching `wiki/patterns/`. That's your compiled model of this
+   athlete — don't re-derive it from months of journal.
+2. If Strava activities are available, cache them to `<coreDir>/activities.json` (an array
    of Strava-shaped activities). Otherwise skip — the read still works from the journal.
-2. Run the deterministic domain:
+3. Run the deterministic domain:
    ```
    feezify-lecture <coreDir> <YYYY-MM-DD>
    ```
    It prints JSON: `light` (green/amber/red), `tsb`, `tsbProvenance`, `score` (/100),
    `reason`, `vigilance`, `recentNarrative`. **Do not recompute or override these.**
-3. Read `recentNarrative` and the athlete's `objectifs.md`. Look **across days** for
-   patterns the numbers can't see (recurring poor sleep before key sessions, a recurring
-   niggle, illness building, life stress).
-4. Write one short, educational message: **light** (plain words) · **form** (`TSB` + what
+4. Read `recentNarrative` and the athlete's `objectifs.md`; cross with your memory (confirms
+   a known pattern? breaks one? new one?).
+5. Write one short, educational message: **light** (plain words) · **form** (`TSB` + what
    the band means; note if `tsbProvenance` says a source was incompatible/flagged) ·
    **readiness** (`score/100` + the dominant driver(s) from `reason`) · **the why** (the
    subjective gates the objective — fresh legs never override a body saying no) · **the
    pattern** (only if the memory genuinely speaks) · **one watch-point** to self-assess.
+6. **Update your memory:** file durable learnings back into `wiki/` (dated note in
+   `wiki/log.md`; update `wiki/athlete.md`; create/update `wiki/patterns/<slug>.md`; log
+   injuries/outcomes under `wiki/history/`), each with **provenance** (`sources:` → the
+   journal day). Refresh `wiki/index.md`. Record only what will matter next time; lint
+   contradictions/stale claims periodically.
 
 ## Rules (never break)
 

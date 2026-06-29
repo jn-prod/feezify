@@ -53,6 +53,12 @@ remplaçable :
 Les chiffres et la couleur sont **déterministes** ; l'IA lit ton **journal narratif** sur la
 durée pour les patterns qu'un tableur ne voit pas, et écrit la lecture.
 
+**Deux mémoires.** Ton `journal/` est *ton* carnet (c'est toi qui l'écris). Le copilote tient
+aussi *sa propre* mémoire de toi dans `wiki/` — un modèle compilé et maillé qu'il lit d'abord
+et met à jour après chaque session (pattern LLM Wiki de Karpathy : *stop re-deriving, start
+compiling*). Avec le temps il cesse de relire des mois de journal et lit ce qu'il a déjà appris
+de toi, chaque affirmation tracée jusqu'à un jour de journal.
+
 ## La méthode, en bref
 
 La charge donne le **TSB** (forme) ; ton journal donne la **disponibilité**. Le **subjectif
@@ -66,7 +72,7 @@ secret.
 ```bash
 npm install
 npm run build
-cp -r core-template ~/my-feezify-core      # ton cœur portable (profil, objectifs, journal)
+cp -r core-template ~/my-feezify-core      # ton cœur portable (profil, objectifs, journal, wiki)
 feezify-lecture ~/my-feezify-core 2026-06-29
 ```
 
