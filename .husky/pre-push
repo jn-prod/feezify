@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+# pre-push — délègue à la gate transverse corp-ai (D-2026-06-09-001) si accessible.
+# Mêmes règles que corp-ai : §22 (fenêtre) + privacy (denylist + anonymize PII).
+# Bypass assumé : git push --no-verify
+GATE="${CORP_AI_GATE:-$HOME/corp-ai/tools/scripts/pre-push-gate.sh}"
+if [ -x "$GATE" ]; then exec "$GATE"; else
+  echo "⚠️ gate corp-ai introuvable ($GATE) — règles non appliquées (push autorisé)."
+fi
