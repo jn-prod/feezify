@@ -185,6 +185,23 @@ templates: cite paths, don't copy content.
 
 ---
 
+## Before GA release (blocking)
+
+The `2.0.0` GA release is **blocked** until this checklist is green. Do **not** `changeset
+pre exit` / cut a final `2.0.0` (stay on `2.0.0-beta.x`) before:
+
+- [ ] **Update the concept** — the README and the companion article must reflect the
+  finalized thesis: *the LLM/chatbot is the new interface (after the browser); the agent is
+  the new application engine (hexagonal métier + data adapters to third-party apps); the
+  persistence is a second-brain memory — a user log + an agent wiki that compresses it* (the
+  3-tier remap). The current README still leans on the narrower "AI-native frontend" framing.
+- [ ] Calibrate the founder-owned constants (score thresholds 45/60/80, TSB bands).
+- [ ] Founder go on GA.
+
+Tick each box as it's done. While the list has open boxes, the release stays in beta.
+
+---
+
 ## Git — protected window (§22, same rules as corp-ai)
 
 This repo follows the **same protected-hours rule as corp-ai** (SYSTEM.md §22), enforced by
