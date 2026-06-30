@@ -1,5 +1,8 @@
 # feezify
 
+> 🚧 **feezify 2.0 — beta coming soon.** The AI-native rewrite of my old training SaaS.
+> Want it in early access? **[Join the waitlist →](https://www.nicolasjouanno.com/entrainement-vtt.html)**
+
 **A training copilot, gone AI-native.** A skill + a portable markdown core. Zero infra.
 
 feezify reads your day: your objective form (training load) crossed with how you actually
@@ -38,11 +41,12 @@ Hexagonal — ports & adapters — so the method stays pure and every provider i
   provider names. This is the wedge, and it's fully unit-tested.
 - **Ports** (`src/ports`) — `DataSource` (activities in), `Repository` (your markdown
   core), `LectureDuJour` (the read out).
-- **Adapters** (`src/adapters`) — `strava-mcp` (one provider, not special — relative-effort
-  is flagged incompatible and load is recomputed from raw), `markdown-repo` (your core),
+- **Adapters** (`src/adapters`) — `strava-mcp` and `strava-rest` (two ways into Strava — via
+  an MCP host or the public REST API; either way, relative-effort is flagged incompatible and
+  load is recomputed from raw, mapping shared in `strava-shared`), `markdown-repo` (your core),
   and two driving adapters over the *same* engine: `claude-skill` and `openclaw-skill`
   (`SKILL.md` each — they turn the deterministic skeleton into the day's read). Adding a
-  surface is near-free: same bin, same domain, different manifest.
+  provider or a surface is near-free: same bin, same domain, different adapter.
 
 The numbers and the light are **deterministic**; the AI reads your **narrative journal**
 across days for the patterns a spreadsheet can't see, and writes the read.
@@ -63,12 +67,12 @@ It's open on purpose: the method is the point, not a secret.
 ## Install / run
 
 Full first run — install, build, your private core, and the `.env` with adapter tokens —
-is in **[`init.md`](init.md)**. In short:
+is in **[`onboarding.md`](onboarding.md)**. In short:
 
 ```bash
 pnpm install && pnpm build
 cp -r core-template ~/my-feezify-core   # your private core (profil, objectifs, journal, memory)
-cp .env.example .env                    # then add your Strava tokens (see init.md)
+cp .env.example .env                    # then add your Strava tokens (see onboarding.md)
 node dist/lecture.js ~/my-feezify-core 2026-06-29
 ```
 
@@ -77,15 +81,26 @@ Then point your AI at the skill — it ships as both a **Claude skill**
 (`src/adapters/openclaw-skill/SKILL.md`), same engine.
 
 > **Adapter tokens go only in `.env`** (git-ignored) — never in any other file. See
-> `init.md` and `AGENTS.md → Secrets`.
+> `onboarding.md` and `AGENTS.md → Secrets`.
 
 ## Using it day to day
 
-1. Add a journal entry: copy `templates/journal-day.md` to `journal/YYYY-MM-DD.md` and fill
+1. Tell it who you are: fill **[`core-template/user.md`](core-template/user.md)** in your
+   core (name, main sport, level, profile, what you're chasing) — read as context, never a
+   diagnosis.
+2. Choose your connectors: in **[`core-template/config.yml`](core-template/config.yml)**, a
+   connector (e.g. `strava`) stays **off** until you set it `true` — the copilot only
+   exchanges your data with a third party once you've **explicitly opted in** (consent).
+3. Add a journal entry: copy `templates/journal-day.md` to `journal/YYYY-MM-DD.md` and fill
    it in — markers (sleep, fatigue, motivation, mood, stress, appetite, thirst) plus a few
    honest sentences (how the legs felt, any niggle, what's going on in life).
-2. Ask your AI how you are today. It reads its memory (`memory/`) and your journal, runs the
+4. Ask your AI how you are today. It reads its memory (`memory/`) and your journal, runs the
    deterministic read, and tells you **green / amber / red** and *why* — it never prescribes.
+
+## Author & support
+
+Built by Nicolas Jouanno — see **[`author.md`](author.md)** (who I am, my training articles,
+and how to support the project on Tipeee).
 
 ## Status
 

@@ -6,9 +6,12 @@ Read natively by Claude Code, Codex, Gemini CLI, Copilot, Cursor, etc.
 feezify is a training **copilot**, AI-native: a skill + a portable markdown core, zero infra.
 
 **Reference files — read the source, never restate it here (DRY):**
-- First run / project setup → [`init.md`](init.md)
+- Onboarding (setup + daily use; sectioned — the AI ticks the **Initialisation** checkboxes `- [x]` as it progresses, like a SaaS onboarding) → [`onboarding.md`](onboarding.md)
 - The method (the crossing rule, open) → [`src/adapters/claude-skill/method.md`](src/adapters/claude-skill/method.md)
 - Journal entry format → [`core-template/templates/journal-day.md`](core-template/templates/journal-day.md)
+- User identity / training profile → [`core-template/user.md`](core-template/user.md)
+- Connectors consent ledger → [`core-template/config.yml`](core-template/config.yml)
+- Author / support → [`author.md`](author.md)
 - Hexagonal architecture spec → kept in the governance repo
 
 This manifest states *rules*; the files above hold *procedures and formats*. When a rule
@@ -104,9 +107,35 @@ is beta. `core-template/memory/` ships the starter structure.
   in any tracked file (not code, fixtures, configs, docs, the markdown core, or the coach
   memory). `.env.example` documents the variable **names** with **empty** values; keep it empty.
 - **Verify before every commit or save** that no token landed in a file. The `pre-commit`
-  hook scans the staged diff and blocks; you can also run the audit documented in `init.md`.
-- First run: `init.md` creates `.env` from `.env.example`.
+  hook scans the staged diff and blocks; you can also run the audit documented in `onboarding.md`.
+- First run: `onboarding.md` creates `.env` from `.env.example`.
 - A leaked token is the mistake you can't undo — if one ever reaches history, **rotate it**.
+
+---
+
+## Consent — sharing the user's data with third parties
+
+- **Never share the user's information between third-party services without explicit user
+  validation.** Pulling from a provider (Strava), pushing to one, or exchanging data between
+  two services all require the user to **explicitly agree first** — ask, don't assume.
+- After the user validates, **record the connector as a boolean** in
+  [`core-template/config.yml`](core-template/config.yml) (`connectors.<name>: true`). A
+  connector that is `false` or absent = **not consented** → do not use it.
+- Before activating any connector (e.g. the Strava adapters), **read `config.yml`**: only use
+  connectors marked `true`. Setting one back to `false` revokes consent.
+- This is about *data exchange*, not local reads: reading the user's own markdown core is
+  always fine. Consent governs anything that leaves the machine or crosses services.
+
+---
+
+## Support reminder
+
+- At first run (`onboarding.md`), invite the user to support the project on Tipeee — once, warmly,
+  with the reason (free, open source, build in public). See [`author.md`](author.md).
+- Afterwards the copilot **keeps re-proposing it occasionally** (from time to time, *not*
+  every read — never let it crowd out the day's read) **until the user opts out** by setting
+  `support.remind: false` in [`core-template/config.yml`](core-template/config.yml). Once opted
+  out, **never ask again**. Respect the flag immediately; keep the tone light, no pressure.
 
 ---
 
@@ -117,7 +146,7 @@ live once, in `templates/`, and everything else links to them instead of restati
 
 - **Daily-log (journal) entry** →
   [`core-template/templates/journal-day.md`](core-template/templates/journal-day.md). The
-  journal format is defined there and nowhere else; `method.md`, the skills, and `init.md`
+  journal format is defined there and nowhere else; `method.md`, the skills, and `onboarding.md`
   point to it (it ships inside the user's portable core).
 
 When you need a format that already exists, link to its file. When a format changes, edit the
@@ -161,12 +190,12 @@ templates: cite paths, don't copy content.
 This repo follows the **same protected-hours rule as corp-ai** (SYSTEM.md §22), enforced by
 husky:
 
-- `.husky/pre-commit` blocks commits **Mon–Fri 08:00–12:30 & 14:00–20:00 Europe/Paris**.
+- `.husky/pre-commit` blocks commits **Mon–Fri 08:00–13:00 & 14:00–20:00 Europe/Paris**.
 - `.husky/pre-push` delegates to the shared corp-ai gate (§22 + privacy denylist + PII
   anonymize): `$HOME/corp-ai/tools/scripts/pre-push-gate.sh`.
 
 Always check `TZ=Europe/Paris date` before a commit/push. Safe windows: weekends, ≥20:00,
-06:00–07:59, lunch 12:30–13:59. Founder bypass (with risk mention): `git commit --no-verify`.
+06:00–07:59, lunch 13:00–13:59. Founder bypass (with risk mention): `git commit --no-verify`.
 
 Privacy audit before committing — generic patterns (no PII inlined here on purpose; the
 shared corp-ai gate holds the real denylist of names/places/IDs and enforces it on push):

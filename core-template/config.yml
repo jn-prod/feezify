@@ -1,0 +1,12 @@
+# feezify config — structured settings the copilot reads.
+#
+# Connectors: a connector stays OFF until YOU explicitly allow feezify to exchange your data
+# with that third party. Default false. The copilot must NOT use a connector unless it is
+# `true` here. (Tokens live in .env, never in this file.) See AGENTS.md → Consent.
+connectors:
+  strava: false
+
+# Support: the copilot occasionally invites you to support the project on Tipeee.
+# Set `remind: false` to opt out — it then stops asking, for good. See author.md.
+support:
+  remind: true

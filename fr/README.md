@@ -1,5 +1,8 @@
 # feezify
 
+> 🚧 **feezify 2.0 — beta bientôt.** La réécriture IA-native de mon ancien SaaS d'entraînement.
+> Tu le veux en avant-première ? **[Rejoins la liste d'attente →](https://www.nicolasjouanno.com/entrainement-vtt.html)**
+
 **Un copilote d'entraînement, passé en IA-native.** Une skill + un cœur markdown portable.
 Zéro infra.
 
@@ -43,12 +46,13 @@ remplaçable :
   I/O, aucun nom de provider. C'est le wedge, entièrement testé.
 - **Ports** (`src/ports`) — `DataSource` (les activités), `Repository` (ton cœur markdown),
   `LectureDuJour` (la lecture en sortie).
-- **Adaptateurs** (`src/adapters`) — `strava-mcp` (un provider, pas spécial — le « relative
-  effort » est marqué incompatible et la charge est recalculée depuis le brut),
-  `markdown-repo` (ton cœur), et deux adaptateurs pilotes sur le *même* moteur :
-  `claude-skill` et `openclaw-skill` (un `SKILL.md` chacun — ils transforment le squelette
-  déterministe en lecture du jour). Ajouter une surface est quasi gratuit : même bin, même
-  domaine, manifeste différent.
+- **Adaptateurs** (`src/adapters`) — `strava-mcp` et `strava-rest` (deux entrées vers Strava —
+  via un hôte MCP ou l'API REST publique ; dans les deux cas le « relative effort » est marqué
+  incompatible et la charge recalculée depuis le brut, mapping partagé dans `strava-shared`),
+  `markdown-repo` (ton cœur), et deux adaptateurs pilotes sur le *même* moteur : `claude-skill`
+  et `openclaw-skill` (un `SKILL.md` chacun — ils transforment le squelette déterministe en
+  lecture du jour). Ajouter un provider ou une surface est quasi gratuit : même bin, même
+  domaine, adaptateur différent.
 
 Les chiffres et la couleur sont **déterministes** ; l'IA lit ton **journal narratif** sur la
 durée pour les patterns qu'un tableur ne voit pas, et écrit la lecture.
@@ -70,12 +74,12 @@ secret.
 ## Installer / lancer
 
 Le premier démarrage complet — install, build, ton cœur privé, et le `.env` avec les tokens
-des adaptateurs — est dans **[`init.md`](../init.md)**. En bref :
+des adaptateurs — est dans **[`onboarding.md`](../onboarding.md)**. En bref :
 
 ```bash
 pnpm install && pnpm build
 cp -r core-template ~/my-feezify-core   # ton cœur privé (profil, objectifs, journal, memory)
-cp .env.example .env                    # puis ajoute tes tokens Strava (voir init.md)
+cp .env.example .env                    # puis ajoute tes tokens Strava (voir onboarding.md)
 node dist/lecture.js ~/my-feezify-core 2026-06-29
 ```
 
@@ -84,16 +88,27 @@ Puis pointe ton IA vers la skill — elle existe en **skill Claude**
 (`src/adapters/openclaw-skill/SKILL.md`), même moteur.
 
 > **Les tokens des adaptateurs vont uniquement dans `.env`** (gitignoré) — jamais dans un
-> autre fichier. Voir `init.md` et `AGENTS.md → Secrets`.
+> autre fichier. Voir `onboarding.md` et `AGENTS.md → Secrets`.
 
 ## Au quotidien
 
-1. Ajoute une entrée de journal : copie `templates/journal-day.md` vers `journal/YYYY-MM-DD.md`
+1. Dis-lui qui tu es : remplis **[`core-template/user.md`](../core-template/user.md)** dans ton
+   cœur (nom, sport principal, niveau, profil, objectif du moment) — lu comme contexte, jamais
+   un diagnostic.
+2. Choisis tes connecteurs : dans **[`core-template/config.yml`](../core-template/config.yml)**, un
+   connecteur (ex. `strava`) reste **off** tant que tu ne l'as pas mis à `true` — le copilote
+   n'échange tes données avec un tiers qu'après ton **opt-in explicite** (consentement).
+3. Ajoute une entrée de journal : copie `templates/journal-day.md` vers `journal/YYYY-MM-DD.md`
    et remplis-la — les marqueurs (sommeil, fatigue, motivation, humeur, stress, faim, soif) +
    quelques phrases honnêtes (sensations des jambes, gêne éventuelle, vie extra-sportive).
-2. Demande à ton IA comment tu vas aujourd'hui. Elle lit sa mémoire (`memory/`) et ton
+4. Demande à ton IA comment tu vas aujourd'hui. Elle lit sa mémoire (`memory/`) et ton
    journal, lance la lecture déterministe, et te dit **vert / orange / rouge** et *pourquoi* —
    sans jamais prescrire.
+
+## Auteur & soutien
+
+Construit par Nicolas Jouanno — voir **[`fr/author.md`](author.md)** (qui je suis, mes articles
+d'entraînement, et comment soutenir le projet sur Tipeee).
 
 ## Statut
 

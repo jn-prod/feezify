@@ -34,12 +34,12 @@ PARIS_HOUR=$(TZ=Europe/Paris date +%H%M)
 PARIS_DOW=$(TZ=Europe/Paris date +%u)
 
 if [ "$PARIS_DOW" -le 5 ]; then
-  if { [ "$PARIS_HOUR" -ge 800 ] && [ "$PARIS_HOUR" -lt 1230 ]; } || \
+  if { [ "$PARIS_HOUR" -ge 800 ] && [ "$PARIS_HOUR" -lt 1300 ]; } || \
      { [ "$PARIS_HOUR" -ge 1400 ] && [ "$PARIS_HOUR" -lt 2000 ]; }; then
     echo ""
     echo "Commit bloqué — fenêtre protégée Europe/Paris (SYSTEM.md §22)"
     echo "Heure Paris : $(TZ=Europe/Paris date '+%H:%M %Z')"
-    echo "Prochaine plage safe : soir >=20:00, matin 06:00-07:59, déjeuner 12:30-13:59, week-end"
+    echo "Prochaine plage safe : soir >=20:00, matin 06:00-07:59, déjeuner 13:00-13:59, week-end"
     echo ""
     echo "Bypass fondateur (avec mention du risque) : git commit --no-verify"
     echo ""

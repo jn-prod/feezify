@@ -1,0 +1,10 @@
+{
+  "mode": "pre",
+  "tag": "beta",
+  "initialVersions": {
+    "feezify": "1.0.0"
+  },
+  "changesets": [
+    "ai-native-v1"
+  ]
+}
