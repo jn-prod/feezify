@@ -35,6 +35,28 @@ sources:
 
 Every claim must trace back to a journal entry (or a reading). No source, no claim.
 
+## Write safety (drift guard)
+
+Because the copilot is the only writer of `memory/`, a page changing between two of its reads
+means something unexpected happened — a hand-edit, a stale copy, a merge. Before editing a
+page:
+
+```bash
+feezify-memory-guard check <coreDir> memory/<page>.md
+```
+
+If it reports drift, it has already backed up the on-disk version to
+`memory/<page>.md.bak.<timestamp>` — stop and reconcile by hand rather than overwriting. If
+it's clean, edit the page, then:
+
+```bash
+feezify-memory-guard commit <coreDir> memory/<page>.md
+```
+
+This stamps two extra front-matter fields — `checksum` (of the page body) and `written_at`
+(a full timestamp, finer-grained than `sources:`, which only points to a journal *day*) — so
+the next `check` can tell whether the page moved since this exact write.
+
 ## Pages
 
 | Page | What it holds |

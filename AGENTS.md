@@ -80,6 +80,15 @@ journal entry; **no source, no claim**. The memory is the v1 form of the "world 
 courant"; deeper automation (auto-lint, reconciliation against the deterministic recompute)
 is beta. `core-template/memory/` ships the starter structure.
 
+**Write safety.** Since the skill is the only writer of `memory/`, an unexpected change to a
+page between two of its own reads (hand-edit, stale copy, merge) must not be silently
+overwritten. `src/adapters/memory-guard/` (bin: `feezify-memory-guard check|commit
+<coreDir> <relPath>`) stamps a `checksum` + `written_at` in each page's front-matter on
+commit, and backs up the page (`.bak.<timestamp>`) if `check` finds it drifted since the last
+commit. Procedure documented once, in
+[`core-template/memory/index.md`](core-template/memory/index.md) — skills reference it, they
+don't restate it.
+
 ---
 
 ## Invariants (never break — they're also public-facing)

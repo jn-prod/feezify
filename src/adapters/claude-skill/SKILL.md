@@ -56,13 +56,17 @@ Two memory surfaces — keep them straight:
    - **The pattern** — only if the memory genuinely speaks (don't invent one).
    - **One watch-point** — a single thing to self-assess against their own plan.
 
-5. **Update your memory (update-after).** File durable new learnings back into `memory/`:
-   append a dated note to `memory/log.md`; update `memory/athlete.md` if you learned something
-   stable; create/update a `memory/patterns/<slug>.md` if a pattern crystallized; log an
-   injury/illness or objective outcome under `memory/history/`. **Every entry carries
-   provenance** (`sources:` → the journal day). Refresh `memory/index.md`. Don't record
-   one-offs — only what will matter next time. Periodically **lint**: reconcile
-   contradictions and drop stale claims.
+5. **Update your memory (update-after).** Before editing any `memory/*.md` page, run
+   `feezify-memory-guard check <coreDir> memory/<page>.md`. If it reports drift, **stop** —
+   something changed that page since you last wrote it (inspect the `.bak.<timestamp>` file
+   it just created, reconcile by hand, don't blindly overwrite). If it's clean, file durable
+   new learnings: append a dated note to `memory/log.md`; update `memory/athlete.md` if you
+   learned something stable; create/update a `memory/patterns/<slug>.md` if a pattern
+   crystallized; log an injury/illness or objective outcome under `memory/history/`. **Every
+   entry carries provenance** (`sources:` → the journal day). Then run
+   `feezify-memory-guard commit <coreDir> memory/<page>.md` to stamp the page's checksum and
+   `written_at`. Refresh `memory/index.md`. Don't record one-offs — only what will matter
+   next time. Periodically **lint**: reconcile contradictions and drop stale claims.
 
 ## Support (light, opt-out aware)
 

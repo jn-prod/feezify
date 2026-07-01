@@ -55,11 +55,14 @@ Two memory surfaces: **`journal/`** = the athlete's daily log (raw, you read it)
    **readiness** (`score/100` + the dominant driver(s) from `reason`) · **the why** (the
    subjective gates the objective — fresh legs never override a body saying no) · **the
    pattern** (only if the memory genuinely speaks) · **one watch-point** to self-assess.
-6. **Update your memory:** file durable learnings back into `memory/` (dated note in
-   `memory/log.md`; update `memory/athlete.md`; create/update `memory/patterns/<slug>.md`; log
-   injuries/outcomes under `memory/history/`), each with **provenance** (`sources:` → the
-   journal day). Refresh `memory/index.md`. Record only what will matter next time; lint
-   contradictions/stale claims periodically.
+6. **Update your memory:** before editing a `memory/*.md` page, run
+   `feezify-memory-guard check <coreDir> memory/<page>.md`. Drift reported → stop, inspect the
+   `.bak.<timestamp>` backup it just wrote, reconcile by hand instead of overwriting. Clean →
+   file durable learnings back into `memory/` (dated note in `memory/log.md`; update
+   `memory/athlete.md`; create/update `memory/patterns/<slug>.md`; log injuries/outcomes under
+   `memory/history/`), each with **provenance** (`sources:` → the journal day). Then run
+   `feezify-memory-guard commit <coreDir> memory/<page>.md`. Refresh `memory/index.md`. Record
+   only what will matter next time; lint contradictions/stale claims periodically.
 
 ## Support (light, opt-out aware)
 

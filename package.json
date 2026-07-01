@@ -6,10 +6,11 @@
   "license": "Apache-2.0",
   "packageManager": "pnpm@10.33.2",
   "bin": {
-    "feezify-lecture": "dist/lecture.js"
+    "feezify-lecture": "dist/lecture.js",
+    "feezify-memory-guard": "dist/memory-guard.js"
   },
   "scripts": {
-    "build": "tsup src/bin/lecture.ts --format esm --clean",
+    "build": "tsup src/bin/lecture.ts src/bin/memory-guard.ts --format esm --clean",
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
