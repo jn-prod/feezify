@@ -1,7 +1,7 @@
 # feezify
 
 > 🚧 **feezify 2.0 — beta coming soon.** The AI-native rewrite of my old training SaaS.
-> Want it in early access? **[Join the waitlist →](https://www.nicolasjouanno.com/entrainement-vtt.html)**
+> Want it in early access? **[Join the waitlist →](https://www.nicolasjouanno.com/feezify.html)**
 
 **A training copilot, gone AI-native.** A skill + a portable markdown core. Zero infra.
 
@@ -26,9 +26,21 @@ When AI agents arrived, ~90% of that app became dead weight. The method didn't.
 
 feezify is rebuilt **AI-native**: it installs on *your own* AI as a **skill**, reads a
 folder of **markdown** you own, and runs entirely **on your machine** — no server, no
-account, no telemetry. The AI is the surface; the skill is the component; your markdown is
-the state; the conversation is the interaction. (That migration — and the "AI-native
-frontend" idea behind it — is the subject of the companion article.)
+account, no telemetry.
+
+The design is the AI-native remap of the classic web app, tier by tier. The browser was
+the last interface shift — once it won, we rebuilt every application engine for it. The
+LLM/chatbot is the next one. But you don't plug the old app into it: you rebuild the
+engine one layer down, as an **agent**, and the database becomes a **memory**:
+
+| Classic web app | The tier | AI-native app |
+|---|---|---|
+| Browser / frontend | the **interface** | **the LLM / the chatbot** |
+| Server / backend | the **application engine** | **the agent** — hexagonal core (the method) + adapters to third-party apps |
+| Database | the **persistence** | **a second-brain memory** — your log + an agent wiki that compresses it |
+
+You don't open my app; you install my agent on your own AI. (That migration is the
+subject of the companion article.)
 
 The v1 ships **one skill**: the **read of the day**.
 
@@ -66,8 +78,16 @@ It's open on purpose: the method is the point, not a secret.
 
 ## Install / run
 
-Full first run — install, build, your private core, and the `.env` with adapter tokens —
-is in **[`onboarding.md`](onboarding.md)**. In short:
+Two ways in — full details in **[`onboarding.md`](onboarding.md)**:
+
+**A. No terminal (3 steps)** — for athletes on Claude:
+1. Connect the official **Strava connector** in Claude (Connectors → Strava → OAuth).
+2. Download **`feezify-skill-<version>.zip`** from the
+   [latest release](https://github.com/jn-prod/feezify/releases/latest) and upload it in
+   Claude → Settings → Skills.
+3. Ask *"how am I today?"* — the copilot creates your core and sets you up in conversation.
+
+**B. Developer path** — clone and build:
 
 ```bash
 pnpm install && pnpm build
@@ -76,12 +96,14 @@ cp .env.example .env                    # then add your Strava tokens (see onboa
 node dist/lecture.js ~/my-feezify-core 2026-06-29
 ```
 
-Then point your AI at the skill — it ships as both a **Claude skill**
-(`src/adapters/claude-skill/SKILL.md`) and an **OpenClaw skill**
-(`src/adapters/openclaw-skill/SKILL.md`), same engine.
+Then point your AI at the skill — it ships as a **Claude skill**
+(`src/adapters/claude-skill/SKILL.md`), an **OpenClaw skill**
+(`src/adapters/openclaw-skill/SKILL.md`), and the self-contained zip surface
+(`src/adapters/claude-skill-zip/SKILL.md`) — same engine, three envelopes.
 
 > **Adapter tokens go only in `.env`** (git-ignored) — never in any other file. See
-> `onboarding.md` and `AGENTS.md → Secrets`.
+> `onboarding.md` and `AGENTS.md → Secrets`. The no-terminal path never touches tokens at
+> all: Strava's official connector handles auth via OAuth.
 
 ## Using it day to day
 

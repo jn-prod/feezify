@@ -46,6 +46,8 @@ export function makeLectureDuJour(deps: { source: DataSource; repo: Repository }
     const today: JournalDay | undefined = journal.find((d) => d.date === date)
     const markers = today?.markers ?? neutralMarkers
     const { score, lowestDrivers } = computeSubjectiveScore(markers, profile)
+    // Provenance-first-class: a defaulted score must never pass for a measured one.
+    const scoreProvenance = today ? 'journal' : 'neutral-default (no journal entry)'
 
     const inBuildBlock = objectives.some(
       (o) => o.kind === 'camp' && date >= o.startDate && date <= o.endDate,
@@ -77,6 +79,7 @@ export function makeLectureDuJour(deps: { source: DataSource; repo: Repository }
       tsb,
       tsbProvenance,
       score,
+      scoreProvenance,
       reason: skeleton.reason,
       vigilance: skeleton.vigilance,
       recentNarrative,

@@ -7,6 +7,7 @@ export interface DayReading {
   tsb: number
   tsbProvenance: string
   score: number
+  scoreProvenance: string
   reason: string
   vigilance: string
   recentNarrative: string[]

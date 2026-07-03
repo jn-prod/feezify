@@ -1,6 +1,6 @@
 {
   "name": "feezify",
-  "version": "2.0.0-beta.0",
+  "version": "2.0.0-beta.2",
   "description": "A training copilot, AI-native: a skill + a portable markdown core. Zero infra.",
   "type": "module",
   "license": "Apache-2.0",
@@ -11,6 +11,8 @@
   },
   "scripts": {
     "build": "tsup src/bin/lecture.ts src/bin/memory-guard.ts --format esm --clean",
+    "build:bundle": "tsup --config tsup.bundle.config.ts",
+    "package:skill": "pnpm build:bundle && node scripts/package-skill.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
@@ -25,11 +27,14 @@
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
+    "js-yaml": "^5.2.1",
     "zod": "^3.23.8"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.0",
+    "@types/js-yaml": "^4.0.9",
     "@types/node": "^20.14.0",
+    "fflate": "^0.8.3",
     "husky": "^9.1.7",
     "tsup": "^8.1.0",
     "typescript": "^5.5.0",

@@ -5,6 +5,9 @@
     "feezify": "1.0.0"
   },
   "changesets": [
-    "ai-native-v1"
+    "ai-native-v1",
+    "memory-write-guard",
+    "non-tech-onboarding",
+    "v1-functional-hardening"
   ]
 }

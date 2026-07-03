@@ -1,7 +1,7 @@
 ---
 name: feezify-read-of-the-day
 description: Reads the athlete's day — objective load (TSB) × subjective readiness × the narrative journal — and writes an educational "read of the day". Never prescribes training.
-version: 0.1.0
+version: 2.0.0-beta.2
 triggers:
   - "how am I today"
   - "should I train today"
@@ -37,16 +37,23 @@ Two memory surfaces: **`journal/`** = the athlete's daily log (raw, you read it)
 1. **Query your memory:** read `<coreDir>/memory/index.md`, then `memory/athlete.md`, recent
    `memory/log.md`, and any matching `memory/patterns/`. That's your compiled model of this
    athlete — don't re-derive it from months of journal.
-2. If `<coreDir>/config.yml` marks a connector `true` (e.g. `strava`), fetch its activities
-   and cache them to `<coreDir>/activities.json`. If it's `false`/absent, **don't use it** —
-   ask the athlete to enable it in `config.yml` first (consent). The read still works from the
-   journal alone.
-3. Run the deterministic domain:
+2. If `<coreDir>/config.yml` marks `strava: true` (consent), fetch the athlete's recent
+   activities (~200 days if available) — via the host's Strava integration or the official
+   Strava MCP connector — transform them to the cache contract in
+   `<coreDir>/templates/activities-cache.md`, and write `<coreDir>/activities.json`. If it's
+   `false`/absent, **don't use it** — ask the athlete first (one question, record the answer
+   in `config.yml`). The read still works from the journal alone.
+3. Run the deterministic domain — from the feezify repo directory:
    ```
-   feezify-lecture <coreDir> <YYYY-MM-DD>
+   node --env-file=.env dist/lecture.js <coreDir> <YYYY-MM-DD>
    ```
+   (Omit `--env-file=.env` if no `.env` exists yet; `feezify-lecture` is the same command if
+   the bin was linked globally with `pnpm link --global`.)
    It prints JSON: `light` (green/amber/red), `tsb`, `tsbProvenance`, `score` (/100),
-   `reason`, `vigilance`, `recentNarrative`. **Do not recompute or override these.**
+   `scoreProvenance`, `reason`, `vigilance`, `recentNarrative`. **Do not recompute or
+   override these.** If `scoreProvenance` is not `journal`, there is no journal entry for
+   that date: the score is a neutral default — say so plainly and invite the athlete to
+   fill today's entry; never present it as measured.
 4. Read `recentNarrative`, the athlete's `objectifs.md`, and `user.md` (sport, level, profile,
    current goal) for context; cross with your memory (confirms a known pattern? breaks one?
    new one?).
@@ -56,12 +63,13 @@ Two memory surfaces: **`journal/`** = the athlete's daily log (raw, you read it)
    subjective gates the objective — fresh legs never override a body saying no) · **the
    pattern** (only if the memory genuinely speaks) · **one watch-point** to self-assess.
 6. **Update your memory:** before editing a `memory/*.md` page, run
-   `feezify-memory-guard check <coreDir> memory/<page>.md`. Drift reported → stop, inspect the
+   `node dist/memory-guard.js check <coreDir> memory/<page>.md` (from the repo directory;
+   `feezify-memory-guard` if globally linked). Drift reported → stop, inspect the
    `.bak.<timestamp>` backup it just wrote, reconcile by hand instead of overwriting. Clean →
    file durable learnings back into `memory/` (dated note in `memory/log.md`; update
    `memory/athlete.md`; create/update `memory/patterns/<slug>.md`; log injuries/outcomes under
    `memory/history/`), each with **provenance** (`sources:` → the journal day). Then run
-   `feezify-memory-guard commit <coreDir> memory/<page>.md`. Refresh `memory/index.md`. Record
+   `node dist/memory-guard.js commit <coreDir> memory/<page>.md`. Refresh `memory/index.md`. Record
    only what will matter next time; lint contradictions/stale claims periodically.
 
 ## Support (light, opt-out aware)

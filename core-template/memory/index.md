@@ -42,7 +42,8 @@ means something unexpected happened — a hand-edit, a stale copy, a merge. Befo
 page:
 
 ```bash
-feezify-memory-guard check <coreDir> memory/<page>.md
+# from the feezify repo directory (feezify-memory-guard if globally linked)
+node dist/memory-guard.js check <coreDir> memory/<page>.md
 ```
 
 If it reports drift, it has already backed up the on-disk version to
@@ -50,7 +51,7 @@ If it reports drift, it has already backed up the on-disk version to
 it's clean, edit the page, then:
 
 ```bash
-feezify-memory-guard commit <coreDir> memory/<page>.md
+node dist/memory-guard.js commit <coreDir> memory/<page>.md
 ```
 
 This stamps two extra front-matter fields — `checksum` (of the page body) and `written_at`

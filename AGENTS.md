@@ -52,7 +52,8 @@ file format? **Add an adapter.** That's free and expected. Don't touch the domai
 
 The score thresholds (45 / 60 / 80), the TSB bands, the per-athlete threshold and FTP, the
 `faimNormal`/`soifNormal` baselines — these are **calibrated by the founder against real
-data**, not invented by an agent. Treat current values as defaults pending calibration.
+data**, not invented by an agent. The current values are the **official v1 defaults**
+(founder decision 2026-07-03), to be refined against real data during the beta.
 
 ---
 
@@ -199,13 +200,17 @@ templates: cite paths, don't copy content.
 The `2.0.0` GA release is **blocked** until this checklist is green. Do **not** `changeset
 pre exit` / cut a final `2.0.0` (stay on `2.0.0-beta.x`) before:
 
-- [ ] **Update the concept** — the README and the companion article must reflect the
+- [x] **Update the concept** — the README and the companion article must reflect the
   finalized thesis: *the LLM/chatbot is the new interface (after the browser); the agent is
   the new application engine (hexagonal métier + data adapters to third-party apps); the
   persistence is a second-brain memory — a user log + an agent wiki that compresses it* (the
-  3-tier remap). The current README still leans on the narrower "AI-native frontend" framing.
-- [ ] Calibrate the founder-owned constants (score thresholds 45/60/80, TSB bands).
-- [ ] Founder go on GA.
+  3-tier remap). ✅ 2026-07-03 — README EN+FR carry the 3-tier table; the companion article
+  (`www/_drafts/jai-tue-mon-saas-reconstruit-en-skill.md`) already did.
+- [x] Calibrate the founder-owned constants (score thresholds 45/60/80, TSB bands).
+  ✅ 2026-07-03 — founder decision: the spec values are **assumed as the official v1
+  defaults**, to be refined against real data during the beta.
+- [ ] Founder go on GA. *(Deliberately open — the founder holds the release in
+  `2.0.0-beta.1` until the beta shows a real usage signal.)*
 
 Tick each box as it's done. While the list has open boxes, the release stays in beta.
 

@@ -46,5 +46,13 @@ describe('makeLectureDuJour', () => {
     expect(r.recentNarrative.length).toBeGreaterThan(0)
     expect(r.recentNarrative.some((n) => n.includes(TODAY))).toBe(true)
     expect(r.tsbProvenance).toContain('computed:JN-hrTSS') // recomputed from raw HR
+    expect(r.scoreProvenance).toBe('journal')
+  })
+
+  it('flags the score as a neutral default when the day has no journal entry', async () => {
+    const emptyJournalRepo: Repository = { ...fakeRepo, async getJournal() { return [] } }
+    const lecture = makeLectureDuJour({ source: fakeSource, repo: emptyJournalRepo })
+    const r = await lecture(TODAY)
+    expect(r.scoreProvenance).toBe('neutral-default (no journal entry)')
   })
 })

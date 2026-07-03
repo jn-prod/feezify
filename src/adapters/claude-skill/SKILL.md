@@ -26,19 +26,33 @@ Two memory surfaces — keep them straight:
    your accumulated model of this athlete. Don't re-derive it from months of journal; read
    what you already compiled.
 
-2. **Get the deterministic skeleton.** Run the compiled domain:
+2. **Get the deterministic skeleton.** Run the compiled domain — from the feezify repo
+   directory:
 
    ```
-   feezify-lecture <coreDir> <YYYY-MM-DD>
+   node --env-file=.env dist/lecture.js <coreDir> <YYYY-MM-DD>
    ```
 
-   It prints JSON: `light` (green/amber/red), `tsb` + `tsbProvenance`, `score` (/100),
-   `reason`, `vigilance`, and `recentNarrative` (the last days' journal entries).
-   The numbers and the light come from the deterministic crossing rule — **do not
-   recompute or override them.** If `<coreDir>/config.yml` marks a connector `true` (e.g.
-   `strava`), you may fetch its activities and cache them to `<coreDir>/activities.json` so
-   load is recomputed from raw. **If the connector is `false` or absent, don't use it** —
-   ask the athlete to enable it in `config.yml` first (consent).
+   (Omit `--env-file=.env` if no `.env` exists yet. If the bin was linked globally with
+   `pnpm link --global`, `feezify-lecture <coreDir> <YYYY-MM-DD>` is the same command.)
+
+   It prints JSON: `light` (green/amber/red), `tsb` + `tsbProvenance`, `score` (/100) +
+   `scoreProvenance`, `reason`, `vigilance`, and `recentNarrative` (the last days' journal
+   entries). The numbers and the light come from the deterministic crossing rule — **do not
+   recompute or override them.** If `scoreProvenance` is not `journal`, the athlete wrote
+   no journal entry for that date: the score is a neutral default — **say so plainly**,
+   never present it as measured, and invite them to fill today's entry.
+
+   **Activities (Strava).** If `<coreDir>/config.yml` marks `strava: true` (consent), get
+   the activities the deterministic engine will read — in order of preference:
+   1. **Official Strava MCP connector** (the host has Strava tools available — the
+      no-terminal path): fetch the recent activities (~200 days if available), transform
+      them to the cache contract in `<coreDir>/templates/activities-cache.md`, and write
+      `<coreDir>/activities.json`. Then run the engine.
+   2. **Token in `.env`** (developer path): the engine calls the Strava REST API itself.
+   **If the connector is `false` or absent in `config.yml`, don't use either** — ask the
+   athlete first (one question, record their answer in `config.yml`); the CLI enforces the
+   same gate. No Strava at all is fine: the read works from the journal alone.
 
 3. **Read today's input.** Read `recentNarrative`, the athlete's `objectifs.md`, and
    `user.md` (who they are — sport, level, profile, what they're chasing) for context.
@@ -57,15 +71,16 @@ Two memory surfaces — keep them straight:
    - **One watch-point** — a single thing to self-assess against their own plan.
 
 5. **Update your memory (update-after).** Before editing any `memory/*.md` page, run
-   `feezify-memory-guard check <coreDir> memory/<page>.md`. If it reports drift, **stop** —
+   `node dist/memory-guard.js check <coreDir> memory/<page>.md` (from the repo directory;
+   `feezify-memory-guard` if globally linked). If it reports drift, **stop** —
    something changed that page since you last wrote it (inspect the `.bak.<timestamp>` file
    it just created, reconcile by hand, don't blindly overwrite). If it's clean, file durable
    new learnings: append a dated note to `memory/log.md`; update `memory/athlete.md` if you
    learned something stable; create/update a `memory/patterns/<slug>.md` if a pattern
    crystallized; log an injury/illness or objective outcome under `memory/history/`. **Every
    entry carries provenance** (`sources:` → the journal day). Then run
-   `feezify-memory-guard commit <coreDir> memory/<page>.md` to stamp the page's checksum and
-   `written_at`. Refresh `memory/index.md`. Don't record one-offs — only what will matter
+   `node dist/memory-guard.js commit <coreDir> memory/<page>.md` to stamp the page's checksum
+   and `written_at`. Refresh `memory/index.md`. Don't record one-offs — only what will matter
    next time. Periodically **lint**: reconcile contradictions and drop stale claims.
 
 ## Support (light, opt-out aware)
