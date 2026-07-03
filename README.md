@@ -10,7 +10,8 @@ feel and what your own journal remembers — then tells you, in plain words, whe
 is **green, amber, or red**, and *why*. It does not prescribe workouts. You decide; it
 helps you read yourself more clearly.
 
-🇫🇷 Version française : [`/fr/README.md`](fr/README.md) · The method, in the open:
+🇫🇷 Version française : [`/fr/README.md`](fr/README.md) · 📖 Full docs (install & use):
+[`docs/`](docs/README.md) · The method, in the open:
 [`method.md`](src/adapters/claude-skill/method.md)
 
 ## What this used to be

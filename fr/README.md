@@ -11,7 +11,8 @@ ressenti réel et ce que ton propre journal a en mémoire — puis il te dit, en
 journée est **verte, orange ou rouge**, et *pourquoi*. Il ne prescrit pas de séances. C'est
 toi qui décides ; lui t'aide à te lire plus clairement.
 
-🇬🇧 English version: [`/README.md`](../README.md) · La méthode, à découvert :
+🇬🇧 English version: [`/README.md`](../README.md) · 📖 Doc complète (installation & usage) :
+[`docs/fr/`](../docs/fr/README.md) · La méthode, à découvert :
 [`/fr/method.md`](method.md)
 
 ## Ce que c'était avant
