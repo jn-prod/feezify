@@ -21,16 +21,23 @@ for f in docs/*.md; do
   sed -i -E "s|\]\(\.\./|](${GITHUB_BLOB}/|g" "$f"
 done
 
-# add_fm <file> <alternate-url> <description>
+# add_fm <file> <alternate-url> <description> [permalink]
+# READMEs need an explicit permalink: front matter turns them into regular
+# pages, which bypasses the readme-index plugin.
 add_fm() {
   [ -f "$1" ] || { echo "prepare-docs: missing $1" >&2; exit 1; }
   tmp="$1.fm"
-  printf -- '---\ndescription: >-\n  %s\nalternate: %s\n---\n' "$3" "$2" > "$tmp"
+  {
+    printf -- '---\ndescription: >-\n  %s\nalternate: %s\n' "$3" "$2"
+    [ -n "${4:-}" ] && printf 'permalink: %s\n' "$4"
+    printf -- '---\n'
+  } > "$tmp"
   cat "$1" >> "$tmp" && mv "$tmp" "$1"
 }
 
 add_fm docs/README.md /docs/fr/ \
-  "feezify documentation — what it is, how to install it (no-terminal or developer path), daily use, the method, privacy and consent."
+  "feezify documentation — what it is, how to install it (no-terminal or developer path), daily use, the method, privacy and consent." \
+  /docs/
 add_fm docs/what-is-feezify.md /docs/fr/presentation.html \
   "What feezify is and is not: a training copilot on your own AI that reads your day — green, amber or red — and never prescribes."
 add_fm docs/install.md /docs/fr/installation.html \
@@ -45,7 +52,8 @@ add_fm docs/faq.md /docs/fr/faq.html \
   "Frequently asked questions and troubleshooting for feezify, on both the no-terminal path and the developer path."
 
 add_fm docs/fr/README.md /docs/ \
-  "La documentation de feezify — ce que c'est, l'installation (sans terminal ou parcours développeur), l'usage quotidien, la méthode, la confidentialité."
+  "La documentation de feezify — ce que c'est, l'installation (sans terminal ou parcours développeur), l'usage quotidien, la méthode, la confidentialité." \
+  /docs/fr/
 add_fm docs/fr/presentation.md /docs/what-is-feezify.html \
   "Ce que feezify est — et n'est pas : un copilote d'entraînement sur ta propre IA qui lit ta journée, vert, orange ou rouge, sans jamais prescrire."
 add_fm docs/fr/installation.md /docs/install.html \
