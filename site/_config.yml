@@ -1,0 +1,64 @@
+# feezify — GitHub Pages site
+# Built by .github/workflows/pages.yml which copies /docs into this folder
+# before running Jekyll, so the documentation ships inside the site build.
+
+title: feezify
+tagline: A training copilot, gone AI-native
+description: >-
+  feezify crosses your training load with how you actually feel, on your own AI,
+  and tells you how you are today — green, amber or red — and why.
+  It reads; you decide. Zero infra.
+url: "https://jn-prod.github.io"
+baseurl: "/feezify"
+lang: en
+
+repository: jn-prod/feezify
+github_url: https://github.com/jn-prod/feezify
+tipeee_url: https://www.tipeee.com/byNicolasJD
+author_url: https://www.nicolasjouanno.com
+waitlist_kit_uid: 97bbf6d980
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+plugins:
+  - jekyll-relative-links
+  - jekyll-optional-front-matter
+  - jekyll-readme-index
+  - jekyll-titles-from-headings
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+relative_links:
+  enabled: true
+  collections: false
+
+optional_front_matter:
+  remove_originals: true
+
+readme_index:
+  enabled: true
+  remove_originals: true
+
+titles_from_headings:
+  enabled: true
+  strip_title: true
+
+defaults:
+  - scope:
+      path: "docs"
+    values:
+      layout: docs
+      lang: en
+  - scope:
+      path: "docs/fr"
+    values:
+      layout: docs
+      lang: fr
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - README.md

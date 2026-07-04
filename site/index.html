@@ -1,0 +1,523 @@
+---
+permalink: /
+lang: en
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>feezify — the training copilot that reads your form of the day</title>
+  <meta name="description" content="feezify crosses your training load with how you actually feel, on your own AI, and tells you how you are today: green, amber or red — and why. It reads; you decide. Zero infra, open source.">
+  <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}/">
+  <link rel="alternate" hreflang="en" href="{{ site.url }}{{ site.baseurl }}/">
+  <link rel="alternate" hreflang="fr" href="{{ site.url }}{{ site.baseurl }}/fr/">
+  <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ site.baseurl }}/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="feezify">
+  <meta property="og:title" content="feezify — the training copilot that reads your form of the day">
+  <meta property="og:description" content="Training load × how you feel, crossed on your own AI. Green, amber or red — and why. It reads; you decide. Zero infra, open source.">
+  <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}/">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="feezify — the training copilot that reads your form of the day">
+  <meta name="twitter:description" content="Training load × how you feel, crossed on your own AI. Green, amber or red — and why. It reads; you decide.">
+  <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="wordmark" href="{{ '/' | relative_url }}">feezify<span class="wordmark__dot" aria-hidden="true"></span></a>
+    <nav class="site-header__nav" aria-label="Site">
+      <a class="nav-docs-hide" href="#method">The method</a>
+      <a href="{{ '/docs/' | relative_url }}">Docs</a>
+      <a class="nav-docs-hide" href="{{ site.github_url }}" rel="noopener" target="_blank">GitHub</a>
+      <a class="lang-switch" href="{{ '/fr/' | relative_url }}" lang="fr" hreflang="fr">FR</a>
+      <a class="nav-cta" href="#waitlist">Join the waitlist</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- A. HERO -->
+  <section class="hero">
+    <div class="hero__inner">
+      <div class="hero__copy">
+        <p class="eyebrow">Training copilot · AI-native · Open source</p>
+        <h1>The training copilot that <em>reads</em> your form of the day</h1>
+        <p class="lede">
+          In 2018 I launched a training SaaS. In 2026 I unplugged it and rebuilt it
+          <strong>AI-native</strong>: zero server, zero account — it runs on <em>your own</em> AI.
+          It reads your day — <strong>load × feel</strong> — and tells you
+          <strong>green, amber or red</strong>, and above all <em>why</em>.
+          It reads; you decide.
+        </p>
+        <div class="btn-row">
+          <a href="#waitlist" class="btn btn--primary">Join the waitlist →</a>
+          <a href="{{ site.github_url }}" class="btn btn--ghost" rel="noopener" target="_blank">See the open code</a>
+        </div>
+        <p class="meta">Free · Runs on your own AI · Zero infra · 🚧 Beta soon, built in the open.</p>
+      </div>
+
+      <!-- Signature: the product is a conversation -->
+      <div class="chat" role="img" aria-label="A chat with feezify: “How am I today?” — “Amber: caution. High load over 3 days and a short night. Your legs could respond; how you feel says ease off.”">
+        <div class="chat__bar">
+          <span class="chat__lights" aria-hidden="true"><span class="dot dot--green"></span><span class="dot dot--amber"></span><span class="dot dot--red"></span></span>
+          <span class="chat__title">feezify · today</span>
+        </div>
+        <div class="chat__thread">
+          <div class="bubble bubble--user" data-stage="1">How am I today?</div>
+          <div class="typing" data-stage="2" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="bubble bubble--assistant" data-stage="3">
+            <p class="read-light"><span class="dot dot--amber"></span> Amber — caution.</p>
+            <div class="read-chips">
+              <span class="chip">form TSB −14</span>
+              <span class="chip">readiness 52/100</span>
+              <span class="chip">sleep 5h40</span>
+            </div>
+            <p class="read-why">High load over the last 3 days × a short night. Your legs could respond — your own journal says ease off.</p>
+            <p class="read-rule">How you feel gates what the numbers say.</p>
+          </div>
+        </div>
+        <div class="chat__input" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8h12M10 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Ask feezify…
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- B. THE PROBLEM -->
+  <section class="section section--deep">
+    <div class="section__inner reveal">
+      <p class="eyebrow eyebrow--red">The problem</p>
+      <h2>You're training blind on one of the two axes</h2>
+      <div class="section__inner--narrow" style="margin: 0;">
+        <p>
+          First trap: you listen to the numbers. Fresh form, low load, the app says “go” —
+          and you push through a day your body was clearly refusing. A week later, you pay for it.
+        </p>
+        <p>
+          Second trap: you listen to your morning mood, and you miss the days you were genuinely ready to push.
+        </p>
+      </div>
+      <blockquote class="pull-quote" style="margin-top: 2.5rem;">
+        “We program the load. We forget the state of the person absorbing it.”
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- C. THE METHOD -->
+  <section class="section" id="method">
+    <div class="section__inner reveal">
+      <p class="eyebrow">The method — open on purpose</p>
+      <h2>Cross your load with how you feel</h2>
+      <p class="lede">The real subject is neither the numbers nor the feel alone. It's the <strong>crossing</strong> of the two — and knowing, in doubt, which one wins.</p>
+      <ul class="card-grid">
+        <li>
+          <div class="card">
+            <span class="step-k">01 · OBJECTIVE</span>
+            <h3>The load</h3>
+            <p>From your activities, feezify computes your load as true exponential averages (<span class="mono">TSS → CTL / ATL / TSB</span>). TSB gives your form. It's deterministic — math, not an opinion.</p>
+          </div>
+        </li>
+        <li>
+          <div class="card">
+            <span class="step-k">02 · SUBJECTIVE</span>
+            <h3>The feel</h3>
+            <p>Your journal gives your real readiness: sleep, fatigue, motivation, stress, how the legs feel, what's happening outside sport.</p>
+          </div>
+        </li>
+        <li>
+          <div class="card">
+            <span class="step-k">03 · THE CROSSING</span>
+            <h3>The read</h3>
+            <p>feezify sets a light — <strong>green, amber or red</strong> — and, above all, the explanation. The colour isn't up for debate; the why is in plain words.</p>
+          </div>
+        </li>
+      </ul>
+
+      <div class="card rule-card" style="margin-top: 1.1rem;">
+        <p><strong>The rule — the one that carried all the value of the old app: the subjective gates the objective.</strong></p>
+        <ul style="margin: 0; padding-left: 1.2rem;">
+          <li>Injury or illness → always red.</li>
+          <li>Low readiness → never green.</li>
+          <li>Fresh legs <strong>never</strong> override a body saying no.</li>
+        </ul>
+        <p class="meta" style="margin: 0.9rem 0 0;">The method is public, on purpose: it's the point, not a secret. <a href="{{ '/docs/the-method.html' | relative_url }}">Read it in full →</a></p>
+      </div>
+
+      <!-- Deterministic mini-demo -->
+      <div class="rule-demo reveal" id="rule-demo">
+        <script type="application/json">
+        {
+          "fresh": {
+            "light": "amber",
+            "verdict": "Amber — caution.",
+            "why": "Form is fresh (TSB +12), but 5h of sleep and heavy legs in the journal. Fresh legs never override a body saying no."
+          },
+          "solid": {
+            "light": "green",
+            "verdict": "Green — go.",
+            "why": "Readiness high, form non-negative. Both sides agree: today can take quality."
+          },
+          "injury": {
+            "light": "red",
+            "verdict": "Red — back off.",
+            "why": "Best TSB of the month — and a knee that hurt on the stairs. Injury is always red. No number overrides it."
+          }
+        }
+        </script>
+        <h3>Try the rule</h3>
+        <p class="meta">Three real mornings. Same math, different bodies — watch which side wins.</p>
+        <div class="rule-demo__choices" role="group" aria-label="Pick a scenario">
+          <button type="button" data-scenario="fresh" aria-pressed="false">Fresh legs · short night</button>
+          <button type="button" data-scenario="solid" aria-pressed="true">Good sleep · solid block</button>
+          <button type="button" data-scenario="injury" aria-pressed="false">Great numbers · knee pain</button>
+        </div>
+        <div class="rule-demo__result" aria-live="polite">
+          <span class="dot dot--green" data-role="light"></span>
+          <div>
+            <p class="verdict" data-role="verdict">Green — go.</p>
+            <p class="why" data-role="why">Readiness high, form non-negative. Both sides agree: today can take quality.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- D. COPILOT, NOT COACH -->
+  <section class="section section--deep">
+    <div class="section__inner reveal">
+      <blockquote class="pull-quote">
+        “A copilot reads the instruments. You fly the plane.”
+        <cite>feezify</cite>
+      </blockquote>
+      <p style="max-width: var(--maxw-text); margin-top: 2rem;">
+        Let's be plain: feezify is a <strong>copilot</strong>, a reading assistant. It prescribes no workout,
+        never tells you what to do, replaces neither a trainer nor a doctor. Weight, for instance, is only
+        read as a trend — never as a diagnosis. The decision is yours, always.
+      </p>
+    </div>
+  </section>
+
+  <!-- E. AI-NATIVE / ZERO INFRA -->
+  <section class="section" id="ai-native">
+    <div class="section__inner reveal">
+      <p class="eyebrow">AI-native · zero infra</p>
+      <h2>On your own AI. Not on my server.</h2>
+      <p class="lede">
+        feezify is no longer an app I host. It's a <strong>skill</strong> + a <strong>markdown core you own</strong>,
+        installed on your AI (Claude, OpenClaw). The old web app maps tier for tier onto the new agent:
+      </p>
+      <div class="remap-wrap">
+        <table class="remap">
+          <thead>
+            <tr>
+              <th scope="col">Classic web app</th>
+              <th scope="col">The tier</th>
+              <th scope="col">AI-native feezify</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Browser / frontend</td>
+              <td>interface</td>
+              <td><strong>The LLM / the chatbot</strong> — Claude, OpenClaw</td>
+            </tr>
+            <tr>
+              <td>Server / backend</td>
+              <td>engine</td>
+              <td><strong>The agent</strong> — a pure, unit-tested method core + adapters (Strava…)</td>
+            </tr>
+            <tr>
+              <td>Database</td>
+              <td>persistence</td>
+              <td><strong>A second-brain memory</strong> — your journal + the copilot's compiled memory of you</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="card-grid" style="margin-top: 1.5rem;">
+        <li><div class="card"><h3>Yours, locally</h3><p>A portable folder of markdown you own. No server, no account, no telemetry. A connector (Strava…) stays <strong>off</strong> until <em>you</em> switch it on.</p></div></li>
+        <li><div class="card"><h3>Two memories</h3><p>Your journal, which you write; and the memory the copilot compiles about you over time — every claim traceable to a precise day.</p></div></li>
+        <li><div class="card"><h3>Open &amp; provider-agnostic</h3><p>Strava is just an adapter; the engine depends on no brand. The code and the method are in the open — read them, judge them, fork them.</p></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- F. THE STORY -->
+  <section class="section section--deep" id="story">
+    <div class="section__inner reveal">
+      <p class="eyebrow eyebrow--amber">Build in public</p>
+      <h2>I killed my SaaS and kept the twenty lines that mattered</h2>
+      <ol class="timeline">
+        <li>
+          <time datetime="2018">2018</time>
+          <p>I launch feezify: a hosted SaaS (Node / Express / Mongo, accounts, database, Strava sync, deploys). On paper, a real little app.</p>
+        </li>
+        <li>
+          <time datetime="2019">2018–2019</time>
+          <p>I run it. And I see the uncomfortable truth: <strong>90% was plumbing</strong>. The value sat in one small thing — crossing objective load with subjective readiness, and the judgment about when feel wins.</p>
+        </li>
+        <li>
+          <time datetime="2025">Then</time>
+          <p>AI agents arrive. All that dead weight loses its reason to exist. The server, the accounts, the frontend: an agent does without them. The method, it can't.</p>
+        </li>
+        <li>
+          <time datetime="2026">2026</time>
+          <p>I unplug it and rebuild feezify <strong>AI-native</strong>: a skill + a markdown core you own, on your own AI. Zero server, zero account, zero telemetry.</p>
+        </li>
+      </ol>
+      <blockquote class="pull-quote" style="margin-top: 2.8rem;">
+        “It took me seven years to understand the product wasn't the code. It was the twenty lines of method in the middle.”
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- G. WHO IT'S FOR -->
+  <section class="section" id="for-you">
+    <div class="section__inner reveal">
+      <p class="eyebrow">Who it's for</p>
+      <h2>Serious about training. Honest in a journal. At home with an AI.</h2>
+      <ul class="card-grid">
+        <li><div class="card"><p style="margin:0;">You train seriously — bike, run, endurance — and you record your sessions.</p></div></li>
+        <li><div class="card"><p style="margin:0;">You keep — or you're ready to keep — an honest journal, even a short one.</p></div></li>
+        <li><div class="card"><p style="margin:0;">You want to <strong>read</strong> your form more clearly, not to be told your workouts.</p></div></li>
+        <li><div class="card"><p style="margin:0;">You're comfortable with an AI (Claude, OpenClaw) and the idea of a tool with no app, no account.</p></div></li>
+      </ul>
+      <div class="athletes" aria-hidden="true">
+        <figure>
+          <svg viewBox="0 0 240 180" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="55" cy="138" r="36"/>
+            <circle cx="185" cy="138" r="36"/>
+            <circle cx="119" cy="138" r="7"/>
+            <path d="M119 138 L104 94 L158 91"/>
+            <path d="M119 138 L170 104 M55 138 L104 94 M55 138 L119 138"/>
+            <path d="M170 104 L166 91"/>
+            <path d="M96 90 L112 90"/>
+            <path d="M164 91 q14 2 12 14"/>
+            <path d="M106 88 q18 -26 44 -32"/>
+            <circle cx="158" cy="47" r="9"/>
+            <path d="M150 58 q14 14 22 32"/>
+            <path d="M108 90 L130 114 L124 150"/>
+            <path d="M108 92 L106 122 L118 148"/>
+          </svg>
+          <figcaption>Ride</figcaption>
+        </figure>
+        <figure>
+          <svg viewBox="0 0 240 180" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="128" cy="38" r="11"/>
+            <path d="M124 52 q-8 22 -12 44"/>
+            <path d="M118 62 L146 76 L166 62"/>
+            <path d="M120 66 L94 82 L74 74"/>
+            <path d="M112 96 L142 116 L150 152"/>
+            <path d="M112 96 L86 122 L58 116"/>
+            <path d="M36 84 L58 84 M28 100 L48 100 M40 116 L52 116"/>
+          </svg>
+          <figcaption>Run</figcaption>
+        </figure>
+        <figure>
+          <svg viewBox="0 0 240 180" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="162" cy="76" r="10"/>
+            <path d="M66 96 q44 -18 86 -12"/>
+            <path d="M96 90 q-8 -26 18 -34"/>
+            <path d="M150 86 q22 8 34 2"/>
+            <path d="M34 118 q16 -10 32 0 q16 10 32 0 q16 -10 32 0 q16 10 32 0 q16 -10 32 0"/>
+            <path d="M50 138 q16 -10 32 0 q16 10 32 0 q16 -10 32 0 q16 10 32 0"/>
+          </svg>
+          <figcaption>Swim</figcaption>
+        </figure>
+      </div>
+      <p class="meta" style="margin-top: 2rem; max-width: var(--maxw-text);">
+        The kind of profile? The triathlete who runs Claude; the runner who loves their data but won't be told their session.
+        <strong>It's not for you</strong> if you want a turnkey plan dictating every workout: feezify doesn't prescribe.
+      </p>
+    </div>
+  </section>
+
+  <!-- H. INSTALL -->
+  <section class="section section--deep" id="install">
+    <div class="section__inner reveal">
+      <p class="eyebrow">Install</p>
+      <h2>Three moves. No terminal.</h2>
+      <p class="lede">No code required. If you use Claude, you already know how to do all of this:</p>
+      <ul class="card-grid">
+        <li>
+          <div class="card">
+            <span class="step-k">STEP 1</span>
+            <h3>Connect Strava</h3>
+            <p>In Claude: Connectors → <strong>Strava</strong> → authorize. Strava's official connector: read-only, revocable anytime, no keys to handle. <span class="meta">(Strava subscribers; optional — feezify can read your day from your journal alone.)</span></p>
+          </div>
+        </li>
+        <li>
+          <div class="card">
+            <span class="step-k">STEP 2</span>
+            <h3>Install the skill</h3>
+            <p>One zip to download (available when the beta opens), then in Claude: Settings → Skills → <strong>Upload</strong>. The engine ships inside it — nothing else to install.</p>
+          </div>
+        </li>
+        <li>
+          <div class="card">
+            <span class="step-k">STEP 3</span>
+            <h3>Ask for your read</h3>
+            <p>“How am I today?” On the first exchange, feezify creates your core — your own folder — and sets you up in conversation: your baselines, your sport, your first journal entry.</p>
+          </div>
+        </li>
+      </ul>
+      <p class="meta" style="margin-top: 1.6rem;">
+        Prefer the terminal? The <a href="{{ '/docs/install.html' | relative_url }}">developer path</a> (clone, build, your own tokens)
+        stays open — same engine, plus an OpenClaw skill.
+      </p>
+    </div>
+  </section>
+
+  <!-- I. WAITLIST -->
+  <section class="section" id="waitlist">
+    <div class="section__inner reveal">
+      <div class="card waitlist-card">
+        <p class="eyebrow" style="justify-content: center;">Beta soon</p>
+        <h2>Get in before the beta opens</h2>
+        <p>First on the list, first in — and you shape what gets built. Leave your email, that's all.</p>
+        <script async data-uid="{{ site.waitlist_kit_uid }}" src="https://nicolas-jouanno-daniel.kit.com/{{ site.waitlist_kit_uid }}/index.js"></script>
+        <p class="meta">No spam. One word when the beta opens, and that's it. Unsubscribe in one click.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- J. DOCS -->
+  <section class="section section--deep" id="docs">
+    <div class="section__inner reveal">
+      <p class="eyebrow">Documentation</p>
+      <h2>Everything is written down. Read it.</h2>
+      <p class="lede">The full manual ships with the site — the idea, the method, both install paths, privacy. <span class="mono">🇫🇷 <a href="{{ '/docs/fr/' | relative_url }}">Version française</a></span></p>
+      <ul class="card-grid docs-cards">
+        <li><a class="card" href="{{ '/docs/what-is-feezify.html' | relative_url }}"><h3>What is feezify?</h3><p>The idea, what it does and does not do, and how a SaaS became an agent.</p><span class="go">docs/what-is-feezify →</span></a></li>
+        <li><a class="card" href="{{ '/docs/install.html' | relative_url }}"><h3>Installation</h3><p>Both ways in: the no-terminal 3-step path, and the developer path.</p><span class="go">docs/install →</span></a></li>
+        <li><a class="card" href="{{ '/docs/daily-use.html' | relative_url }}"><h3>Daily use</h3><p>Your core folder, how to journal, how to ask for — and read — the read.</p><span class="go">docs/daily-use →</span></a></li>
+        <li><a class="card" href="{{ '/docs/the-method.html' | relative_url }}"><h3>The method</h3><p>TSB, readiness, and the crossing rule — open on purpose.</p><span class="go">docs/the-method →</span></a></li>
+        <li><a class="card" href="{{ '/docs/privacy-and-consent.html' | relative_url }}"><h3>Privacy &amp; consent</h3><p>Local-first, consent-gated connectors, and how to revoke everything.</p><span class="go">docs/privacy-and-consent →</span></a></li>
+        <li><a class="card" href="{{ '/docs/faq.html' | relative_url }}"><h3>FAQ &amp; troubleshooting</h3><p>Common questions and fixes, for both paths.</p><span class="go">docs/faq →</span></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- K. FAQ -->
+  <section class="section" id="faq">
+    <div class="section__inner reveal">
+      <p class="eyebrow">FAQ</p>
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list">
+        <details>
+          <summary>Is feezify a program that gives me my plan?</summary>
+          <p>No, and it's deliberate. feezify reads your day and tells you green / amber / red, with the why. The decision stays yours. It's a copilot: it illuminates, you decide.</p>
+        </details>
+        <details>
+          <summary>Do I need a subscription or a server?</summary>
+          <p>No. There's no app to host, no account to create. feezify is a skill + a markdown folder running on your own AI. Zero infra.</p>
+        </details>
+        <details>
+          <summary>Where does my data go?</summary>
+          <p>Home. Your core is a folder of markdown on your machine. No feezify server, no telemetry. A connector like Strava stays off until you switch it on yourself.</p>
+        </details>
+        <details>
+          <summary>Which AI do I need?</summary>
+          <p>An AI that supports skills — Claude, or a self-hosted agent like OpenClaw. You install feezify on it, and ask it how you are today.</p>
+        </details>
+        <details>
+          <summary>Do I need to know how to code?</summary>
+          <p>No. The base path is <a href="#install">three moves</a>: connect the official Strava connector in Claude, upload the skill (a zip file), ask for your read. No terminal, no API key. The developer path exists too, for those who want their hands in it.</p>
+        </details>
+        <details>
+          <summary>How is this different from analyzing Strava myself?</summary>
+          <p>Strava gives you numbers. feezify <strong>crosses</strong> them with how you feel, applies a rule (the subjective gates), and returns an explained read — not one more table to interpret alone.</p>
+        </details>
+        <details>
+          <summary>Is it ready?</summary>
+          <p>It's a beta on its way. The core works; I'm refining it in the open. The waitlist gets you early access and a say in the first feedback.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- L. SUPPORT + FINAL CTA -->
+  <section class="section section--deep final-cta">
+    <div class="section__inner reveal">
+      <h2>feezify doesn't try to train you. It helps you read yourself.</h2>
+      <p class="lede">
+        Beta on its way. If a tool that reads your day — no server, no account, no orders — speaks to you,
+        you'll be among the first to have it.
+      </p>
+      <div class="btn-row">
+        <a href="#waitlist" class="btn btn--primary">Join the waitlist →</a>
+        <a href="{{ site.github_url }}" class="btn btn--ghost" rel="noopener" target="_blank">Star the repo</a>
+        <a href="{{ site.tipeee_url }}" class="btn btn--ghost" rel="noopener" target="_blank">Support on Tipeee</a>
+      </div>
+      <p class="meta">
+        Built in the evenings, in the open, by <a href="{{ site.author_url }}" rel="noopener">Nicolas Jouanno</a> —
+        frontend developer, former pro cyclist. Free and open source for everyone.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <p style="margin:0;">
+      © 2026 Nicolas Jouanno · <a href="{{ site.github_url }}" rel="noopener" target="_blank">Apache-2.0</a> ·
+      <a href="{{ '/docs/' | relative_url }}">Docs</a> ·
+      <a href="{{ '/fr/' | relative_url }}" lang="fr" hreflang="fr">Français</a>
+    </p>
+    <p class="site-footer__lights" aria-hidden="true"><span class="dot dot--green"></span><span class="dot dot--amber"></span><span class="dot dot--red"></span></p>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "feezify",
+      "applicationCategory": "HealthApplication",
+      "applicationSubCategory": "Training copilot",
+      "operatingSystem": "Claude, OpenClaw",
+      "softwareVersion": "2.0 (beta)",
+      "url": "{{ site.url }}{{ site.baseurl }}/",
+      "sameAs": ["{{ site.github_url }}", "https://www.nicolasjouanno.com/feezify.html"],
+      "description": "AI-native training copilot: a skill and a markdown core running on your own AI. Crosses training load (TSS, CTL, ATL, TSB) with how you feel and tells you how you are today — green, amber or red — without ever prescribing a workout.",
+      "featureList": [
+        "Crosses objective load and subjective feel",
+        "Read of the day: green, amber or red, with the why",
+        "Markdown core you own",
+        "Zero server, zero account, zero telemetry"
+      ],
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "availability": "https://schema.org/PreOrder" },
+      "author": { "@type": "Person", "name": "Nicolas Jouanno", "jobTitle": "Frontend developer", "url": "https://www.nicolasjouanno.com/work.html" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Is feezify a program that gives me my plan?", "acceptedAnswer": { "@type": "Answer", "text": "No. feezify reads your day and tells you green, amber or red with the why. The decision stays yours. It's a copilot: it illuminates, you decide." } },
+        { "@type": "Question", "name": "Do I need a subscription or a server?", "acceptedAnswer": { "@type": "Answer", "text": "No. No app to host, no account. feezify is a skill and a markdown folder running on your own AI. Zero infra." } },
+        { "@type": "Question", "name": "Where does my data go?", "acceptedAnswer": { "@type": "Answer", "text": "Home. Your core is a folder of markdown on your machine. No feezify server, no telemetry. A connector like Strava stays off until you switch it on." } },
+        { "@type": "Question", "name": "Which AI do I need?", "acceptedAnswer": { "@type": "Answer", "text": "An AI that supports skills: Claude, or a self-hosted agent like OpenClaw." } },
+        { "@type": "Question", "name": "Do I need to know how to code?", "acceptedAnswer": { "@type": "Answer", "text": "No. Three moves: connect the official Strava connector in Claude, upload the skill (a zip file), and ask for your read. No terminal, no API key." } },
+        { "@type": "Question", "name": "How is this different from analyzing Strava myself?", "acceptedAnswer": { "@type": "Answer", "text": "feezify crosses the numbers with how you feel, applies a rule (the subjective gates the objective), and returns an explained read." } }
+      ]
+    }
+  ]
+}
+</script>
+<script src="{{ '/assets/js/landing.js' | relative_url }}" defer></script>
+</body>
+</html>

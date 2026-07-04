@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% seo %}
+  <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/docs.css' | relative_url }}">
+</head>
+<body class="docs-body">
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="wordmark" href="{{ '/' | relative_url }}">feezify<span class="wordmark__dot" aria-hidden="true"></span></a>
+    <nav class="site-header__nav" aria-label="Site">
+      {% if page.lang == 'fr' %}
+      <a href="{{ '/docs/fr/' | relative_url }}">Docs</a>
+      <a href="{{ site.github_url }}" rel="noopener" target="_blank">GitHub</a>
+      <a class="lang-switch" href="{{ '/docs/' | relative_url }}" lang="en" hreflang="en">EN</a>
+      {% else %}
+      <a href="{{ '/docs/' | relative_url }}">Docs</a>
+      <a href="{{ site.github_url }}" rel="noopener" target="_blank">GitHub</a>
+      <a class="lang-switch" href="{{ '/docs/fr/' | relative_url }}" lang="fr" hreflang="fr">FR</a>
+      {% endif %}
+    </nav>
+  </div>
+</header>
+
+<div class="docs-shell">
+  <aside class="docs-nav" aria-label="Documentation">
+    {% if page.lang == 'fr' %}
+    <p class="docs-nav__label">Documentation</p>
+    <a href="{{ '/docs/fr/' | relative_url }}" {% if page.url == '/docs/fr/' %}aria-current="page"{% endif %}>Index</a>
+    <a href="{{ '/docs/fr/presentation.html' | relative_url }}" {% if page.url contains 'presentation' %}aria-current="page"{% endif %}>Qu'est-ce que feezify ?</a>
+    <a href="{{ '/docs/fr/installation.html' | relative_url }}" {% if page.url contains 'installation' %}aria-current="page"{% endif %}>Installation</a>
+    <a href="{{ '/docs/fr/utilisation-quotidienne.html' | relative_url }}" {% if page.url contains 'utilisation' %}aria-current="page"{% endif %}>Usage quotidien</a>
+    <a href="{{ '/docs/fr/la-methode.html' | relative_url }}" {% if page.url contains 'la-methode' %}aria-current="page"{% endif %}>La méthode</a>
+    <a href="{{ '/docs/fr/confidentialite-et-consentement.html' | relative_url }}" {% if page.url contains 'confidentialite' %}aria-current="page"{% endif %}>Confidentialité &amp; consentement</a>
+    <a href="{{ '/docs/fr/faq.html' | relative_url }}" {% if page.url contains '/docs/fr/faq' %}aria-current="page"{% endif %}>FAQ</a>
+    <p class="docs-nav__label docs-nav__label--secondary">Ailleurs</p>
+    <a href="{{ '/fr/' | relative_url }}">← Retour au site</a>
+    <a href="{{ site.github_url }}" rel="noopener" target="_blank">Code source</a>
+    {% else %}
+    <p class="docs-nav__label">Documentation</p>
+    <a href="{{ '/docs/' | relative_url }}" {% if page.url == '/docs/' %}aria-current="page"{% endif %}>Index</a>
+    <a href="{{ '/docs/what-is-feezify.html' | relative_url }}" {% if page.url contains 'what-is-feezify' %}aria-current="page"{% endif %}>What is feezify?</a>
+    <a href="{{ '/docs/install.html' | relative_url }}" {% if page.url contains 'install' %}aria-current="page"{% endif %}>Installation</a>
+    <a href="{{ '/docs/daily-use.html' | relative_url }}" {% if page.url contains 'daily-use' %}aria-current="page"{% endif %}>Daily use</a>
+    <a href="{{ '/docs/the-method.html' | relative_url }}" {% if page.url contains 'the-method' %}aria-current="page"{% endif %}>The method</a>
+    <a href="{{ '/docs/privacy-and-consent.html' | relative_url }}" {% if page.url contains 'privacy' %}aria-current="page"{% endif %}>Privacy &amp; consent</a>
+    <a href="{{ '/docs/faq.html' | relative_url }}" {% if page.url == '/docs/faq.html' %}aria-current="page"{% endif %}>FAQ</a>
+    <p class="docs-nav__label docs-nav__label--secondary">Elsewhere</p>
+    <a href="{{ '/' | relative_url }}">← Back to the site</a>
+    <a href="{{ site.github_url }}" rel="noopener" target="_blank">Source code</a>
+    {% endif %}
+  </aside>
+
+  <main class="docs-content" id="main">
+    {{ content }}
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <p>
+      {% if page.lang == 'fr' %}
+      Construit à découvert par <a href="{{ site.author_url }}" rel="noopener">Nicolas Jouanno</a> ·
+      <a href="{{ site.github_url }}" rel="noopener" target="_blank">Code ouvert (Apache-2.0)</a> ·
+      <a href="{{ site.tipeee_url }}" rel="noopener" target="_blank">Soutenir sur Tipeee</a>
+      {% else %}
+      Built in the open by <a href="{{ site.author_url }}" rel="noopener">Nicolas Jouanno</a> ·
+      <a href="{{ site.github_url }}" rel="noopener" target="_blank">Open code (Apache-2.0)</a> ·
+      <a href="{{ site.tipeee_url }}" rel="noopener" target="_blank">Support on Tipeee</a>
+      {% endif %}
+    </p>
+    <p class="site-footer__lights" aria-hidden="true"><span class="dot dot--green"></span><span class="dot dot--amber"></span><span class="dot dot--red"></span></p>
+  </div>
+</footer>
+
+</body>
+</html>
