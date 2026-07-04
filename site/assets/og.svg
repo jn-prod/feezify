@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#FAF9F5"/>
+  <rect x="0" y="0" width="1200" height="10" fill="#2F7D46"/>
+  <g>
+    <circle cx="510" cy="150" r="26" fill="#2F7D46"/>
+    <circle cx="600" cy="150" r="26" fill="#DB8A2B"/>
+    <circle cx="690" cy="150" r="26" fill="#C9503A"/>
+  </g>
+  <text x="600" y="330" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif" font-size="132" font-weight="600" fill="#201F1B">feezify</text>
+  <text x="600" y="410" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="38" fill="#5A574D">The training copilot that reads your form of the day</text>
+  <text x="600" y="480" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-size="27" fill="#8A8577">load × feel → green / amber / red · on your own AI · zero infra</text>
+  <text x="600" y="566" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="24" fill="#8A8577">It reads. You decide. — open source, built in the open</text>
+</svg>

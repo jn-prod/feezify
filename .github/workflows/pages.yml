@@ -30,6 +30,12 @@ jobs:
           rsync -a --delete docs/ site/docs/
           cd site && sh scripts/prepare-docs.sh
 
+      # Social crawlers don't render SVG — produce the OG card as PNG.
+      - name: Generate the OpenGraph image
+        run: |
+          sudo apt-get update -q && sudo apt-get install -y -q librsvg2-bin
+          rsvg-convert -w 1200 -h 630 site/assets/og.svg -o site/assets/og.png
+
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.3"

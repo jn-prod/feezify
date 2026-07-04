@@ -7,8 +7,8 @@ lang: fr
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>feezify — le copilote d'entraînement IA qui lit ta forme du jour</title>
-  <meta name="description" content="feezify croise ta charge d'entraînement et ton ressenti, sur ta propre IA, et te dit comment tu vas aujourd'hui : vert, orange, rouge — et pourquoi. Il t'éclaire, tu décides. Zéro infra, code ouvert.">
+  <title>feezify — le copilote d'entraînement qui lit ta forme du jour</title>
+  <meta name="description" content="feezify, copilote d'entraînement AI-native : il croise ta charge (TSB) et ton ressenti, et te dit vert, orange ou rouge — et pourquoi. Zéro infra, code ouvert.">
   <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}/fr/">
   <link rel="alternate" hreflang="en" href="{{ site.url }}{{ site.baseurl }}/">
   <link rel="alternate" hreflang="fr" href="{{ site.url }}{{ site.baseurl }}/fr/">
@@ -20,7 +20,11 @@ lang: fr
   <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}/fr/">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:locale:alternate" content="en_US">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}/assets/og.png">
   <meta name="twitter:title" content="feezify — le copilote d'entraînement IA qui lit ta forme du jour">
   <meta name="twitter:description" content="Charge × ressenti, croisés sur ta propre IA. Vert, orange ou rouge — et pourquoi. Il t'éclaire, tu décides.">
   <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
@@ -65,6 +69,7 @@ lang: fr
           <a href="{{ site.github_url }}" class="btn btn--ghost" rel="noopener" target="_blank">Voir le code ouvert</a>
         </div>
         <p class="meta">Gratuit · Tourne sur ta propre IA · Zéro infra · 🚧 Beta bientôt, construit à découvert.</p>
+        <p class="meta">Par <a href="{{ site.author_url }}" rel="noopener">Nicolas Jouanno</a> — développeur frontend, <strong>ancien coureur cycliste pro</strong>. La méthode, c'est son jugement de coureur, encodé.</p>
       </div>
 
       <!-- Signature : le produit est une conversation -->
@@ -373,10 +378,12 @@ lang: fr
           </div>
         </li>
       </ul>
-      <p class="meta" style="margin-top: 1.6rem;">
-        Tu préfères le terminal ? Le <a href="{{ '/docs/fr/installation.html' | relative_url }}">parcours développeur</a> (clone, build, tes propres tokens)
-        reste ouvert — même moteur, et une skill OpenClaw en prime.
-      </p>
+      <div class="card" style="margin-top: 1.6rem; border-left: 4px solid var(--green);">
+        <h3>Développeur, ou self-hosteur OpenClaw ? N'attends pas.</h3>
+        <p>Le repo est installable <strong>aujourd'hui</strong> — clone, build, branche ton agent sur la skill. Même moteur, deux surfaces de premier rang : <strong>Claude</strong> et <strong>OpenClaw</strong>.</p>
+        <p class="mono" style="background: var(--paper-deep); border: 1px solid var(--line); border-radius: 8px; padding: 0.6rem 0.9rem; display: inline-block;">git clone https://github.com/jn-prod/feezify</p>
+        <p class="meta" style="margin: 0.4rem 0 0;"><a href="{{ '/docs/fr/installation.html' | relative_url }}#b--parcours-développeur">Suivre le parcours développeur →</a></p>
+      </div>
     </div>
   </section>
 
@@ -386,9 +393,10 @@ lang: fr
       <div class="card waitlist-card">
         <p class="eyebrow" style="justify-content: center;">Beta bientôt</p>
         <h2>Entre en avant-première</h2>
-        <p>Les premiers inscrits passent en premier — et orientent ce qu'on construit. Laisse-moi ton email, c'est tout.</p>
+        <p>Les premiers inscrits façonnent la beta avec moi — vrais retours, réponse directe. Laisse-moi ton email, c'est tout.</p>
         <script async data-uid="{{ site.waitlist_kit_uid }}" src="https://nicolas-jouanno-daniel.kit.com/{{ site.waitlist_kit_uid }}/index.js"></script>
         <p class="meta">Pas de spam. Un mot quand la beta ouvre, et c'est tout. Désinscription en un clic.</p>
+        <p class="meta">La liste d'attente, c'est pour le parcours sans terminal (le zip Claude). Développeur ? <a href="#installer">Le repo est ouvert aujourd'hui.</a></p>
       </div>
     </div>
   </section>
@@ -437,6 +445,10 @@ lang: fr
           <p>Non. Le parcours de base tient en <a href="#installer">trois gestes</a> : connecter le connecteur Strava officiel dans Claude, uploader la skill (un fichier zip), et demander ta lecture. Pas de terminal, pas de clé API. Le parcours développeur existe aussi, pour ceux qui veulent mettre les mains dedans.</p>
         </details>
         <details>
+          <summary>Et ma montre — Garmin, sommeil, HRV ?</summary>
+          <p>Aujourd'hui, les activités entrent par Strava — un adaptateur parmi d'autres à venir : le moteur est provider-agnostique par conception, donc une montre est un adaptateur, pas une réécriture. Le sommeil, la fatigue et le ressenti entrent par ton journal — les chiffres de ta montre peuvent nourrir ce que tu écris, et une ligne honnête sur une mauvaise nuit dit souvent plus vrai qu'un score de sommeil.</p>
+        </details>
+        <details>
           <summary>En quoi c'est différent d'analyser Strava à la main ?</summary>
           <p>Strava te donne des chiffres. feezify les <strong>croise</strong> avec ton ressenti, applique une règle (le subjectif arbitre), et te rend une lecture expliquée — pas un tableau de plus à interpréter seul.</p>
         </details>
@@ -459,7 +471,6 @@ lang: fr
       <div class="btn-row">
         <a href="#waitlist" class="btn btn--primary">Rejoindre la liste d'attente →</a>
         <a href="{{ site.github_url }}" class="btn btn--ghost" rel="noopener" target="_blank">Voir le code sur GitHub</a>
-        <a href="{{ site.tipeee_url }}" class="btn btn--ghost" rel="noopener" target="_blank">Soutenir sur Tipeee</a>
       </div>
       <p class="meta">
         Construit le soir, à découvert, par <a href="{{ site.author_url }}" rel="noopener">Nicolas Jouanno</a> —
@@ -475,6 +486,7 @@ lang: fr
     <p style="margin:0;">
       © 2026 Nicolas Jouanno · <a href="{{ site.github_url }}" rel="noopener" target="_blank">Apache-2.0</a> ·
       <a href="{{ '/docs/fr/' | relative_url }}">Docs</a> ·
+      <a href="{{ site.tipeee_url }}" rel="noopener" target="_blank">Soutenir sur Tipeee</a> ·
       <a href="{{ '/' | relative_url }}" lang="en" hreflang="en">English</a>
     </p>
     <p class="site-footer__lights" aria-hidden="true"><span class="dot dot--green"></span><span class="dot dot--amber"></span><span class="dot dot--red"></span></p>
@@ -491,6 +503,7 @@ lang: fr
       "applicationCategory": "HealthApplication",
       "applicationSubCategory": "Copilote d'entraînement",
       "operatingSystem": "Claude, OpenClaw",
+      "@id": "{{ site.url }}{{ site.baseurl }}/#app",
       "softwareVersion": "2.0 (beta)",
       "url": "{{ site.url }}{{ site.baseurl }}/fr/",
       "inLanguage": "fr",
@@ -499,21 +512,22 @@ lang: fr
       "featureList": [
         "Croise charge objective et ressenti subjectif",
         "Lecture du jour : vert, orange ou rouge, avec le pourquoi",
-        "Coeur markdown que tu possedes",
-        "Zero serveur, zero compte, zero telemetrie"
+        "Cœur markdown que tu possèdes",
+        "Zéro serveur, zéro compte, zéro télémétrie"
       ],
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "availability": "https://schema.org/PreOrder" },
-      "author": { "@type": "Person", "name": "Nicolas Jouanno", "jobTitle": "Developpeur frontend", "url": "https://www.nicolasjouanno.com/work.html" }
+      "author": { "@type": "Person", "name": "Nicolas Jouanno", "jobTitle": "Développeur frontend", "url": "https://www.nicolasjouanno.com/work.html" }
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        { "@type": "Question", "name": "feezify, est-ce un programme qui me donne mon plan ?", "acceptedAnswer": { "@type": "Answer", "text": "Non. feezify lit ta journee et te dit vert, orange ou rouge avec le pourquoi. La decision reste la tienne. C'est un copilote : il t'eclaire, tu decides." } },
-        { "@type": "Question", "name": "Faut-il un abonnement ou un serveur ?", "acceptedAnswer": { "@type": "Answer", "text": "Non. Pas d'appli a heberger, pas de compte. feezify est une skill et un dossier markdown qui tournent sur ta propre IA. Zero infra." } },
-        { "@type": "Question", "name": "Ou vont mes donnees ?", "acceptedAnswer": { "@type": "Answer", "text": "Chez toi. Ton coeur est un dossier de markdown sur ta machine. Pas de serveur feezify, pas de telemetrie. Un connecteur comme Strava reste desactive tant que tu ne l'actives pas." } },
-        { "@type": "Question", "name": "Quelle IA faut-il pour l'utiliser ?", "acceptedAnswer": { "@type": "Answer", "text": "Une IA capable de skills : Claude, ou un agent self-hoste comme OpenClaw." } },
-        { "@type": "Question", "name": "Faut-il savoir coder ?", "acceptedAnswer": { "@type": "Answer", "text": "Non. Trois gestes : connecter le connecteur Strava officiel dans Claude, uploader la skill (un fichier zip), et demander sa lecture. Pas de terminal, pas de cle API." } },
-        { "@type": "Question", "name": "En quoi c'est different d'analyser Strava a la main ?", "acceptedAnswer": { "@type": "Answer", "text": "feezify croise les chiffres avec ton ressenti, applique une regle (le subjectif arbitre), et rend une lecture expliquee." } }
+        { "@type": "Question", "name": "feezify, est-ce un programme qui me donne mon plan ?", "acceptedAnswer": { "@type": "Answer", "text": "Non. feezify lit ta journée et te dit vert, orange ou rouge avec le pourquoi. La décision reste la tienne. C'est un copilote : il t'éclaire, tu décides." } },
+        { "@type": "Question", "name": "Faut-il un abonnement ou un serveur ?", "acceptedAnswer": { "@type": "Answer", "text": "Non. Pas d'appli à héberger, pas de compte. feezify est une skill et un dossier markdown qui tournent sur ta propre IA. Zéro infra." } },
+        { "@type": "Question", "name": "Où vont mes données ?", "acceptedAnswer": { "@type": "Answer", "text": "Chez toi. Ton cœur est un dossier de markdown sur ta machine. Pas de serveur feezify, pas de télémétrie. Un connecteur comme Strava reste désactivé tant que tu ne l'actives pas." } },
+        { "@type": "Question", "name": "Quelle IA faut-il pour l'utiliser ?", "acceptedAnswer": { "@type": "Answer", "text": "Une IA capable de skills : Claude, ou un agent self-hosté comme OpenClaw." } },
+        { "@type": "Question", "name": "Faut-il savoir coder ?", "acceptedAnswer": { "@type": "Answer", "text": "Non. Trois gestes : connecter le connecteur Strava officiel dans Claude, uploader la skill (un fichier zip), et demander sa lecture. Pas de terminal, pas de clé API." } },
+        { "@type": "Question", "name": "Et ma montre — Garmin, sommeil, HRV ?", "acceptedAnswer": { "@type": "Answer", "text": "Aujourd'hui, les activités entrent par Strava — le moteur est provider-agnostique par conception, donc une montre est un adaptateur, pas une réécriture. Le sommeil, la fatigue et le ressenti entrent par ton journal." } },
+        { "@type": "Question", "name": "En quoi c'est différent d'analyser Strava à la main ?", "acceptedAnswer": { "@type": "Answer", "text": "feezify croise les chiffres avec ton ressenti, applique une règle (le subjectif arbitre), et rend une lecture expliquée." } }
       ]
     }
   ]
