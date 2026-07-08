@@ -2,7 +2,7 @@ name: Deploy site to GitHub Pages
 
 on:
   push:
-    branches: [ai-native]
+    branches: [master]
     paths:
       - "site/**"
       - "docs/**"
