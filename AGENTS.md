@@ -1,7 +1,8 @@
 # AGENTS.md
 
 Operating manifest for AI agents (and humans) working on **feezify**.
-Read natively by Claude Code, Codex, Gemini CLI, Copilot, Cursor, etc.
+Read natively by Codex, Gemini CLI, Copilot, Cursor, etc.; Claude Code loads it via the
+`@AGENTS.md` import in `CLAUDE.md` (Claude Code reads CLAUDE.md, not AGENTS.md).
 
 feezify is a training **copilot**, AI-native: a skill + a portable markdown core, zero infra.
 
@@ -246,3 +247,11 @@ scrubbed at the AI-native baseline and must never return.
 - Commits: conventional (`feat(domain): …`, `feat(adapter): …`, `docs: …`, `chore: …`).
 - Dates: absolute `YYYY-MM-DD`.
 - Keep files focused: one responsibility each; split when a file grows unwieldy.
+
+## Studio governance
+
+This repo belongs to Nicolas Jouanno's studio. Cross-cutting governance — voice, conventions,
+activity window (§22), tasks — lives in an external knowledge space, **outside this repo**.
+Entry point: read the value of `STUDIO_ENTRYPOINT_URL` from the `.env` file (git-ignored) and
+fetch the document it references. Without that access, flag it to the founder rather than
+improvising local doctrine.
