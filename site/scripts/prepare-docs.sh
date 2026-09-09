@@ -11,7 +11,7 @@
 #    build time to keep the repo's markdown clean.
 set -e
 
-GITHUB_BLOB="https://github.com/jn-prod/feezify/blob/ai-native"
+GITHUB_BLOB="https://github.com/jn-prod/feezify/blob/master"
 
 for f in docs/fr/*.md; do
   sed -i -E "s|\]\(\.\./\.\./|](${GITHUB_BLOB}/|g" "$f"

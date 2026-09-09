@@ -191,7 +191,7 @@ templates: cite paths, don't copy content.
   pnpm release              # build + changeset publish (only when actually releasing)
   ```
   Pre-1.0: `minor` = feature, `patch` = fix. Config in `.changeset/config.json`
-  (`baseBranch: ai-native`, `access: public`). Don't hand-edit `version` in `package.json` —
+  (`baseBranch: master`, `access: public`). Don't hand-edit `version` in `package.json` —
   let Changesets do it. Tooling/internal-only changes don't need a changeset.
 
 ---
@@ -243,7 +243,7 @@ scrubbed at the AI-native baseline and must never return.
 
 ## Conventions
 
-- Branch: feature work off `ai-native` (not `master`).
+- Branch: feature work off `master`.
 - Commits: conventional (`feat(domain): …`, `feat(adapter): …`, `docs: …`, `chore: …`).
 - Dates: absolute `YYYY-MM-DD`.
 - Keep files focused: one responsibility each; split when a file grows unwieldy.
