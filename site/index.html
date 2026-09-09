@@ -44,7 +44,7 @@ lang: en
       <a href="{{ '/docs/' | relative_url }}">Docs</a>
       <a class="nav-docs-hide" href="{{ site.github_url }}" rel="noopener" target="_blank">GitHub</a>
       <a class="lang-switch" href="{{ '/fr/' | relative_url }}" lang="fr" hreflang="fr">FR</a>
-      <a class="nav-cta" href="#waitlist">Join the waitlist</a>
+      <a class="nav-cta" href="{{ site.substack_cta }}">Follow the beta</a>
     </nav>
   </div>
 </header>
@@ -65,7 +65,7 @@ lang: en
           It reads; you decide.
         </p>
         <div class="btn-row">
-          <a href="#waitlist" class="btn btn--primary">Join the waitlist →</a>
+          <a href="{{ site.substack_cta }}" class="btn btn--primary">Follow the beta</a>
           <a href="{{ site.github_url }}" class="btn btn--ghost" rel="noopener" target="_blank">See the open code</a>
         </div>
         <p class="meta">Free · Runs on your own AI · Zero infra · 🚧 Beta soon, built in the open.</p>
@@ -262,29 +262,9 @@ lang: en
   <!-- F. THE STORY -->
   <section class="section section--deep" id="story">
     <div class="section__inner reveal">
-      <p class="eyebrow eyebrow--amber">Build in public</p>
-      <h2>I killed my SaaS and kept the twenty lines that mattered</h2>
-      <ol class="timeline">
-        <li>
-          <time datetime="2018">2018</time>
-          <p>I launch feezify: a hosted SaaS (Node / Express / Mongo, accounts, database, Strava sync, deploys). On paper, a real little app.</p>
-        </li>
-        <li>
-          <time datetime="2019">2018–2019</time>
-          <p>I run it. And I see the uncomfortable truth: <strong>90% was plumbing</strong>. The value sat in one small thing — crossing objective load with subjective readiness, and the judgment about when feel wins.</p>
-        </li>
-        <li>
-          <time datetime="2025">Then</time>
-          <p>AI agents arrive. All that dead weight loses its reason to exist. The server, the accounts, the frontend: an agent does without them. The method, it can't.</p>
-        </li>
-        <li>
-          <time datetime="2026">2026</time>
-          <p>I unplug it and rebuild feezify <strong>AI-native</strong>: a skill + a markdown core you own, on your own AI. Zero server, zero account, zero telemetry.</p>
-        </li>
-      </ol>
-      <blockquote class="pull-quote" style="margin-top: 2.8rem;">
-        “It took me seven years to understand the product wasn't the code. It was the twenty lines of method in the middle.”
-      </blockquote>
+      <p class="eyebrow eyebrow--amber">Project story</p>
+      <h2>From SaaS to AI agent</h2>
+      <p class="lede">The story behind this rebuild lives on <a href="https://www.nicolasjouanno.com/jai-tue-mon-saas-reconstruit-en-agent-ia.html" hreflang="fr">nicolasjouanno.com</a>. It continues the journey told in <a href="https://www.nicolasjouanno.com/work/" hreflang="fr">From cycling to the web</a>.</p>
     </div>
   </section>
 
@@ -387,16 +367,15 @@ lang: en
     </div>
   </section>
 
-  <!-- I. WAITLIST -->
-  <section class="section" id="waitlist">
+  <!-- I. NEWSLETTER -->
+  <section class="section" id="follow">
     <div class="section__inner reveal">
-      <div class="card waitlist-card">
+      <div class="card follow-card">
         <p class="eyebrow" style="justify-content: center;">Beta soon</p>
-        <h2>Get in before the beta opens</h2>
-        <p>The first in shape the beta with me — real feedback, direct line back. Leave your email, that's all.</p>
-        <script async data-uid="{{ site.waitlist_kit_uid }}" src="https://nicolas-jouanno-daniel.kit.com/{{ site.waitlist_kit_uid }}/index.js"></script>
-        <p class="meta">No spam. One word when the beta opens, and that's it. Unsubscribe in one click.</p>
-        <p class="meta">The waitlist is for the no-terminal path (the Claude zip). Developer? <a href="#install">The repo is open today.</a></p>
+        <h2>Follow the beta</h2>
+        <p>feezify updates go through Nicolas’s newsletter: the same thread for movement, travel, food and the tools that grow from them.</p>
+        <p><a href="{{ site.substack_cta }}" class="btn btn--primary">Subscribe on Substack</a></p>
+        <p class="meta">The no-terminal path is still being refined in the open. Developer? <a href="#install">The repo is installable today.</a></p>
       </div>
     </div>
   </section>
@@ -454,7 +433,7 @@ lang: en
         </details>
         <details>
           <summary>Is it ready?</summary>
-          <p>It's a beta on its way. The core works; I'm refining it in the open. The waitlist gets you early access and a say in the first feedback.</p>
+          <p>It's a beta on its way. The core works; I'm refining it in the open. Updates on the opening go through <a href="{{ site.substack_cta }}">Nicolas’s newsletter</a>.</p>
         </details>
       </div>
     </div>
@@ -466,10 +445,10 @@ lang: en
       <h2>feezify doesn't try to train you. It helps you read yourself.</h2>
       <p class="lede">
         Beta on its way. If a tool that reads your day — no server, no account, no orders — speaks to you,
-        you'll be among the first to have it.
+        you can follow its opening.
       </p>
       <div class="btn-row">
-        <a href="#waitlist" class="btn btn--primary">Join the waitlist →</a>
+        <a href="{{ site.substack_cta }}" class="btn btn--primary">Follow the beta</a>
         <a href="{{ site.github_url }}" class="btn btn--ghost" rel="noopener" target="_blank">Star the repo</a>
       </div>
       <p class="meta">
@@ -516,7 +495,7 @@ lang: en
         "Zero server, zero account, zero telemetry"
       ],
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "availability": "https://schema.org/PreOrder" },
-      "author": { "@type": "Person", "name": "Nicolas Jouanno", "jobTitle": "Frontend developer", "url": "https://www.nicolasjouanno.com/work.html" }
+      "author": { "@type": "Person", "name": "Nicolas Jouanno", "jobTitle": "Frontend developer", "url": "https://www.nicolasjouanno.com/work/" }
     },
     {
       "@type": "FAQPage",

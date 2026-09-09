@@ -1,7 +1,7 @@
 # feezify
 
 > 🚧 **feezify 2.0 — beta bientôt.** La réécriture IA-native de mon ancien SaaS d'entraînement.
-> Tu le veux en avant-première ? **[Rejoins la liste d'attente →](https://www.nicolasjouanno.com/feezify.html)**
+> Suis le build et les nouvelles de la beta dans **[la newsletter de Nicolas](https://bynicolasjd.substack.com/?utm_campaign=profile_chips)**.
 
 **Un copilote d'entraînement, passé en IA-native.** Une skill + un cœur markdown portable.
 Zéro infra.

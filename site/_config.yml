@@ -16,7 +16,7 @@ repository: jn-prod/feezify
 github_url: https://github.com/jn-prod/feezify
 tipeee_url: https://www.tipeee.com/byNicolasJD
 author_url: https://www.nicolasjouanno.com
-waitlist_kit_uid: 97bbf6d980
+substack_cta: https://bynicolasjd.substack.com/?utm_campaign=profile_chips
 
 markdown: kramdown
 kramdown:

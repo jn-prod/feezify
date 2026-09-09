@@ -608,49 +608,6 @@ html:not(.js) .typing { display: none; }
 .remap td:last-child strong { color: var(--green-deep); }
 
 /* --------------------------------------------------------------------------
-   Story timeline
-   -------------------------------------------------------------------------- */
-
-.timeline {
-  list-style: none;
-  margin: 2.4rem 0 0;
-  padding: 0;
-  border-left: 2px solid var(--line-strong);
-}
-
-.timeline li {
-  position: relative;
-  padding: 0 0 2rem 2rem;
-}
-
-.timeline li:last-child { padding-bottom: 0; }
-
-.timeline li::before {
-  content: "";
-  position: absolute;
-  left: -0.48rem;
-  top: 0.45rem;
-  width: 0.8rem;
-  height: 0.8rem;
-  border-radius: 50%;
-  background: var(--paper);
-  border: 2px solid var(--ink-faint);
-}
-
-.timeline li:last-child::before { border-color: var(--green); background: var(--green); }
-
-.timeline time {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
-  color: var(--ink-faint);
-  display: block;
-  margin-bottom: 0.3rem;
-}
-
-.timeline p { margin: 0; max-width: 60ch; }
-
-/* --------------------------------------------------------------------------
    Athletes (line-art SVG)
    -------------------------------------------------------------------------- */
 
@@ -683,7 +640,7 @@ html:not(.js) .typing { display: none; }
 }
 
 /* --------------------------------------------------------------------------
-   Docs cards, FAQ, waitlist, footer
+   Docs cards, FAQ, follow, footer
    -------------------------------------------------------------------------- */
 
 .docs-cards a {
@@ -748,16 +705,14 @@ html:not(.js) .typing { display: none; }
   max-width: var(--maxw-text);
 }
 
-.waitlist-card {
+.follow-card {
   max-width: 620px;
   margin: 0 auto;
   text-align: center;
   padding: 2.6rem 2rem;
 }
 
-.waitlist-card h2 { margin-left: auto; margin-right: auto; }
-
-.waitlist-card .formkit-form { margin: 1.2rem auto 0 !important; }
+.follow-card h2 { margin-left: auto; margin-right: auto; }
 
 .final-cta { text-align: center; }
 

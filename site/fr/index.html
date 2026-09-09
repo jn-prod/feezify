@@ -44,7 +44,7 @@ lang: fr
       <a href="{{ '/docs/fr/' | relative_url }}">Docs</a>
       <a class="nav-docs-hide" href="{{ site.github_url }}" rel="noopener" target="_blank">GitHub</a>
       <a class="lang-switch" href="{{ '/' | relative_url }}" lang="en" hreflang="en">EN</a>
-      <a class="nav-cta" href="#waitlist">Liste d'attente</a>
+      <a class="nav-cta" href="{{ site.substack_cta }}">Suivre la beta</a>
     </nav>
   </div>
 </header>
@@ -65,7 +65,7 @@ lang: fr
           Il t'éclaire ; c'est toi qui décides.
         </p>
         <div class="btn-row">
-          <a href="#waitlist" class="btn btn--primary">Rejoindre la liste d'attente →</a>
+          <a href="{{ site.substack_cta }}" class="btn btn--primary">Suivre la beta</a>
           <a href="{{ site.github_url }}" class="btn btn--ghost" rel="noopener" target="_blank">Voir le code ouvert</a>
         </div>
         <p class="meta">Gratuit · Tourne sur ta propre IA · Zéro infra · 🚧 Beta bientôt, construit à découvert.</p>
@@ -262,29 +262,9 @@ lang: fr
   <!-- F. L'HISTOIRE -->
   <section class="section section--deep" id="histoire">
     <div class="section__inner reveal">
-      <p class="eyebrow eyebrow--amber">Build in public</p>
-      <h2>J'ai tué mon SaaS et gardé les vingt lignes qui comptaient</h2>
-      <ol class="timeline">
-        <li>
-          <time datetime="2018">2018</time>
-          <p>Je lance feezify : un SaaS hébergé (Node / Express / Mongo, comptes, base, sync Strava, déploiements). Sur le papier, une vraie petite appli.</p>
-        </li>
-        <li>
-          <time datetime="2019">2018–2019</time>
-          <p>Je le fais tourner. Et je vois la vérité gênante : <strong>90 % n'était que de la tuyauterie</strong>. La valeur tenait dans une toute petite chose — croiser la charge objective avec la disponibilité subjective, et ce jugement sur le moment où le ressenti l'emporte.</p>
-        </li>
-        <li>
-          <time datetime="2025">Puis</time>
-          <p>Les agents IA arrivent. Et ce poids mort n'a plus aucune raison d'exister. Le serveur, les comptes, le frontend : un agent s'en passe. Pas la méthode.</p>
-        </li>
-        <li>
-          <time datetime="2026">2026</time>
-          <p>Je débranche, et je reconstruis feezify <strong>IA-native</strong> : une skill + un cœur markdown qui t'appartient, sur ta propre IA. Zéro serveur, zéro compte, zéro télémétrie.</p>
-        </li>
-      </ol>
-      <blockquote class="pull-quote" style="margin-top: 2.8rem;">
-        « J'ai mis sept ans à comprendre que le produit, ce n'était pas le code. C'était les vingt lignes de méthode au milieu. »
-      </blockquote>
+      <p class="eyebrow eyebrow--amber">Histoire du projet</p>
+      <h2>Du SaaS à l'agent IA</h2>
+      <p class="lede">L'histoire de cette reconstruction est racontée sur <a href="https://www.nicolasjouanno.com/jai-tue-mon-saas-reconstruit-en-agent-ia.html">nicolasjouanno.com</a>. Elle prolonge le parcours <a href="https://www.nicolasjouanno.com/work/">Du vélo au web</a>.</p>
     </div>
   </section>
 
@@ -387,16 +367,15 @@ lang: fr
     </div>
   </section>
 
-  <!-- I. WAITLIST -->
-  <section class="section" id="waitlist">
+  <!-- I. NEWSLETTER -->
+  <section class="section" id="suivre">
     <div class="section__inner reveal">
-      <div class="card waitlist-card">
+      <div class="card follow-card">
         <p class="eyebrow" style="justify-content: center;">Beta bientôt</p>
-        <h2>Entre en avant-première</h2>
-        <p>Les premiers inscrits façonnent la beta avec moi — vrais retours, réponse directe. Laisse-moi ton email, c'est tout.</p>
-        <script async data-uid="{{ site.waitlist_kit_uid }}" src="https://nicolas-jouanno-daniel.kit.com/{{ site.waitlist_kit_uid }}/index.js"></script>
-        <p class="meta">Pas de spam. Un mot quand la beta ouvre, et c'est tout. Désinscription en un clic.</p>
-        <p class="meta">La liste d'attente, c'est pour le parcours sans terminal (le zip Claude). Développeur ? <a href="#installer">Le repo est ouvert aujourd'hui.</a></p>
+        <h2>Suivre la beta</h2>
+        <p>Les nouvelles de feezify passent par la newsletter de Nicolas : le même fil pour le mouvement, le voyage, la table et les outils qui en naissent.</p>
+        <p><a href="{{ site.substack_cta }}" class="btn btn--primary">S’abonner sur Substack</a></p>
+        <p class="meta">Le parcours sans terminal est encore affiné à découvert. Développeur ? <a href="#installer">Le repo est installable aujourd’hui.</a></p>
       </div>
     </div>
   </section>
@@ -454,7 +433,7 @@ lang: fr
         </details>
         <details>
           <summary>C'est prêt ?</summary>
-          <p>C'est une beta qui arrive. Le cœur fonctionne, je l'affine à découvert. La liste d'attente, c'est pour l'avant-première et faire partie des premiers retours.</p>
+          <p>C'est une beta qui arrive. Le cœur fonctionne, je l'affine à découvert. Les nouvelles de son ouverture passent par <a href="{{ site.substack_cta }}">la newsletter de Nicolas</a>.</p>
         </details>
       </div>
     </div>
@@ -466,10 +445,10 @@ lang: fr
       <h2>feezify n'essaie pas de te dicter ta séance. Il t'aide à te lire.</h2>
       <p class="lede">
         Il arrive en beta. Si l'idée d'un outil qui lit ta journée — sans serveur, sans compte, sans te dire quoi faire —
-        te parle, tu seras parmi les premiers à l'avoir.
+        te parle, tu peux suivre son ouverture.
       </p>
       <div class="btn-row">
-        <a href="#waitlist" class="btn btn--primary">Rejoindre la liste d'attente →</a>
+        <a href="{{ site.substack_cta }}" class="btn btn--primary">Suivre la beta</a>
         <a href="{{ site.github_url }}" class="btn btn--ghost" rel="noopener" target="_blank">Voir le code sur GitHub</a>
       </div>
       <p class="meta">
@@ -516,7 +495,7 @@ lang: fr
         "Zéro serveur, zéro compte, zéro télémétrie"
       ],
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "availability": "https://schema.org/PreOrder" },
-      "author": { "@type": "Person", "name": "Nicolas Jouanno", "jobTitle": "Développeur frontend", "url": "https://www.nicolasjouanno.com/work.html" }
+      "author": { "@type": "Person", "name": "Nicolas Jouanno", "jobTitle": "Développeur frontend", "url": "https://www.nicolasjouanno.com/work/" }
     },
     {
       "@type": "FAQPage",
