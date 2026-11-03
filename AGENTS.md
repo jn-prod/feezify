@@ -217,20 +217,19 @@ Tick each box as it's done. While the list has open boxes, the release stays in 
 
 ---
 
-## Git — protected window (§22, same rules as corp-ai)
+## Git — protected window (same rules as alfred)
 
-This repo follows the **same protected-hours rule as corp-ai** (SYSTEM.md §22), enforced by
-husky:
+This repo follows the **same protected-hours rule as alfred**, enforced by husky:
 
-- `.husky/pre-commit` blocks commits **Mon–Fri 08:00–13:00 & 14:00–20:00 Europe/Paris**.
-- `.husky/pre-push` delegates to the shared corp-ai gate (§22 + privacy denylist + PII
-  anonymize): `$HOME/corp-ai/tools/scripts/pre-push-gate.sh`.
+- Commit at any time: `.husky/pre-commit` only scans for secrets.
+- `.husky/pre-push` runs the privacy scan of nicolasjouanno.com, then
+  `$HOME/alfred/hooks/push-programme.sh`: during the window a push is queued and leaves at the
+  next slot, with its commits redated.
 
-Always check `TZ=Europe/Paris date` before a commit/push. Safe windows: weekends, ≥20:00,
-06:00–07:59, lunch 13:00–13:59. Founder bypass (with risk mention): `git commit --no-verify`.
+Founder bypass (with risk mention): `git push --no-verify`.
 
 Privacy audit before committing — generic patterns (no PII inlined here on purpose; the
-shared corp-ai gate holds the real denylist of names/places/IDs and enforces it on push):
+privacy scan holds the real denylist of names/places/IDs and enforces it on push):
 ```bash
 # personal emails (allow none) and any leftover legacy contact strings
 grep -rinE "[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,}" . \

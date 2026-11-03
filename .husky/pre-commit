@@ -1,10 +1,8 @@
 #!/bin/sh
 # pre-commit — feezify
-# 1) Secrets : les tokens vivent UNIQUEMENT dans .env (gitignoré), jamais dans un fichier suivi.
-# 2) Fenêtre protégée §22 — déléguée au repo harness (source unique).
-# Bypass fondateur (avec mention du risque) : git commit --no-verify
+# Secrets : les tokens vivent UNIQUEMENT dans .env (gitignoré), jamais dans un fichier suivi.
+# On commite à toute heure : la fenêtre protégée s'applique au push (.husky/pre-push).
 
-# --- 1) Scan secrets (toujours, quelle que soit l'heure) ---
 staged_env=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^\.env($|\.)' | grep -v '^\.env\.example$' || true)
 if [ -n "$staged_env" ]; then
   echo ""
@@ -26,27 +24,6 @@ if [ -n "$leaks" ]; then
   echo "Déplace-le dans .env (gitignoré) et retire-le du fichier. Voir AGENTS.md → Secrets."
   echo "Override conscient : git commit --no-verify"
   echo ""
-  exit 1
-fi
-
-# --- 2) Fenetre protegee §22 — SOURCE UNIQUE (repo harness) ---
-# Ce bloc recopiait la regle en dur, et la copie avait DIVERGE : elle ignorait les
-# JOURS FERIES (D-2026-07-14-001), donc feezify bloquait un jour ou le fondateur est
-# off pendant que vtt.bzh et nj.com laissaient passer. C'est precisement le probleme
-# que la source unique existe pour supprimer. Delegation depuis le 2026-07-22.
-# Harnais injoignable => on REFUSE (fail-closed).
-FENETRE="${HARNESS_GATE_DIR:-$HOME/harness/tools/scripts}/fenetre-protegee.sh"
-if [ -x "$FENETRE" ]; then
-  if "$FENETRE"; then
-    echo ""
-    echo "Commit bloque - fenetre protegee (SYSTEM §22)"
-    echo "Bypass fondateur (avec mention du risque) : git commit --no-verify"
-    echo ""
-    exit 1
-  fi
-else
-  echo "Commit refuse : $FENETRE introuvable (fail-closed)."
-  echo "Regler HARNESS_GATE_DIR vers le repo harness, ou bypass : git commit --no-verify"
   exit 1
 fi
 

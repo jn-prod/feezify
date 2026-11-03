@@ -1,19 +1,14 @@
-#!/usr/bin/env sh
-# pre-push — délègue à la gate transverse du harnais (D-2026-06-09-001).
-# Fichier IDENTIQUE dans tous les repos consommateurs (vtt.bzh, nj.com, feezify, harness).
-#
-# FAIL-CLOSED depuis le 2026-07-22. Avant, un harnais introuvable laissait passer le push
-# avec un simple avertissement : un chemin cassé désarmait donc EN SILENCE la fenêtre §22
-# ET le controle PII — au moment précis où on ne s'y attend pas (harnais déplacé, machine
-# neuve, clone frais). Un garde-fou qui s'éteint sans bruit n'est pas un garde-fou.
-#
-# Bypass fondateur assumé : git push --no-verify
-GATE="${HARNESS_GATE:-$HOME/harness/tools/scripts/pre-push-gate.sh}"
-if [ -x "$GATE" ]; then
-  exec "$GATE"
+#!/bin/sh
+# pre-push : mêmes contrôles que les deux sites, sans en recopier le code.
+# 1) Confidentialité avant que le contenu parte sur GitHub : scan de nj.com, denylist dans
+#    ~/alfred/.privacy-denylist.
+# 2) Programmation du push : alfred/hooks/push-programme.sh.
+# Contrôle introuvable => push refusé (fail-closed).
+HOOKS="${ALFRED_HOOKS:-$HOME/alfred/hooks}"
+SCAN="${PRIVACY_SCAN:-$HOME/www-nicolasjouanno-com/scripts/privacy-scan.mjs}"
+if [ ! -f "$HOOKS/push-programme.sh" ] || [ ! -f "$SCAN" ]; then
+  echo "Push refuse : $HOOKS ou $SCAN introuvable. Regler ALFRED_HOOKS ou PRIVACY_SCAN."
+  exit 1
 fi
-echo ""
-echo "Push refuse : harnais introuvable ($GATE)."
-echo "Regler HARNESS_GATE vers le repo harness, ou bypass fondateur : git push --no-verify"
-echo ""
-exit 1
+node "$SCAN" || { echo "Push refuse (confidentialite)."; exit 1; }
+exec bash "$HOOKS/push-programme.sh" verifier "$@"
