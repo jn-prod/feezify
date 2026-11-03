@@ -8,8 +8,8 @@ description: >-
   feezify crosses your training load with how you actually feel, on your own AI,
   and tells you how you are today — green, amber or red — and why.
   It reads; you decide. Zero infra.
-url: "https://jn-prod.github.io"
-baseurl: "/feezify"
+url: "https://feezify.nicolasjouanno.com"
+baseurl: ""
 lang: en
 
 repository: jn-prod/feezify
