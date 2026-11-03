@@ -15,7 +15,8 @@ lang: en
 repository: jn-prod/feezify
 github_url: https://github.com/jn-prod/feezify
 author_url: https://www.nicolasjouanno.com
-substack_cta: https://bynicolasjd.substack.com/?utm_campaign=profile_chips
+# Design system: stylesheet of nicolasjouanno.com, loaded as is (site/_includes/design-head.html).
+design_css: https://www.nicolasjouanno.com/assets/main.css
 
 markdown: kramdown
 kramdown:

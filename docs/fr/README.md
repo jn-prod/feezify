@@ -50,8 +50,7 @@ Tout le reste ne fait que détailler ces quatre gestes.
   readiness, et la règle de croisement. Ouverte volontairement.
 - **[Confidentialité & consentement](confidentialite-et-consentement.md)** — local-first,
   connecteurs sous consentement, où vivent les tokens, comment tout révoquer.
-- **[FAQ & dépannage](faq.md)** — questions fréquentes et correctifs, pour les deux
-  parcours.
+- **[FAQ & dépannage](faq.md)** — questions fréquentes et correctifs.
 
 ## Sources canoniques dans le repo
 

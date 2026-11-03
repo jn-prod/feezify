@@ -5,7 +5,7 @@
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* Hero chat: user asks, copilot "types", the read appears. */
-  var chat = document.querySelector(".chat");
+  var chat = document.querySelector(".f-chat");
   if (chat) {
     var user = chat.querySelector('[data-stage="1"]');
     var typing = chat.querySelector('[data-stage="2"]');
@@ -36,35 +36,19 @@
     function show(key) {
       var s = scenarios[key];
       if (!s) return;
-      light.className = "dot dot--" + s.light;
+      light.className = "f-light f-light--" + s.light;
       verdict.textContent = s.verdict;
       why.textContent = s.why;
       buttons.forEach(function (b) {
-        b.setAttribute("aria-pressed", String(b.dataset.scenario === key));
+        var on = b.dataset.scenario === key;
+        b.setAttribute("aria-pressed", String(on));
+        b.classList.toggle("c-button--dark", on);
+        b.classList.toggle("c-button--dark-outline", !on);
       });
     }
 
     buttons.forEach(function (b) {
       b.addEventListener("click", function () { show(b.dataset.scenario); });
     });
-  }
-
-  /* Scroll reveal. */
-  var revealed = document.querySelectorAll(".reveal");
-  if ("IntersectionObserver" in window && !reduced) {
-    var io = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) {
-            e.target.classList.add("is-in");
-            io.unobserve(e.target);
-          }
-        });
-      },
-      { rootMargin: "0px 0px -8% 0px" }
-    );
-    revealed.forEach(function (el) { io.observe(el); });
-  } else {
-    revealed.forEach(function (el) { el.classList.add("is-in"); });
   }
 })();

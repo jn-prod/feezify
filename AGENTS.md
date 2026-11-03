@@ -7,6 +7,7 @@ Read natively by Codex, Gemini CLI, Copilot, Cursor, etc.; Claude Code loads it 
 feezify is a training **copilot**, AI-native: a skill + a portable markdown core, zero infra.
 
 **Reference files — read the source, never restate it here (DRY):**
+- Site design (`site/`): the shared design system of nicolasjouanno.com, loaded as is; `site/assets/css/feezify.css` only holds the product's `.f-*` components → [contract](https://github.com/jn-prod/alfred/blob/main/skills/design/contrat.md)
 - Onboarding (setup + daily use; sectioned — the AI ticks the **Initialisation** checkboxes `- [x]` as it progresses, like a SaaS onboarding) → [`onboarding.md`](onboarding.md)
 - The method (the crossing rule, open) → [`src/adapters/claude-skill/method.md`](src/adapters/claude-skill/method.md)
 - Journal entry format → [`core-template/templates/journal-day.md`](core-template/templates/journal-day.md)

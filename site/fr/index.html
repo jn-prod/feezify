@@ -27,72 +27,72 @@ lang: fr
   <meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}/assets/og.png">
   <meta name="twitter:title" content="feezify — le copilote d'entraînement IA qui lit ta forme du jour">
   <meta name="twitter:description" content="Charge × ressenti, croisés sur ta propre IA. Vert, orange ou rouge — et pourquoi. Il t'éclaire, tu décides.">
-  <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+  {% include design-head.html %}
   <script>document.documentElement.classList.add('js');</script>
 </head>
-<body>
+<body class="c-layout">
+<a href="#main" class="skip-link">Aller au contenu</a>
 
-<header class="site-header">
-  <div class="site-header__inner">
-    <a class="wordmark" href="{{ '/fr/' | relative_url }}">feezify<span class="wordmark__dot" aria-hidden="true"></span></a>
-    <nav class="site-header__nav" aria-label="Site">
-      <a class="nav-docs-hide" href="#methode">La méthode</a>
-      <a href="{{ '/docs/fr/' | relative_url }}">Docs</a>
-      <a class="nav-docs-hide" href="{{ site.github_url }}" rel="noopener" target="_blank">GitHub</a>
-      <a class="lang-switch" href="{{ '/' | relative_url }}" lang="en" hreflang="en">EN</a>
-      <a class="nav-cta" href="{{ site.substack_cta }}">Suivre la beta</a>
-    </nav>
-  </div>
-</header>
+<div class="c-layout__header-bar">
+  <header role="banner" class="c-layout__header">
+    <div class="c-navigation">
+      <a class="c-navigation__title u-link--dark" href="{{ '/fr/' | relative_url }}">feezify</a>
+      <nav aria-label="Site" class="c-navigation__actions">
+        <ul class="u-list c-navigation__link-list">
+          <li class="c-navigation__link-list-element"><a class="c-button" href="{{ '/docs/fr/' | relative_url }}">Docs</a></li>
+          <li class="c-navigation__link-list-element"><a class="c-button" href="{{ '/' | relative_url }}" lang="en" hreflang="en">EN</a></li>
+          <li class="c-navigation__link-list-element"><a class="c-button c-button--brand" href="{{ site.github_url }}" rel="noopener" target="_blank">GitHub</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+</div>
 
-<main id="main">
+<main role="main" id="main" class="c-layout__content f-page">
 
   <!-- A. HERO -->
-  <section class="hero">
-    <div class="hero__inner">
-      <div class="hero__copy">
-        <p class="eyebrow">Copilote d'entraînement · AI-native · Code ouvert</p>
+  <section class="c-section">
+    <div class="f-hero">
+      <div class="f-hero__copy">
+        <p class="c-tag">Copilote d'entraînement · AI-native · Code ouvert</p>
         <h1>Le copilote d'entraînement IA qui <em>lit</em> ta forme du jour</h1>
-        <p class="lede">
+        <p>
           En 2018, j'ai lancé un SaaS d'entraînement. En 2026, je l'ai débranché et reconstruit en
           copilote <strong>IA-native</strong> : zéro serveur, zéro compte, il tourne sur <em>ta</em>
           propre IA. Il lit ta journée — <strong>charge × ressenti</strong> — et te dit
           <strong>vert, orange ou rouge</strong>, et surtout <em>pourquoi</em>.
           Il t'éclaire ; c'est toi qui décides.
         </p>
-        <div class="btn-row">
-          <a href="{{ site.substack_cta }}" class="btn btn--primary">Suivre la beta</a>
-          <a href="{{ site.github_url }}" class="btn btn--ghost" rel="noopener" target="_blank">Voir le code ouvert</a>
+        <div class="c-button-stack u-spacing--block-end-medium">
+          <a href="{{ site.github_url }}" class="c-button c-button--brand" rel="noopener" target="_blank">Voir le code ouvert</a>
+          <a href="{{ '/docs/fr/' | relative_url }}" class="c-button c-button--dark-outline">Lire la doc</a>
         </div>
-        <p class="meta">Gratuit · Tourne sur ta propre IA · Zéro infra · 🚧 Beta bientôt, construit à découvert.</p>
-        <p class="meta">Par <a href="{{ site.author_url }}" rel="noopener">Nicolas Jouanno</a> — développeur frontend, <strong>ancien coureur cycliste pro</strong>. La méthode, c'est son jugement de coureur, encodé.</p>
+        <p class="c-meta">Gratuit · Tourne sur ta propre IA · Zéro infra · Code ouvert.</p>
+        <p class="c-meta">J'ai arrêté de développer feezify en septembre 2026. Le code, la méthode et la doc restent ouverts.</p>
+        <p class="c-meta">Par <a href="{{ site.author_url }}" rel="noopener">Nicolas Jouanno</a> — développeur frontend, <strong>ancien coureur cycliste pro</strong>. La méthode, c'est son jugement de coureur, encodé.</p>
       </div>
 
       <!-- Signature : le produit est une conversation -->
-      <div class="chat" role="img" aria-label="Une conversation avec feezify : « Comment je vais aujourd'hui ? » — « Orange : prudence. Charge haute sur 3 jours et nuit courte. Tes jambes peuvent répondre, ton ressenti dit de lever le pied. »">
-        <div class="chat__bar">
-          <span class="chat__lights" aria-hidden="true"><span class="dot dot--green"></span><span class="dot dot--amber"></span><span class="dot dot--red"></span></span>
-          <span class="chat__title">feezify · aujourd'hui</span>
+      <div class="f-chat" role="img" aria-label="Une conversation avec feezify : « Comment je vais aujourd'hui ? » — « Orange : prudence. Charge haute sur 3 jours et nuit courte. Tes jambes peuvent répondre, ton ressenti dit de lever le pied. »">
+        <div class="f-chat__bar">
+          <span class="f-chat__lights" aria-hidden="true"><span class="f-light f-light--green"></span><span class="f-light f-light--amber"></span><span class="f-light f-light--red"></span></span>
+          <span class="f-chat__title">feezify · aujourd'hui</span>
         </div>
-        <div class="chat__thread">
-          <div class="bubble bubble--user" data-stage="1">Comment je vais aujourd'hui ?</div>
-          <div class="typing" data-stage="2" aria-hidden="true"><span></span><span></span><span></span></div>
-          <div class="bubble bubble--assistant" data-stage="3">
-            <p class="read-light"><span class="dot dot--amber"></span> Orange — prudence.</p>
-            <div class="read-chips">
-              <span class="chip">forme TSB −14</span>
-              <span class="chip">dispo 52/100</span>
-              <span class="chip">sommeil 5h40</span>
+        <div class="f-chat__thread">
+          <div class="f-bubble f-bubble--user" data-stage="1">Comment je vais aujourd'hui ?</div>
+          <div class="f-typing" data-stage="2" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="f-bubble f-bubble--assistant" data-stage="3">
+            <div class="f-read__light"><span class="f-light f-light--amber"></span> Orange — prudence.</div>
+            <div class="f-read__chips">
+              <span class="f-read__chip">forme TSB −14</span>
+              <span class="f-read__chip">dispo 52/100</span>
+              <span class="f-read__chip">sommeil 5h40</span>
             </div>
-            <p class="read-why">Charge haute sur 3 jours × nuit courte. Tes jambes peuvent répondre — ton propre journal dit de lever le pied.</p>
-            <p class="read-rule">Le ressenti arbitre ce que disent les chiffres.</p>
+            <div class="f-read__why">Charge haute sur 3 jours × nuit courte. Tes jambes peuvent répondre — ton propre journal dit de lever le pied.</div>
+            <div class="f-read__rule">Le ressenti arbitre ce que disent les chiffres.</div>
           </div>
         </div>
-        <div class="chat__input" aria-hidden="true">
+        <div class="f-chat__input" aria-hidden="true">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8h12M10 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           Demande à feezify…
         </div>
@@ -101,11 +101,11 @@ lang: fr
   </section>
 
   <!-- B. LE PROBLÈME -->
-  <section class="section section--deep">
-    <div class="section__inner reveal">
-      <p class="eyebrow eyebrow--red">Le problème</p>
-      <h2>Tu t'entraînes à l'aveugle sur un des deux axes</h2>
-      <div class="section__inner--narrow" style="margin: 0;">
+  <section class="c-section">
+    <div class="u-container">
+      <p class="c-tag">Le problème</p>
+      <h2 class="c-section__title">Tu t'entraînes à l'aveugle sur un des deux axes</h2>
+      <div>
         <p>
           Premier piège : tu écoutes les chiffres. Forme fraîche, charge basse, l'appli dit « vas-y » —
           et tu pars sur une journée où ton corps disait clairement non. Une semaine plus tard, tu paies.
@@ -114,54 +114,54 @@ lang: fr
           Second piège : tu écoutes ton humeur du matin, et tu rates les jours où tu étais réellement prêt à pousser.
         </p>
       </div>
-      <blockquote class="pull-quote" style="margin-top: 2.5rem;">
-        « On programme la charge. On oublie l'état de celui qui l'encaisse. »
-      </blockquote>
+      <div class="c-card c-card--neutral c-card--large u-spacing--block-start-medium">
+        <blockquote class="c-quote c-quote--small"><p class="c-quote__text">« On programme la charge. On oublie l'état de celui qui l'encaisse. »</p></blockquote>
+      </div>
     </div>
   </section>
 
   <!-- C. LA MÉTHODE -->
-  <section class="section" id="methode">
-    <div class="section__inner reveal">
-      <p class="eyebrow">La méthode — publique, volontairement</p>
-      <h2>Croiser ta charge et ton ressenti</h2>
-      <p class="lede">Le vrai sujet n'est ni les chiffres ni le ressenti tout seuls. C'est le <strong>croisement</strong> des deux — et savoir, dans le doute, lequel doit l'emporter.</p>
-      <ul class="card-grid">
+  <section class="c-section" id="methode">
+    <div class="u-container">
+      <p class="c-tag">La méthode — publique, volontairement</p>
+      <h2 class="c-section__title">Croiser ta charge et ton ressenti</h2>
+      <p>Le vrai sujet n'est ni les chiffres ni le ressenti tout seuls. C'est le <strong>croisement</strong> des deux — et savoir, dans le doute, lequel doit l'emporter.</p>
+      <ul class="f-grid">
         <li>
-          <div class="card">
-            <span class="step-k">01 · OBJECTIF</span>
+          <div class="c-card c-card--neutral f-grid__card">
+            <span class="c-meta f-grid__step">01 · OBJECTIF</span>
             <h3>La charge</h3>
-            <p>À partir de tes activités, feezify calcule ta charge en vraies moyennes exponentielles (<span class="mono">TSS → CTL / ATL / TSB</span>). Le TSB te donne ta forme. C'est déterministe — des maths, pas une opinion.</p>
+            <p>À partir de tes activités, feezify calcule ta charge en vraies moyennes exponentielles (<code class="f-code">TSS → CTL / ATL / TSB</code>). Le TSB te donne ta forme. C'est déterministe — des maths, pas une opinion.</p>
           </div>
         </li>
         <li>
-          <div class="card">
-            <span class="step-k">02 · SUBJECTIF</span>
+          <div class="c-card c-card--neutral f-grid__card">
+            <span class="c-meta f-grid__step">02 · SUBJECTIF</span>
             <h3>Le ressenti</h3>
             <p>Ton journal donne ta disponibilité réelle : sommeil, fatigue, motivation, stress, sensations des jambes, ce qui se passe en dehors du sport.</p>
           </div>
         </li>
         <li>
-          <div class="card">
-            <span class="step-k">03 · LE CROISEMENT</span>
+          <div class="c-card c-card--neutral f-grid__card">
+            <span class="c-meta f-grid__step">03 · LE CROISEMENT</span>
             <h3>La lecture</h3>
             <p>feezify pose un signal — <strong>vert, orange ou rouge</strong> — et surtout l'explication. La couleur ne se discute pas ; le pourquoi est en clair.</p>
           </div>
         </li>
       </ul>
 
-      <div class="card rule-card" style="margin-top: 1.1rem;">
+      <div class="c-card c-card--neutral c-card--large u-spacing--block-start-medium">
         <p><strong>La règle, celle qui faisait toute la valeur de l'ancienne appli : le subjectif arbitre l'objectif.</strong></p>
-        <ul style="margin: 0; padding-left: 1.2rem;">
+        <ul>
           <li>Blessure ou maladie → toujours rouge.</li>
           <li>Disponibilité basse → jamais vert.</li>
           <li>Des jambes fraîches ne passent <strong>jamais</strong> avant un corps qui dit non.</li>
         </ul>
-        <p class="meta" style="margin: 0.9rem 0 0;">La méthode est publique, volontairement : c'est le sujet, pas un secret. <a href="{{ '/docs/fr/la-methode.html' | relative_url }}">La lire en entier →</a></p>
+        <p class="c-meta">La méthode est publique, volontairement : c'est le sujet, pas un secret. <a href="{{ '/docs/fr/la-methode.html' | relative_url }}">La lire en entier →</a></p>
       </div>
 
       <!-- Mini-démo déterministe -->
-      <div class="rule-demo reveal" id="rule-demo">
+      <div class="f-demo" id="rule-demo">
         <script type="application/json">
         {
           "fresh": {
@@ -182,17 +182,17 @@ lang: fr
         }
         </script>
         <h3>Essaie la règle</h3>
-        <p class="meta">Trois vrais matins. Les mêmes maths, des corps différents — regarde quel côté l'emporte.</p>
-        <div class="rule-demo__choices" role="group" aria-label="Choisis un scénario">
-          <button type="button" data-scenario="fresh" aria-pressed="false">Jambes fraîches · nuit courte</button>
-          <button type="button" data-scenario="solid" aria-pressed="true">Bon sommeil · bloc solide</button>
-          <button type="button" data-scenario="injury" aria-pressed="false">Chiffres au vert · genou douloureux</button>
+        <p class="c-meta">Trois vrais matins. Les mêmes maths, des corps différents — regarde quel côté l'emporte.</p>
+        <div class="c-button-stack f-demo__choices" role="group" aria-label="Choisis un scénario">
+          <button type="button" class="c-button c-button--dark-outline f-demo__choice" data-scenario="fresh" aria-pressed="false">Jambes fraîches · nuit courte</button>
+          <button type="button" class="c-button c-button--dark f-demo__choice" data-scenario="solid" aria-pressed="true">Bon sommeil · bloc solide</button>
+          <button type="button" class="c-button c-button--dark-outline f-demo__choice" data-scenario="injury" aria-pressed="false">Chiffres au vert · genou douloureux</button>
         </div>
-        <div class="rule-demo__result" aria-live="polite">
-          <span class="dot dot--green" data-role="light"></span>
+        <div class="c-card c-card--flat f-demo__result" aria-live="polite">
+          <span class="f-light f-light--green" data-role="light" aria-hidden="true"></span>
           <div>
-            <p class="verdict" data-role="verdict">Vert — vas-y.</p>
-            <p class="why" data-role="why">Disponibilité haute, forme non négative. Les deux axes sont d'accord : la journée peut encaisser de la qualité.</p>
+            <p class="f-demo__verdict" data-role="verdict">Vert — vas-y.</p>
+            <p class="f-demo__why" data-role="why">Disponibilité haute, forme non négative. Les deux axes sont d'accord : la journée peut encaisser de la qualité.</p>
           </div>
         </div>
       </div>
@@ -200,13 +200,15 @@ lang: fr
   </section>
 
   <!-- D. COPILOTE, PAS UN PROGRAMME -->
-  <section class="section section--deep">
-    <div class="section__inner reveal">
-      <blockquote class="pull-quote">
-        « Un copilote lit les instruments. C'est toi qui pilotes. »
-        <cite>feezify</cite>
-      </blockquote>
-      <p style="max-width: var(--maxw-text); margin-top: 2rem;">
+  <section class="c-section">
+    <div class="u-container">
+      <aside class="c-card c-card--brand c-card--large u-spacing--block-end-medium">
+        <blockquote class="c-quote">
+          <p class="c-quote__text">« Un copilote lit les instruments. C'est toi qui pilotes. »</p>
+          <cite class="c-quote__author">feezify</cite>
+        </blockquote>
+      </aside>
+      <p>
         Disons-le net : feezify est un <strong>copilote</strong>, un assistant de lecture. Il ne prescrit aucune
         séance, ne te dit jamais quoi faire, ne remplace ni un entraîneur ni un médecin. Le poids, par exemple,
         n'est lu qu'en tendance — jamais comme un diagnostic. La décision t'appartient, toujours.
@@ -215,16 +217,16 @@ lang: fr
   </section>
 
   <!-- E. AI-NATIVE / ZÉRO INFRA -->
-  <section class="section" id="ai-native">
-    <div class="section__inner reveal">
-      <p class="eyebrow">AI-native · zéro infra</p>
-      <h2>Sur ta propre IA. Pas sur mon serveur.</h2>
-      <p class="lede">
+  <section class="c-section" id="ai-native">
+    <div class="u-container">
+      <p class="c-tag">AI-native · zéro infra</p>
+      <h2 class="c-section__title">Sur ta propre IA. Pas sur mon serveur.</h2>
+      <p>
         feezify n'est plus une appli que j'héberge. C'est une <strong>skill</strong> + un <strong>cœur markdown qui t'appartient</strong>,
         posés sur ton IA (Claude, OpenClaw). L'ancienne appli web se re-cartographie étage par étage sur le nouvel agent :
       </p>
-      <div class="remap-wrap">
-        <table class="remap">
+      <div class="f-remap" tabindex="0" role="region" aria-label="Appli web classique et feezify AI-native, étage par étage">
+        <table class="f-remap__table">
           <thead>
             <tr>
               <th scope="col">Appli web classique</th>
@@ -251,35 +253,35 @@ lang: fr
           </tbody>
         </table>
       </div>
-      <ul class="card-grid" style="margin-top: 1.5rem;">
-        <li><div class="card"><h3>À toi, en local</h3><p>Un dossier de markdown portable que tu possèdes. Pas de serveur, pas de compte, pas de télémétrie. Un connecteur (Strava…) reste <strong>désactivé</strong> tant que <em>tu</em> ne l'actives pas.</p></div></li>
-        <li><div class="card"><h3>Deux mémoires</h3><p>Ton journal, que tu écris ; et la mémoire que le copilote compile sur toi avec le temps — chaque constat traçable jusqu'à un jour précis.</p></div></li>
-        <li><div class="card"><h3>Ouvert &amp; provider-agnostique</h3><p>Strava n'est qu'un adaptateur ; le moteur ne dépend d'aucune marque. Le code et la méthode sont à découvert — tu peux les lire, les juger, les forker.</p></div></li>
+      <ul class="f-grid">
+        <li><div class="c-card c-card--neutral f-grid__card"><h3>À toi, en local</h3><p>Un dossier de markdown portable que tu possèdes. Pas de serveur, pas de compte, pas de télémétrie. Un connecteur (Strava…) reste <strong>désactivé</strong> tant que <em>tu</em> ne l'actives pas.</p></div></li>
+        <li><div class="c-card c-card--neutral f-grid__card"><h3>Deux mémoires</h3><p>Ton journal, que tu écris ; et la mémoire que le copilote compile sur toi avec le temps — chaque constat traçable jusqu'à un jour précis.</p></div></li>
+        <li><div class="c-card c-card--neutral f-grid__card"><h3>Ouvert &amp; provider-agnostique</h3><p>Strava n'est qu'un adaptateur ; le moteur ne dépend d'aucune marque. Le code et la méthode sont à découvert — tu peux les lire, les juger, les forker.</p></div></li>
       </ul>
     </div>
   </section>
 
   <!-- F. L'HISTOIRE -->
-  <section class="section section--deep" id="histoire">
-    <div class="section__inner reveal">
-      <p class="eyebrow eyebrow--amber">Histoire du projet</p>
-      <h2>Du SaaS à l'agent IA</h2>
-      <p class="lede">L'histoire de cette reconstruction est racontée sur <a href="https://www.nicolasjouanno.com/jai-tue-mon-saas-reconstruit-en-agent-ia.html">nicolasjouanno.com</a>. Elle prolonge le parcours <a href="https://www.nicolasjouanno.com/work/">Du vélo au web</a>.</p>
+  <section class="c-section" id="histoire">
+    <div class="u-container">
+      <p class="c-tag">Histoire du projet</p>
+      <h2 class="c-section__title">Du SaaS à l'agent IA</h2>
+      <p>L'histoire de cette reconstruction est racontée sur <a href="https://www.nicolasjouanno.com/jai-tue-mon-saas-reconstruit-en-agent-ia.html">nicolasjouanno.com</a>. Elle prolonge le parcours <a href="https://www.nicolasjouanno.com/work/">Du vélo au web</a>.</p>
     </div>
   </section>
 
   <!-- G. POUR QUI -->
-  <section class="section" id="pour-qui">
-    <div class="section__inner reveal">
-      <p class="eyebrow">Pour qui c'est</p>
-      <h2>Sérieux à l'entraînement. Honnête dans un journal. À l'aise avec une IA.</h2>
-      <ul class="card-grid">
-        <li><div class="card"><p style="margin:0;">Tu t'entraînes sérieusement — vélo, course, VTT, endurance — et tu enregistres tes séances.</p></div></li>
-        <li><div class="card"><p style="margin:0;">Tu tiens — ou tu es prêt à tenir — un journal honnête, même court.</p></div></li>
-        <li><div class="card"><p style="margin:0;">Tu veux <strong>lire</strong> ta forme plus clairement, pas qu'on te dicte tes séances.</p></div></li>
-        <li><div class="card"><p style="margin:0;">Tu es à l'aise avec une IA (Claude, OpenClaw) et l'idée d'un outil sans appli, sans compte.</p></div></li>
+  <section class="c-section" id="pour-qui">
+    <div class="u-container">
+      <p class="c-tag">Pour qui c'est</p>
+      <h2 class="c-section__title">Sérieux à l'entraînement. Honnête dans un journal. À l'aise avec une IA.</h2>
+      <ul class="f-grid">
+        <li><div class="c-card c-card--neutral f-grid__card"><p>Tu t'entraînes sérieusement — vélo, course, VTT, endurance — et tu enregistres tes séances.</p></div></li>
+        <li><div class="c-card c-card--neutral f-grid__card"><p>Tu tiens — ou tu es prêt à tenir — un journal honnête, même court.</p></div></li>
+        <li><div class="c-card c-card--neutral f-grid__card"><p>Tu veux <strong>lire</strong> ta forme plus clairement, pas qu'on te dicte tes séances.</p></div></li>
+        <li><div class="c-card c-card--neutral f-grid__card"><p>Tu es à l'aise avec une IA (Claude, OpenClaw) et l'idée d'un outil sans appli, sans compte.</p></div></li>
       </ul>
-      <div class="athletes" aria-hidden="true">
+      <div class="f-athletes" aria-hidden="true">
         <figure>
           <svg viewBox="0 0 240 180" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="55" cy="138" r="36"/>
@@ -322,7 +324,7 @@ lang: fr
           <figcaption>Nager</figcaption>
         </figure>
       </div>
-      <p class="meta" style="margin-top: 2rem; max-width: var(--maxw-text);">
+      <p class="c-meta">
         Le genre de profil ? Le triathlète qui fait tourner Claude, le coureur qui aime ses données sans se faire dicter sa séance.
         <strong>Ce n'est pas pour toi</strong> si tu cherches un plan clé en main qui te dit quoi faire séance par séance : feezify ne prescrit pas.
       </p>
@@ -330,145 +332,106 @@ lang: fr
   </section>
 
   <!-- H. INSTALLATION -->
-  <section class="section section--deep" id="installer">
-    <div class="section__inner reveal">
-      <p class="eyebrow">Installation</p>
-      <h2>Trois gestes. Pas de terminal.</h2>
-      <p class="lede">Pas besoin de savoir coder. Si tu utilises Claude, tu sais déjà tout faire :</p>
-      <ul class="card-grid">
-        <li>
-          <div class="card">
-            <span class="step-k">GESTE 1</span>
-            <h3>Connecte Strava</h3>
-            <p>Dans Claude : Connectors → <strong>Strava</strong> → autoriser. C'est le connecteur officiel de Strava : lecture seule, révocable quand tu veux, aucune clé à manipuler. <span class="meta">(Abonnés Strava ; optionnel — feezify sait lire ta journée depuis ton seul journal.)</span></p>
-          </div>
-        </li>
-        <li>
-          <div class="card">
-            <span class="step-k">GESTE 2</span>
-            <h3>Installe la skill</h3>
-            <p>Un fichier zip à télécharger (dispo à l'ouverture de la beta), puis dans Claude : Settings → Skills → <strong>Upload</strong>. Le moteur est embarqué dedans — rien d'autre à installer.</p>
-          </div>
-        </li>
-        <li>
-          <div class="card">
-            <span class="step-k">GESTE 3</span>
-            <h3>Demande ta lecture</h3>
-            <p>« Comment je vais aujourd'hui ? » Au premier échange, feezify crée ton cœur — ton dossier à toi — et te configure en discutant : tes repères, ton sport, ta première entrée de journal.</p>
-          </div>
-        </li>
+  <section class="c-section" id="installer">
+    <div class="u-container">
+      <p class="c-tag">Installation</p>
+      <h2 class="c-section__title">Cloner, builder, demander.</h2>
+      <p>Le zip sans terminal n'a jamais été publié. Ce qui fonctionne, c'est le parcours développeur : un terminal, Node et pnpm. Même moteur sur <strong>Claude</strong> et <strong>OpenClaw</strong>.</p>
+      <ul class="f-grid">
+        <li><div class="c-card c-card--neutral f-grid__card"><span class="c-meta f-grid__step">GESTE 1</span><h3>Installer et builder</h3><pre class="f-pre"><code>git clone https://github.com/jn-prod/feezify
+cd feezify
+pnpm install &amp;&amp; pnpm build</code></pre></div></li>
+        <li><div class="c-card c-card--neutral f-grid__card"><span class="c-meta f-grid__step">GESTE 2</span><h3>Créer ton cœur</h3><pre class="f-pre"><code>cp -r core-template ~/mon-coeur-feezify</code></pre><p>Ton dossier privé : repères, sport, journal. Strava reste optionnel : tes tokens vont dans <code class="f-code">.env</code>, et feezify peut lire ta journée depuis ton seul journal.</p></div></li>
+        <li><div class="c-card c-card--neutral f-grid__card"><span class="c-meta f-grid__step">GESTE 3</span><h3>Demander ta lecture</h3><p>Pointe ton IA vers le <code class="f-code">SKILL.md</code> de la skill (Claude ou OpenClaw), puis demande : « Comment je vais aujourd'hui ? »</p></div></li>
       </ul>
-      <div class="card" style="margin-top: 1.6rem; border-left: 4px solid var(--green);">
-        <h3>Développeur, ou self-hosteur OpenClaw ? N'attends pas.</h3>
-        <p>Le repo est installable <strong>aujourd'hui</strong> — clone, build, branche ton agent sur la skill. Même moteur, deux surfaces de premier rang : <strong>Claude</strong> et <strong>OpenClaw</strong>.</p>
-        <p class="mono" style="background: var(--paper-deep); border: 1px solid var(--line); border-radius: 8px; padding: 0.6rem 0.9rem; display: inline-block;">git clone https://github.com/jn-prod/feezify</p>
-        <p class="meta" style="margin: 0.4rem 0 0;"><a href="{{ '/docs/fr/installation.html' | relative_url }}#b--parcours-développeur">Suivre le parcours développeur →</a></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- I. NEWSLETTER -->
-  <section class="section" id="suivre">
-    <div class="section__inner reveal">
-      <div class="card follow-card">
-        <p class="eyebrow" style="justify-content: center;">Beta bientôt</p>
-        <h2>Suivre la beta</h2>
-        <p>Les nouvelles de feezify passent par la newsletter de Nicolas : le même fil pour le mouvement, le voyage, la table et les outils qui en naissent.</p>
-        <p><a href="{{ site.substack_cta }}" class="btn btn--primary">S’abonner sur Substack</a></p>
-        <p class="meta">Le parcours sans terminal est encore affiné à découvert. Développeur ? <a href="#installer">Le repo est installable aujourd’hui.</a></p>
-      </div>
+      <p class="c-meta"><a href="{{ '/docs/fr/installation.html' | relative_url }}#b--parcours-développeur">Suivre le parcours développeur →</a></p>
     </div>
   </section>
 
   <!-- J. DOCS -->
-  <section class="section section--deep" id="docs">
-    <div class="section__inner reveal">
-      <p class="eyebrow">Documentation</p>
-      <h2>Tout est écrit. Lis-le.</h2>
-      <p class="lede">Le manuel complet est embarqué dans le site — l'idée, la méthode, les deux parcours d'installation, la confidentialité. <span class="mono">🇬🇧 <a href="{{ '/docs/' | relative_url }}">English version</a></span></p>
-      <ul class="card-grid docs-cards">
-        <li><a class="card" href="{{ '/docs/fr/presentation.html' | relative_url }}"><h3>Qu'est-ce que feezify ?</h3><p>L'idée, ce qu'il fait et ne fait pas, et comment un SaaS est devenu un agent.</p><span class="go">docs/fr/presentation →</span></a></li>
-        <li><a class="card" href="{{ '/docs/fr/installation.html' | relative_url }}"><h3>Installation</h3><p>Les deux portes d'entrée : trois gestes sans terminal, ou le parcours développeur.</p><span class="go">docs/fr/installation →</span></a></li>
-        <li><a class="card" href="{{ '/docs/fr/utilisation-quotidienne.html' | relative_url }}"><h3>Usage quotidien</h3><p>Ton cœur expliqué, comment tenir le journal, demander — et lire — la lecture.</p><span class="go">docs/fr/utilisation-quotidienne →</span></a></li>
-        <li><a class="card" href="{{ '/docs/fr/la-methode.html' | relative_url }}"><h3>La méthode</h3><p>TSB, disponibilité, et la règle du croisement — publique, volontairement.</p><span class="go">docs/fr/la-methode →</span></a></li>
-        <li><a class="card" href="{{ '/docs/fr/confidentialite-et-consentement.html' | relative_url }}"><h3>Confidentialité &amp; consentement</h3><p>Local d'abord, connecteurs sous consentement, et comment tout révoquer.</p><span class="go">docs/fr/confidentialite →</span></a></li>
-        <li><a class="card" href="{{ '/docs/fr/faq.html' | relative_url }}"><h3>FAQ &amp; dépannage</h3><p>Les questions fréquentes et les correctifs, pour les deux parcours.</p><span class="go">docs/fr/faq →</span></a></li>
+  <section class="c-section" id="docs">
+    <div class="u-container">
+      <p class="c-tag">Documentation</p>
+      <h2 class="c-section__title">Tout est écrit. Lis-le.</h2>
+      <p>Le manuel complet est embarqué dans le site — l'idée, la méthode, l'installation, la confidentialité. <a href="{{ '/docs/' | relative_url }}" lang="en" hreflang="en">English version</a></p>
+      <ul class="f-grid">
+        <li><div class="c-card c-card--neutral f-grid__card"><h3><a href="{{ '/docs/fr/presentation.html' | relative_url }}">Qu'est-ce que feezify ?</a></h3><p>L'idée, ce qu'il fait et ne fait pas, et comment un SaaS est devenu un agent.</p></div></li>
+        <li><div class="c-card c-card--neutral f-grid__card"><h3><a href="{{ '/docs/fr/installation.html' | relative_url }}">Installation</a></h3><p>Le parcours développeur, pas à pas.</p></div></li>
+        <li><div class="c-card c-card--neutral f-grid__card"><h3><a href="{{ '/docs/fr/utilisation-quotidienne.html' | relative_url }}">Usage quotidien</a></h3><p>Ton cœur expliqué, comment tenir le journal, demander — et lire — la lecture.</p></div></li>
+        <li><div class="c-card c-card--neutral f-grid__card"><h3><a href="{{ '/docs/fr/la-methode.html' | relative_url }}">La méthode</a></h3><p>TSB, disponibilité, et la règle du croisement — publique, volontairement.</p></div></li>
+        <li><div class="c-card c-card--neutral f-grid__card"><h3><a href="{{ '/docs/fr/confidentialite-et-consentement.html' | relative_url }}">Confidentialité &amp; consentement</a></h3><p>Local d'abord, connecteurs sous consentement, et comment tout révoquer.</p></div></li>
+        <li><div class="c-card c-card--neutral f-grid__card"><h3><a href="{{ '/docs/fr/faq.html' | relative_url }}">FAQ &amp; dépannage</a></h3><p>Les questions fréquentes et les correctifs.</p></div></li>
       </ul>
     </div>
   </section>
 
   <!-- K. FAQ -->
-  <section class="section" id="faq">
-    <div class="section__inner reveal">
-      <p class="eyebrow">FAQ</p>
-      <h2>Questions fréquentes</h2>
-      <div class="faq-list">
-        <details>
-          <summary>feezify, est-ce un programme qui me donne mon plan ?</summary>
+  <section class="c-section" id="faq">
+    <div class="u-container">
+      <p class="c-tag">FAQ</p>
+      <h2 class="c-section__title">Questions fréquentes</h2>
+      <div class="f-faq">
+        <details class="f-faq__item">
+          <summary class="f-faq__question">feezify, est-ce un programme qui me donne mon plan ?</summary>
           <p>Non, et c'est volontaire. feezify lit ta journée et te dit vert / orange / rouge, avec le pourquoi. La décision reste la tienne. C'est un copilote : il t'éclaire, tu décides.</p>
         </details>
-        <details>
-          <summary>Faut-il un abonnement ou un serveur ?</summary>
+        <details class="f-faq__item">
+          <summary class="f-faq__question">Faut-il un abonnement ou un serveur ?</summary>
           <p>Non. Il n'y a pas d'appli à héberger, pas de compte à créer. feezify est une skill + un dossier markdown qui tournent sur ta propre IA. Zéro infra.</p>
         </details>
-        <details>
-          <summary>Où vont mes données ?</summary>
+        <details class="f-faq__item">
+          <summary class="f-faq__question">Où vont mes données ?</summary>
           <p>Chez toi. Ton cœur est un dossier de markdown sur ta machine. Pas de serveur feezify, pas de télémétrie. Un connecteur comme Strava reste désactivé tant que tu ne l'actives pas toi-même.</p>
         </details>
-        <details>
-          <summary>Quelle IA faut-il pour l'utiliser ?</summary>
+        <details class="f-faq__item">
+          <summary class="f-faq__question">Quelle IA faut-il pour l'utiliser ?</summary>
           <p>Une IA capable de skills — Claude, ou un agent self-hosté comme OpenClaw. Tu installes feezify dessus, et tu lui demandes comment tu vas aujourd'hui.</p>
         </details>
-        <details>
-          <summary>Faut-il savoir coder ?</summary>
-          <p>Non. Le parcours de base tient en <a href="#installer">trois gestes</a> : connecter le connecteur Strava officiel dans Claude, uploader la skill (un fichier zip), et demander ta lecture. Pas de terminal, pas de clé API. Le parcours développeur existe aussi, pour ceux qui veulent mettre les mains dedans.</p>
+        <details class="f-faq__item">
+          <summary class="f-faq__question">Faut-il savoir coder ?</summary>
+          <p>Aujourd'hui, oui : assez pour utiliser un terminal. L'<a href="#installer">installation</a> consiste à cloner le repo et à le builder. Le parcours sans terminal, un zip à uploader dans Claude, n'a jamais été publié.</p>
         </details>
-        <details>
-          <summary>Et ma montre — Garmin, sommeil, HRV ?</summary>
-          <p>Aujourd'hui, les activités entrent par Strava — un adaptateur parmi d'autres à venir : le moteur est provider-agnostique par conception, donc une montre est un adaptateur, pas une réécriture. Le sommeil, la fatigue et le ressenti entrent par ton journal — les chiffres de ta montre peuvent nourrir ce que tu écris, et une ligne honnête sur une mauvaise nuit dit souvent plus vrai qu'un score de sommeil.</p>
+        <details class="f-faq__item">
+          <summary class="f-faq__question">Et ma montre — Garmin, sommeil, HRV ?</summary>
+          <p>Les activités entrent par Strava, le seul adaptateur construit. Le moteur est provider-agnostique par conception : une montre serait un adaptateur, pas une réécriture. Le sommeil, la fatigue et le ressenti entrent par ton journal — les chiffres de ta montre peuvent nourrir ce que tu écris, et une ligne honnête sur une mauvaise nuit dit souvent plus vrai qu'un score de sommeil.</p>
         </details>
-        <details>
-          <summary>En quoi c'est différent d'analyser Strava à la main ?</summary>
+        <details class="f-faq__item">
+          <summary class="f-faq__question">En quoi c'est différent d'analyser Strava à la main ?</summary>
           <p>Strava te donne des chiffres. feezify les <strong>croise</strong> avec ton ressenti, applique une règle (le subjectif arbitre), et te rend une lecture expliquée — pas un tableau de plus à interpréter seul.</p>
         </details>
-        <details>
-          <summary>C'est prêt ?</summary>
-          <p>C'est une beta qui arrive. Le cœur fonctionne, je l'affine à découvert. Les nouvelles de son ouverture passent par <a href="{{ site.substack_cta }}">la newsletter de Nicolas</a>.</p>
+        <details class="f-faq__item">
+          <summary class="f-faq__question">C'est prêt ?</summary>
+          <p>Le cœur fonctionne et le repo s'installe. J'ai arrêté de le développer en septembre 2026 : n'attends pas de nouvelles fonctions. Le code reste ouvert : lis-le, juge-le, forke-le.</p>
         </details>
       </div>
     </div>
   </section>
 
   <!-- L. CTA FINAL -->
-  <section class="section section--deep final-cta">
-    <div class="section__inner reveal">
-      <h2>feezify n'essaie pas de te dicter ta séance. Il t'aide à te lire.</h2>
-      <p class="lede">
-        Il arrive en beta. Si l'idée d'un outil qui lit ta journée — sans serveur, sans compte, sans te dire quoi faire —
-        te parle, tu peux suivre son ouverture.
-      </p>
-      <div class="btn-row">
-        <a href="{{ site.substack_cta }}" class="btn btn--primary">Suivre la beta</a>
-        <a href="{{ site.github_url }}" class="btn btn--ghost" rel="noopener" target="_blank">Voir le code sur GitHub</a>
+  <section class="c-section">
+    <div class="u-container">
+      <div class="c-card c-card--neutral c-card--large">
+        <div class="c-callout">
+          <h2 class="c-callout__title">feezify n'essaie pas de te dicter ta séance. Il t'aide à te lire.</h2>
+          <p class="c-callout__text">J'ai arrêté de le développer en septembre 2026. Un outil qui lit ta journée — sans serveur, sans compte, sans te dire quoi faire — reste ouvert : lis le code, forke-le.</p>
+          <div class="c-button-stack c-button-stack--center u-spacing--block-end-medium">
+            <a href="{{ site.github_url }}" class="c-button c-button--brand" rel="noopener" target="_blank">Voir le code ouvert</a>
+            <a href="{{ '/docs/fr/' | relative_url }}" class="c-button c-button--dark-outline">Lire la doc</a>
+          </div>
+          <p class="c-meta c-callout__text">Construit le soir, à découvert, par <a href="{{ site.author_url }}" rel="noopener">Nicolas Jouanno</a> — développeur frontend, ancien coureur cycliste pro. Gratuit et open source pour tout le monde.</p>
+        </div>
       </div>
-      <p class="meta">
-        Construit le soir, à découvert, par <a href="{{ site.author_url }}" rel="noopener">Nicolas Jouanno</a> —
-        développeur frontend, ancien coureur cycliste pro. Gratuit et open source pour tout le monde.
-      </p>
     </div>
   </section>
 
 </main>
 
-<footer class="site-footer">
-  <div class="site-footer__inner">
-    <p style="margin:0;">
-      © 2026 Nicolas Jouanno · <a href="{{ site.github_url }}" rel="noopener" target="_blank">Apache-2.0</a> ·
-      <a href="{{ '/docs/fr/' | relative_url }}">Docs</a> ·
-      <a href="{{ '/' | relative_url }}" lang="en" hreflang="en">English</a>
-    </p>
-    <p class="site-footer__lights" aria-hidden="true"><span class="dot dot--green"></span><span class="dot dot--amber"></span><span class="dot dot--red"></span></p>
-  </div>
+<footer role="contentinfo" class="c-layout__footer c-section c-section--compact">
+  <p>
+    © 2026 Nicolas Jouanno · <a href="{{ site.github_url }}" rel="noopener" target="_blank">Apache-2.0</a> ·
+    <a href="{{ '/docs/fr/' | relative_url }}">Docs</a> ·
+    <a href="{{ '/' | relative_url }}" lang="en" hreflang="en">English</a>
+  </p>
 </footer>
 
 <script type="application/ld+json">
@@ -500,7 +463,7 @@ lang: fr
         { "@type": "Question", "name": "Faut-il un abonnement ou un serveur ?", "acceptedAnswer": { "@type": "Answer", "text": "Non. Pas d'appli à héberger, pas de compte. feezify est une skill et un dossier markdown qui tournent sur ta propre IA. Zéro infra." } },
         { "@type": "Question", "name": "Où vont mes données ?", "acceptedAnswer": { "@type": "Answer", "text": "Chez toi. Ton cœur est un dossier de markdown sur ta machine. Pas de serveur feezify, pas de télémétrie. Un connecteur comme Strava reste désactivé tant que tu ne l'actives pas." } },
         { "@type": "Question", "name": "Quelle IA faut-il pour l'utiliser ?", "acceptedAnswer": { "@type": "Answer", "text": "Une IA capable de skills : Claude, ou un agent self-hosté comme OpenClaw." } },
-        { "@type": "Question", "name": "Faut-il savoir coder ?", "acceptedAnswer": { "@type": "Answer", "text": "Non. Trois gestes : connecter le connecteur Strava officiel dans Claude, uploader la skill (un fichier zip), et demander sa lecture. Pas de terminal, pas de clé API." } },
+        { "@type": "Question", "name": "Faut-il savoir coder ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui, assez pour utiliser un terminal : on clone le repo et on le build. Le zip sans terminal n'a jamais été publié." } },
         { "@type": "Question", "name": "Et ma montre — Garmin, sommeil, HRV ?", "acceptedAnswer": { "@type": "Answer", "text": "Aujourd'hui, les activités entrent par Strava — le moteur est provider-agnostique par conception, donc une montre est un adaptateur, pas une réécriture. Le sommeil, la fatigue et le ressenti entrent par ton journal." } },
         { "@type": "Question", "name": "En quoi c'est différent d'analyser Strava à la main ?", "acceptedAnswer": { "@type": "Answer", "text": "feezify croise les chiffres avec ton ressenti, applique une règle (le subjectif arbitre), et rend une lecture expliquée." } }
       ]

@@ -9,80 +9,88 @@
   <link rel="alternate" hreflang="{% if page.lang == 'fr' %}en{% else %}fr{% endif %}" href="{{ page.alternate | absolute_url }}">
   <link rel="alternate" hreflang="x-default" href="{% if page.lang == 'fr' %}{{ page.alternate | absolute_url }}{% else %}{{ page.url | absolute_url }}{% endif %}">
   {% endif %}
-  <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
-  <link rel="stylesheet" href="{{ '/assets/css/docs.css' | relative_url }}">
+  {% include design-head.html %}
 </head>
-<body class="docs-body">
+<body class="c-layout">
+{% if page.lang == 'fr' %}
+<a href="#main" class="skip-link">Aller au contenu</a>
+{% else %}
+<a href="#main" class="skip-link">Skip to content</a>
+{% endif %}
 
-<header class="site-header">
-  <div class="site-header__inner">
-    <a class="wordmark" href="{{ '/' | relative_url }}">feezify<span class="wordmark__dot" aria-hidden="true"></span></a>
-    <nav class="site-header__nav" aria-label="Site">
-      {% if page.lang == 'fr' %}
-      <a href="{{ '/docs/fr/' | relative_url }}">Docs</a>
-      <a href="{{ site.github_url }}" rel="noopener" target="_blank">GitHub</a>
-      <a class="lang-switch" href="{{ '/docs/' | relative_url }}" lang="en" hreflang="en">EN</a>
-      {% else %}
-      <a href="{{ '/docs/' | relative_url }}">Docs</a>
-      <a href="{{ site.github_url }}" rel="noopener" target="_blank">GitHub</a>
-      <a class="lang-switch" href="{{ '/docs/fr/' | relative_url }}" lang="fr" hreflang="fr">FR</a>
-      {% endif %}
-    </nav>
-  </div>
-</header>
+<div class="c-layout__header-bar">
+  <header role="banner" class="c-layout__header">
+    <div class="c-navigation">
+      <a class="c-navigation__title u-link--dark" href="{% if page.lang == 'fr' %}{{ '/fr/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}">feezify</a>
+      <nav aria-label="Site" class="c-navigation__actions">
+        <ul class="u-list c-navigation__link-list">
+          {% if page.lang == 'fr' %}
+          <li class="c-navigation__link-list-element"><a class="c-button" href="{{ '/docs/fr/' | relative_url }}">Docs</a></li>
+          <li class="c-navigation__link-list-element"><a class="c-button" href="{{ '/docs/' | relative_url }}" lang="en" hreflang="en">EN</a></li>
+          {% else %}
+          <li class="c-navigation__link-list-element"><a class="c-button" href="{{ '/docs/' | relative_url }}">Docs</a></li>
+          <li class="c-navigation__link-list-element"><a class="c-button" href="{{ '/docs/fr/' | relative_url }}" lang="fr" hreflang="fr">FR</a></li>
+          {% endif %}
+          <li class="c-navigation__link-list-element"><a class="c-button c-button--brand" href="{{ site.github_url }}" rel="noopener" target="_blank">GitHub</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+</div>
 
-<div class="docs-shell">
-  <aside class="docs-nav" aria-label="Documentation">
+<div class="f-docs">
+  <nav class="f-docs__nav" aria-label="Documentation">
     {% if page.lang == 'fr' %}
-    <p class="docs-nav__label">Documentation</p>
-    <a href="{{ '/docs/fr/' | relative_url }}" {% if page.url == '/docs/fr/' %}aria-current="page"{% endif %}>Index</a>
-    <a href="{{ '/docs/fr/presentation.html' | relative_url }}" {% if page.url contains 'presentation' %}aria-current="page"{% endif %}>Qu'est-ce que feezify ?</a>
-    <a href="{{ '/docs/fr/installation.html' | relative_url }}" {% if page.url contains 'installation' %}aria-current="page"{% endif %}>Installation</a>
-    <a href="{{ '/docs/fr/utilisation-quotidienne.html' | relative_url }}" {% if page.url contains 'utilisation' %}aria-current="page"{% endif %}>Usage quotidien</a>
-    <a href="{{ '/docs/fr/la-methode.html' | relative_url }}" {% if page.url contains 'la-methode' %}aria-current="page"{% endif %}>La méthode</a>
-    <a href="{{ '/docs/fr/confidentialite-et-consentement.html' | relative_url }}" {% if page.url contains 'confidentialite' %}aria-current="page"{% endif %}>Confidentialité &amp; consentement</a>
-    <a href="{{ '/docs/fr/faq.html' | relative_url }}" {% if page.url contains '/docs/fr/faq' %}aria-current="page"{% endif %}>FAQ</a>
-    <p class="docs-nav__label docs-nav__label--secondary">Ailleurs</p>
-    <a href="{{ '/fr/' | relative_url }}">← Retour au site</a>
-    <a href="{{ site.github_url }}" rel="noopener" target="_blank">Code source</a>
+    <p class="c-meta f-docs__label">Documentation</p>
+    <ul class="u-list f-docs__list">
+      <li><a class="f-docs__link" href="{{ '/docs/fr/' | relative_url }}" {% if page.url == '/docs/fr/' %}aria-current="page"{% endif %}>Index</a></li>
+      <li><a class="f-docs__link" href="{{ '/docs/fr/presentation.html' | relative_url }}" {% if page.url contains 'presentation' %}aria-current="page"{% endif %}>Qu'est-ce que feezify ?</a></li>
+      <li><a class="f-docs__link" href="{{ '/docs/fr/installation.html' | relative_url }}" {% if page.url contains 'installation' %}aria-current="page"{% endif %}>Installation</a></li>
+      <li><a class="f-docs__link" href="{{ '/docs/fr/utilisation-quotidienne.html' | relative_url }}" {% if page.url contains 'utilisation' %}aria-current="page"{% endif %}>Usage quotidien</a></li>
+      <li><a class="f-docs__link" href="{{ '/docs/fr/la-methode.html' | relative_url }}" {% if page.url contains 'la-methode' %}aria-current="page"{% endif %}>La méthode</a></li>
+      <li><a class="f-docs__link" href="{{ '/docs/fr/confidentialite-et-consentement.html' | relative_url }}" {% if page.url contains 'confidentialite' %}aria-current="page"{% endif %}>Confidentialité &amp; consentement</a></li>
+      <li><a class="f-docs__link" href="{{ '/docs/fr/faq.html' | relative_url }}" {% if page.url contains '/docs/fr/faq' %}aria-current="page"{% endif %}>FAQ</a></li>
+    </ul>
+    <p class="c-meta f-docs__label">Ailleurs</p>
+    <ul class="u-list f-docs__list">
+      <li><a class="f-docs__link" href="{{ '/fr/' | relative_url }}">← Retour au site</a></li>
+      <li><a class="f-docs__link" href="{{ site.github_url }}" rel="noopener" target="_blank">Code source</a></li>
+    </ul>
     {% else %}
-    <p class="docs-nav__label">Documentation</p>
-    <a href="{{ '/docs/' | relative_url }}" {% if page.url == '/docs/' %}aria-current="page"{% endif %}>Index</a>
-    <a href="{{ '/docs/what-is-feezify.html' | relative_url }}" {% if page.url contains 'what-is-feezify' %}aria-current="page"{% endif %}>What is feezify?</a>
-    <a href="{{ '/docs/install.html' | relative_url }}" {% if page.url contains 'install' %}aria-current="page"{% endif %}>Installation</a>
-    <a href="{{ '/docs/daily-use.html' | relative_url }}" {% if page.url contains 'daily-use' %}aria-current="page"{% endif %}>Daily use</a>
-    <a href="{{ '/docs/the-method.html' | relative_url }}" {% if page.url contains 'the-method' %}aria-current="page"{% endif %}>The method</a>
-    <a href="{{ '/docs/privacy-and-consent.html' | relative_url }}" {% if page.url contains 'privacy' %}aria-current="page"{% endif %}>Privacy &amp; consent</a>
-    <a href="{{ '/docs/faq.html' | relative_url }}" {% if page.url == '/docs/faq.html' %}aria-current="page"{% endif %}>FAQ</a>
-    <p class="docs-nav__label docs-nav__label--secondary">Elsewhere</p>
-    <a href="{{ '/' | relative_url }}">← Back to the site</a>
-    <a href="{{ site.github_url }}" rel="noopener" target="_blank">Source code</a>
+    <p class="c-meta f-docs__label">Documentation</p>
+    <ul class="u-list f-docs__list">
+      <li><a class="f-docs__link" href="{{ '/docs/' | relative_url }}" {% if page.url == '/docs/' %}aria-current="page"{% endif %}>Index</a></li>
+      <li><a class="f-docs__link" href="{{ '/docs/what-is-feezify.html' | relative_url }}" {% if page.url contains 'what-is-feezify' %}aria-current="page"{% endif %}>What is feezify?</a></li>
+      <li><a class="f-docs__link" href="{{ '/docs/install.html' | relative_url }}" {% if page.url contains 'install' %}aria-current="page"{% endif %}>Installation</a></li>
+      <li><a class="f-docs__link" href="{{ '/docs/daily-use.html' | relative_url }}" {% if page.url contains 'daily-use' %}aria-current="page"{% endif %}>Daily use</a></li>
+      <li><a class="f-docs__link" href="{{ '/docs/the-method.html' | relative_url }}" {% if page.url contains 'the-method' %}aria-current="page"{% endif %}>The method</a></li>
+      <li><a class="f-docs__link" href="{{ '/docs/privacy-and-consent.html' | relative_url }}" {% if page.url contains 'privacy' %}aria-current="page"{% endif %}>Privacy &amp; consent</a></li>
+      <li><a class="f-docs__link" href="{{ '/docs/faq.html' | relative_url }}" {% if page.url == '/docs/faq.html' %}aria-current="page"{% endif %}>FAQ</a></li>
+    </ul>
+    <p class="c-meta f-docs__label">Elsewhere</p>
+    <ul class="u-list f-docs__list">
+      <li><a class="f-docs__link" href="{{ '/' | relative_url }}">← Back to the site</a></li>
+      <li><a class="f-docs__link" href="{{ site.github_url }}" rel="noopener" target="_blank">Source code</a></li>
+    </ul>
     {% endif %}
-  </aside>
+  </nav>
 
-  <main class="docs-content" id="main">
+  <main role="main" class="c-layout__content f-docs__content f-prose" id="main">
     <h1>{{ page.title }}</h1>
     {{ content }}
   </main>
 </div>
 
-<footer class="site-footer">
-  <div class="site-footer__inner">
-    <p>
-      {% if page.lang == 'fr' %}
-      Construit à découvert par <a href="{{ site.author_url }}" rel="noopener">Nicolas Jouanno</a> ·
-      <a href="{{ site.github_url }}" rel="noopener" target="_blank">Code ouvert (Apache-2.0)</a>
-      {% else %}
-      Built in the open by <a href="{{ site.author_url }}" rel="noopener">Nicolas Jouanno</a> ·
-      <a href="{{ site.github_url }}" rel="noopener" target="_blank">Open code (Apache-2.0)</a>
-      {% endif %}
-    </p>
-    <p class="site-footer__lights" aria-hidden="true"><span class="dot dot--green"></span><span class="dot dot--amber"></span><span class="dot dot--red"></span></p>
-  </div>
+<footer role="contentinfo" class="c-layout__footer c-section c-section--compact">
+  <p>
+    {% if page.lang == 'fr' %}
+    Construit à découvert par <a href="{{ site.author_url }}" rel="noopener">Nicolas Jouanno</a> ·
+    <a href="{{ site.github_url }}" rel="noopener" target="_blank">Code ouvert (Apache-2.0)</a>
+    {% else %}
+    Built in the open by <a href="{{ site.author_url }}" rel="noopener">Nicolas Jouanno</a> ·
+    <a href="{{ site.github_url }}" rel="noopener" target="_blank">Open code (Apache-2.0)</a>
+    {% endif %}
+  </p>
 </footer>
 
 </body>

@@ -1,0 +1,531 @@
+/* feezify: what the design system of nicolasjouanno.com does not cover.
+   Tokens and .c-* / .u-* classes come from its stylesheet, loaded first (1rem = 10px).
+   Here: only .f-* product components. BEM, Flexbox only, values through tokens. */
+
+:root {
+  /* The product's signal lights: not a brand, only ever used for a read. */
+  --f-light-green: #2f7d46;
+  --f-light-amber: #c77700;
+  --f-light-red: #c9503a;
+
+  --f-font-mono: ui-monospace, sfmono-regular, menlo, consolas, monospace;
+  --f-width-card: 24rem;
+  --f-width-column: 36rem;
+  --f-width-docs-nav: 23rem;
+  --f-width-reading: 64rem;
+}
+
+[id] {
+  scroll-margin-block-start: var(--size-64);
+}
+
+/* Page: sections stack inside the content column, the column carries the side padding. */
+
+.f-page .c-section {
+  padding: var(--size-32) 0;
+}
+
+/* .c-section is a flex column: without this, a container shrinks to its content. */
+.f-page .u-container {
+  width: 100%;
+}
+
+.f-hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--size-32);
+}
+
+.f-hero__copy {
+  flex: 1 1 var(--f-width-column);
+  min-width: 0;
+}
+
+/* Signal lights */
+
+.f-light {
+  display: inline-block;
+  flex: none;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+}
+
+.f-light--green {
+  background-color: var(--f-light-green);
+}
+
+.f-light--amber {
+  background-color: var(--f-light-amber);
+}
+
+.f-light--red {
+  background-color: var(--f-light-red);
+}
+
+/* Chat: the product is a conversation. Divs, not <p>: the content column's reading font
+   does not apply to an interface. */
+
+.f-chat {
+  flex: 1 1 var(--f-width-column);
+  min-width: 0;
+  border: var(--border);
+  border-radius: var(--size-16);
+  overflow: hidden;
+  background-color: var(--b-color-neutral-0);
+}
+
+.f-chat__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--size-8);
+  padding: var(--size-8) var(--size-16);
+  border-bottom: var(--border);
+  background-color: var(--b-color-neutral-10);
+}
+
+.f-chat__lights {
+  display: inline-flex;
+  gap: var(--size-4);
+  font-size: var(--b-font-size-small);
+}
+
+.f-chat__title {
+  font-size: var(--b-font-size-small);
+  color: var(--b-color-neutral-60);
+}
+
+.f-chat__thread {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-16);
+  padding: var(--size-16);
+}
+
+.f-chat__input {
+  display: flex;
+  align-items: center;
+  gap: var(--size-8);
+  margin: 0 var(--size-16) var(--size-16);
+  min-height: var(--b-control-height);
+  padding: var(--size-8) var(--size-16);
+  border: var(--border);
+  border-radius: var(--b-control-radius);
+  font-size: var(--b-control-font-size);
+  color: var(--b-color-neutral-60);
+}
+
+.f-bubble {
+  max-width: 90%;
+  padding: var(--size-8) var(--size-16);
+  border-radius: var(--size-16);
+}
+
+.f-bubble--user {
+  align-self: flex-end;
+  background-color: var(--b-color-neutral-80);
+  color: var(--b-color-neutral-0);
+}
+
+.f-bubble--assistant {
+  align-self: flex-start;
+  border: var(--border);
+  background-color: var(--b-color-neutral-10);
+  color: var(--b-color-neutral-80);
+}
+
+.f-read__light {
+  display: flex;
+  align-items: center;
+  gap: var(--size-8);
+  font-weight: bold;
+}
+
+.f-read__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-4);
+  margin-block: var(--size-8);
+}
+
+.f-read__chip {
+  padding: var(--size-4) var(--size-8);
+  border: var(--border);
+  border-radius: var(--b-control-radius);
+  background-color: var(--b-color-neutral-0);
+  font-size: var(--b-font-size-small);
+}
+
+.f-read__rule {
+  margin-block-start: var(--size-8);
+  font-family: var(--font-family-reading);
+  font-style: italic;
+}
+
+.f-typing {
+  align-self: flex-start;
+  display: inline-flex;
+  gap: var(--size-4);
+  padding: var(--size-16);
+  border-radius: var(--size-16);
+  background-color: var(--b-color-neutral-10);
+}
+
+.f-typing span {
+  width: var(--size-8);
+  height: var(--size-8);
+  border-radius: 50%;
+  background-color: var(--b-color-neutral-60);
+  animation: f-typing 1.2s infinite ease-in-out;
+}
+
+.f-typing span:nth-child(2) {
+  animation-delay: var(--b-duration-fast);
+}
+
+.f-typing span:nth-child(3) {
+  animation-delay: var(--b-duration-base);
+}
+
+@keyframes f-typing {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+  }
+
+  30% {
+    transform: translateY(calc(var(--size-4) * -1));
+  }
+}
+
+/* Staged reveal: landing.js adds .is-on. Without JS or with reduced motion, all is shown. */
+
+html:not(.js) .f-typing {
+  display: none;
+}
+
+.js .f-chat [data-stage] {
+  opacity: 0;
+  transition: opacity var(--b-duration-base) ease;
+}
+
+.js .f-chat [data-stage].is-on {
+  opacity: 1;
+}
+
+.js .f-chat .f-typing.is-off {
+  display: none;
+}
+
+/* Grid of cards, in Flexbox */
+
+.f-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-16);
+  margin: var(--size-16) 0;
+  padding: 0;
+  list-style: none;
+}
+
+.f-grid > li {
+  display: flex;
+  flex: 1 1 var(--f-width-card);
+  min-width: 0;
+}
+
+.f-grid__card {
+  flex: 1;
+  min-width: 0;
+}
+
+.f-grid__card h3 {
+  margin-block: 0 var(--size-8);
+}
+
+.f-grid__card p {
+  margin-block: 0;
+}
+
+.f-grid__card * + p,
+.f-grid__card .f-pre + p {
+  margin-block-start: var(--size-8);
+}
+
+.f-grid__step {
+  display: block;
+  margin-block-end: var(--size-8);
+}
+
+/* Code */
+
+.f-code,
+.f-prose code {
+  font-family: var(--f-font-mono);
+  font-size: var(--b-font-size-small);
+  overflow-wrap: anywhere;
+}
+
+.f-pre,
+.f-prose pre {
+  margin-block: var(--size-8);
+  padding: var(--size-8) var(--size-16);
+  border-radius: var(--size-8);
+  background-color: var(--b-color-neutral-80);
+  color: var(--b-color-neutral-0);
+  font-family: var(--f-font-mono);
+  font-size: var(--b-font-size-small);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* Rule demo */
+
+.f-demo {
+  margin-block-start: var(--size-32);
+}
+
+.f-demo__choices {
+  margin-block-end: var(--size-16);
+}
+
+.f-demo__choice {
+  cursor: pointer;
+}
+
+.f-demo__result {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--size-16);
+}
+
+.f-demo__result p {
+  margin: 0;
+}
+
+.f-demo__verdict {
+  font-weight: bold;
+}
+
+/* Remap table */
+
+.f-remap {
+  overflow-x: auto;
+  margin-block: var(--size-16);
+  border: var(--border);
+  border-radius: var(--size-8);
+}
+
+.f-remap__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.f-remap__table th,
+.f-remap__table td {
+  padding: var(--size-8) var(--size-16);
+  border-bottom: var(--border);
+  text-align: start;
+  vertical-align: top;
+}
+
+.f-remap__table thead th {
+  background-color: var(--b-color-neutral-10);
+}
+
+.f-remap__table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+/* Line art */
+
+.f-athletes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--size-32);
+  margin-block: var(--size-32);
+}
+
+.f-athletes figure {
+  margin: 0;
+  text-align: center;
+}
+
+.f-athletes svg {
+  display: block;
+  width: 16rem;
+  height: auto;
+  color: var(--b-color-brand);
+}
+
+.f-athletes figcaption {
+  font-size: var(--b-font-size-small);
+  color: var(--b-color-neutral-60);
+}
+
+/* FAQ (details/summary) */
+
+.f-faq {
+  border-top: var(--border);
+}
+
+.f-faq__item {
+  border-bottom: var(--border);
+}
+
+.f-faq__question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--size-16);
+  min-height: var(--b-control-height);
+  padding-block: var(--size-8);
+  font-weight: bold;
+  cursor: pointer;
+  list-style: none;
+}
+
+.f-faq__question::-webkit-details-marker {
+  display: none;
+}
+
+.f-faq__question::after {
+  flex: none;
+  content: "+" / "";
+  color: var(--b-color-brand);
+}
+
+.f-faq__item[open] .f-faq__question::after {
+  content: "−" / "";
+}
+
+/* Documentation */
+
+.f-docs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--size-32);
+  max-width: var(--breakpoint-m);
+  margin: auto;
+  padding: var(--size-16);
+}
+
+.f-docs__nav {
+  flex: 1 1 var(--f-width-docs-nav);
+  max-width: 100%;
+}
+
+.f-docs__label {
+  margin-block: var(--size-16) var(--size-4);
+}
+
+.f-docs__list {
+  margin: 0;
+}
+
+.f-docs__link {
+  display: flex;
+  align-items: center;
+  min-height: var(--b-control-height);
+  padding-inline: var(--size-8);
+  border-inline-start: var(--b-line-width-strong) solid transparent;
+  color: var(--b-color-neutral-70);
+  text-decoration: none;
+}
+
+.f-docs__link:hover,
+.f-docs__link:focus-visible {
+  color: var(--b-color-neutral-80);
+  text-decoration: underline;
+}
+
+.f-docs__link[aria-current] {
+  border-inline-start-color: var(--b-color-brand);
+  color: var(--b-color-brand);
+  font-weight: bold;
+}
+
+.f-docs__content {
+  flex: 1000 1 var(--f-width-column);
+  min-width: 0;
+  max-width: var(--f-width-reading);
+  margin: 0;
+  padding: 0;
+}
+
+.f-docs__content h1 {
+  margin-block-start: 0;
+}
+
+.f-prose h2 {
+  margin-block-start: var(--size-32);
+}
+
+.f-prose ol {
+  font-family: var(--font-family-reading);
+}
+
+.f-prose blockquote {
+  margin: var(--size-16) 0;
+  padding: var(--size-8) var(--size-16);
+  border: var(--border);
+  border-radius: var(--size-8);
+  background-color: var(--b-color-neutral-10);
+}
+
+.f-prose blockquote p {
+  padding: 0;
+  margin-block: var(--size-8);
+}
+
+.f-prose table {
+  width: 100%;
+  margin-block: var(--size-16);
+  border-collapse: collapse;
+  overflow-wrap: anywhere;
+}
+
+.f-prose th,
+.f-prose td {
+  padding: var(--size-8);
+  border: var(--border);
+  text-align: start;
+  vertical-align: top;
+}
+
+.f-prose thead th {
+  background-color: var(--b-color-neutral-10);
+}
+
+.f-prose hr {
+  margin-block: var(--size-32);
+  border: 0;
+  border-top: var(--border);
+}
+
+.f-prose img {
+  max-width: 100%;
+}
+
+/* Tall enough to stick only where the sidebar sits next to the content. */
+@media screen and (width >= 60rem) {
+  .f-docs__nav {
+    position: sticky;
+    inset-block-start: var(--size-64);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .f-typing span {
+    animation: none;
+  }
+
+  .js .f-chat [data-stage] {
+    transition: none;
+  }
+}
