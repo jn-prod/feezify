@@ -62,6 +62,3 @@ C'est tout. Au quotidien : quelques lignes honnêtes dans ton journal, puis dema
 - **Connecteurs** — activables/désactivables à tout moment dans `config.yml` (consentement).
 - **Mémoire du copilote** — il compile sa propre mémoire de toi dans `memory/`, chaque
   affirmation tracée jusqu'à un jour de journal.
-- **Soutien** — feezify est gratuit et open source. S'il t'aide, tu peux soutenir le projet
-  sur Tipeee → <https://www.tipeee.com/byNicolasJD> (voir [`author.md`](author.md)). Opt-out :
-  `support.remind: false` dans `config.yml`.

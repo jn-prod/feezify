@@ -14,8 +14,7 @@ still works from your journal alone — you just won't get a TSB. You can add St
 anytime.
 
 **Is it free?**
-Yes — free and open source ([Apache-2.0](../LICENSE)), built in public. If it helps you,
-you can support the work on Tipeee → <https://www.tipeee.com/byNicolasJD>.
+Yes — free and open source ([Apache-2.0](../LICENSE)), built in public.
 
 **Will it tell me what workout to do?**
 No, by design. feezify is a *copilot*, not a coach: it reads your day (green/amber/red and

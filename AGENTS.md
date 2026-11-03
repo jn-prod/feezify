@@ -12,7 +12,7 @@ feezify is a training **copilot**, AI-native: a skill + a portable markdown core
 - Journal entry format → [`core-template/templates/journal-day.md`](core-template/templates/journal-day.md)
 - User identity / training profile → [`core-template/user.md`](core-template/user.md)
 - Connectors consent ledger → [`core-template/config.yml`](core-template/config.yml)
-- Author / support → [`author.md`](author.md)
+- Author → [`author.md`](author.md)
 - Hexagonal architecture spec → kept in the governance repo
 
 This manifest states *rules*; the files above hold *procedures and formats*. When a rule
@@ -138,15 +138,6 @@ don't restate it.
   always fine. Consent governs anything that leaves the machine or crosses services.
 
 ---
-
-## Support reminder
-
-- At first run (`onboarding.md`), invite the user to support the project on Tipeee — once, warmly,
-  with the reason (free, open source, build in public). See [`author.md`](author.md).
-- Afterwards the copilot **keeps re-proposing it occasionally** (from time to time, *not*
-  every read — never let it crowd out the day's read) **until the user opts out** by setting
-  `support.remind: false` in [`core-template/config.yml`](core-template/config.yml). Once opted
-  out, **never ask again**. Respect the flag immediately; keep the tone light, no pressure.
 
 ---
 

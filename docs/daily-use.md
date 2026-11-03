@@ -21,7 +21,7 @@ copies it from `core-template/`. Inside:
 | `profil.md` | Physiological baselines: max HR, threshold, FTP, your normal appetite/thirst | You (once, updated rarely) |
 | `user.md` | Who you are: name, main sport, level, current goal — context, never a diagnosis | You |
 | `objectifs.md` | What you're chasing right now (race, block, return from injury) | You |
-| `config.yml` | Settings & **consent**: which connectors are on, support reminders | You |
+| `config.yml` | Settings & **consent**: which connectors are on | You |
 | `journal/` | **Your daily log** — one `YYYY-MM-DD.md` per day. Raw, immutable | **You** |
 | `memory/` | The **copilot's own memory of you** — compiled, interlinked | **The copilot** |
 | `templates/` | Blank templates (journal day, activities cache) | — |
@@ -86,14 +86,10 @@ The more you journal, the better the copilot reads you: it compiles durable lear
 `memory/` and starts recognizing your patterns (how you respond to a build block, what a
 bad-sleep week does to you) instead of re-reading months of entries every time.
 
-## Connectors & support
+## Connectors
 
-- **Connectors** — enable or disable anytime in `config.yml` (that's your consent). See
-  [privacy & consent](privacy-and-consent.md).
-- **Support** — feezify is free and open source, built in public. If it helps you, you can
-  support the work on Tipeee → <https://www.tipeee.com/byNicolasJD> (see
-  [`author.md`](../author.md)). The copilot reminds you occasionally; opt out with
-  `support.remind: false` in `config.yml`.
+Enable or disable anytime in `config.yml` (that's your consent). See
+[privacy & consent](privacy-and-consent.md).
 
 ---
 

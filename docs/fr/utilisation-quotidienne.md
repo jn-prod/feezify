@@ -21,7 +21,7 @@ développeur le copie depuis `core-template/`. Dedans :
 | `profil.md` | Bases physiologiques : FC max, seuil, FTP, faim/soif normales | Toi (une fois, rarement mis à jour) |
 | `user.md` | Qui tu es : nom, sport principal, niveau, objectif — du contexte, jamais un diagnostic | Toi |
 | `objectifs.md` | Ce que tu vises en ce moment (course, bloc, retour de blessure) | Toi |
-| `config.yml` | Réglages & **consentement** : connecteurs activés, rappels de soutien | Toi |
+| `config.yml` | Réglages & **consentement** : connecteurs activés | Toi |
 | `journal/` | **Ton journal quotidien** — un `YYYY-MM-DD.md` par jour. Brut, immuable | **Toi** |
 | `memory/` | La **propre mémoire du copilote sur toi** — compilée, reliée | **Le copilote** |
 | `templates/` | Templates vierges (jour de journal, cache d'activités) | — |
@@ -86,14 +86,10 @@ Plus tu journalises, mieux le copilote te lit : il compile des enseignements dur
 `memory/` et commence à reconnaître tes schémas (ta réponse à un bloc de charge, l'effet
 d'une semaine de mauvais sommeil) au lieu de relire des mois d'entrées à chaque fois.
 
-## Connecteurs & soutien
+## Connecteurs
 
-- **Connecteurs** — activables ou désactivables à tout moment dans `config.yml` (c'est ton
-  consentement). Voir [confidentialité & consentement](confidentialite-et-consentement.md).
-- **Soutien** — feezify est gratuit et open source, construit en public. S'il t'aide, tu
-  peux soutenir le travail sur Tipeee → <https://www.tipeee.com/byNicolasJD> (voir
-  [`author.md`](../../author.md)). Le copilote te le rappelle de temps en temps ; opt-out
-  avec `support.remind: false` dans `config.yml`.
+Activables ou désactivables à tout moment dans `config.yml` (c'est ton consentement). Voir
+[confidentialité & consentement](confidentialite-et-consentement.md).
 
 ---
 

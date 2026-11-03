@@ -125,10 +125,10 @@ Puis pointe ton IA vers la skill — **skill Claude** (`src/adapters/claude-skil
    journal, lance la lecture déterministe, et te dit **vert / orange / rouge** et *pourquoi* —
    sans jamais prescrire.
 
-## Auteur & soutien
+## Auteur
 
 Construit par Nicolas Jouanno — voir **[`fr/author.md`](author.md)** (qui je suis, mes articles
-d'entraînement, et comment soutenir le projet sur Tipeee).
+d'entraînement).
 
 ## Statut
 

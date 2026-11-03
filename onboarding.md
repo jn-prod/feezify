@@ -64,7 +64,6 @@ When every box above is checked, you're live. 🎉
 
 - **Connectors** — enable/disable anytime in `config.yml` (consent). Tokens (path B) stay in `.env`.
 - **Coach memory** — over time the copilot compiles its own memory of you in `memory/`, each claim traced to a journal day.
-- **Support** — feezify is free and open source, built in public. If it helps you, support the work on Tipeee → <https://www.tipeee.com/byNicolasJD> (see [`author.md`](author.md)). The copilot reminds you occasionally; opt out with `support.remind: false` in `config.yml`.
 
 ## Before any commit (path B)
 

@@ -11,22 +11,24 @@ async function coreWith(yml?: string): Promise<string> {
 }
 
 describe('readConfig', () => {
-  it('defaults when config.yml is missing: no connector consented, support.remind on', async () => {
+  it('defaults when config.yml is missing: no connector consented', async () => {
     const cfg = await readConfig(await coreWith())
     expect(cfg.connectors).toEqual({})
-    expect(cfg.support.remind).toBe(true)
   })
 
   it('parses connector consent booleans', async () => {
-    const cfg = await readConfig(await coreWith('connectors:\n  strava: true\nsupport:\n  remind: false\n'))
+    const cfg = await readConfig(await coreWith('connectors:\n  strava: true\n'))
     expect(cfg.connectors.strava).toBe(true)
-    expect(cfg.support.remind).toBe(false)
   })
 
   it('treats absent connector as not consented (template default)', async () => {
     const cfg = await readConfig(await coreWith('connectors:\n  strava: false\n'))
     expect(cfg.connectors.strava).toBe(false)
     expect(cfg.connectors.garmin).toBeUndefined()
-    expect(cfg.support.remind).toBe(true)
+  })
+
+  it('still reads a config.yml written by an older version', async () => {
+    const cfg = await readConfig(await coreWith('connectors:\n  strava: true\nsupport:\n  remind: true\n'))
+    expect(cfg).toEqual({ connectors: { strava: true } })
   })
 })

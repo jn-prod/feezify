@@ -117,10 +117,9 @@ Then point your AI at the skill — it ships as a **Claude skill**
 4. Ask your AI how you are today. It reads its memory (`memory/`) and your journal, runs the
    deterministic read, and tells you **green / amber / red** and *why* — it never prescribes.
 
-## Author & support
+## Author
 
-Built by Nicolas Jouanno — see **[`author.md`](author.md)** (who I am, my training articles,
-and how to support the project on Tipeee).
+Built by Nicolas Jouanno — see **[`author.md`](author.md)** (who I am, my training articles).
 
 ## Status
 

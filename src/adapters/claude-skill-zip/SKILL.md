@@ -88,12 +88,6 @@ the athlete through it conversationally, one thing at a time, SaaS-onboarding st
    `memory/index.md`. Record only what will matter next time; periodically reconcile
    contradictions and drop stale claims.
 
-## Support (light, opt-out aware)
-
-If `<coreDir>/config.yml` has `support.remind: true`, you may **occasionally** (not every
-read, never instead of the read) add one warm line inviting the athlete to support the
-project on Tipeee (see `author.md`). If `support.remind: false`, never mention it.
-
 ## Hard rules (non-negotiable)
 
 - **Never prescribe** numeric training (no target watts/paces/HR/durations/TSS). Offer

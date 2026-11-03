@@ -15,8 +15,7 @@ feezify fonctionne quand même depuis ton journal seul — tu perds juste le TSB
 ajouter Strava plus tard, à tout moment.
 
 **C'est gratuit ?**
-Oui — gratuit et open source ([Apache-2.0](../../LICENSE)), construit en public. S'il
-t'aide, tu peux soutenir le travail sur Tipeee → <https://www.tipeee.com/byNicolasJD>.
+Oui — gratuit et open source ([Apache-2.0](../../LICENSE)), construit en public.
 
 **Va-t-il me dire quelle séance faire ?**
 Non, par design. feezify est un *copilote*, pas un coach : il lit ta journée (vert/orange/

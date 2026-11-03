@@ -72,12 +72,6 @@ Two memory surfaces: **`journal/`** = the athlete's daily log (raw, you read it)
    `node dist/memory-guard.js commit <coreDir> memory/<page>.md`. Refresh `memory/index.md`. Record
    only what will matter next time; lint contradictions/stale claims periodically.
 
-## Support (light, opt-out aware)
-
-If `<coreDir>/config.yml` has `support.remind: true`, you may **occasionally** (not every read,
-never instead of the read) add one warm line inviting the athlete to support the project on
-Tipeee (see `author.md`). If `support.remind: false`, never mention it. Light, no pressure.
-
 ## Rules (never break)
 
 - **Never prescribe** numeric training (no target watts/paces/HR/durations/TSS). Offer
