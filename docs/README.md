@@ -30,8 +30,7 @@ Pick the door that fits you — you don't need to read everything.
 
 1. **Connect Strava** (optional) so feezify can see your training load — via Claude's
    official Strava connector (no keys), or your own tokens on the developer path.
-2. **Install the skill** on your AI (upload a zip in Claude, or point a dev setup at the
-   `SKILL.md`).
+2. **Install the skill** on your AI (point your setup at the `SKILL.md`).
 3. **Keep a short journal** — a few honest lines a day (sleep, fatigue, mood, a niggle).
 4. **Ask "how am I today?"** — feezify runs a deterministic read and answers
    **green / amber / red** and *why*. It never prescribes.
@@ -42,15 +41,14 @@ Everything below just expands those four steps.
 
 - **[What is feezify?](what-is-feezify.md)** — the idea, what it does and does *not* do,
   and how the old SaaS became an AI-native agent.
-- **[Installation](install.md)** — both ways in: the no-terminal 3-step path for athletes,
-  and the developer path (clone, build, tokens).
+- **[Installation](install.md)** — the developer path (clone, build, tokens).
 - **[Daily use](daily-use.md)** — your core folder explained, how to journal, how to ask
   for the read, and how to read the answer.
 - **[The method](the-method.md)** — how the read is computed: training load (TSB),
   readiness, and the crossing rule. Open on purpose.
 - **[Privacy & consent](privacy-and-consent.md)** — local-first, consent-gated connectors,
   where tokens live, and how to revoke everything.
-- **[FAQ & troubleshooting](faq.md)** — common questions and fixes for both paths.
+- **[FAQ & troubleshooting](faq.md)** — common questions and fixes.
 
 ## Canonical sources in the repo
 
@@ -64,6 +62,6 @@ code and wins in case of conflict:
 
 ## Status & license
 
-Early build — **beta, feedback welcome**. Open an issue with what reads true and what
-doesn't. Licensed [Apache-2.0](../LICENSE). Built by Nicolas Jouanno — see
+I stopped developing feezify in September 2026. The code, the method and the docs stay
+open. Licensed [Apache-2.0](../LICENSE). Built by Nicolas Jouanno — see
 [`author.md`](../author.md).

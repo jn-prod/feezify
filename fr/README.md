@@ -85,11 +85,11 @@ secret.
 
 Deux portes d'entrée — détails dans **[`fr/onboarding.md`](onboarding.md)** :
 
-**A. Sans terminal (3 gestes)** — pour les athlètes sur Claude :
+**Seul le parcours B fonctionne aujourd'hui.**
+
+**A. Sans terminal (3 gestes)** — indisponible, le zip de la skill n'a jamais été publié :
 1. Connecte le **connecteur Strava officiel** dans Claude (Connectors → Strava → OAuth).
-2. Télécharge **`feezify-skill-<version>.zip`** depuis la
-   [dernière release](https://github.com/jn-prod/feezify/releases/latest) et uploade-le dans
-   Claude → Settings → Skills.
+2. Uploade **`feezify-skill-<version>.zip`** dans Claude → Settings → Skills.
 3. Demande *« comment je vais aujourd'hui ? »* — le copilote crée ton cœur et te configure
    en conversation.
 
@@ -132,9 +132,8 @@ d'entraînement).
 
 ## Statut
 
-Build précoce — **beta, retours bienvenus**. Ouvre une issue avec ce qui sonne juste et ce
-qui ne va pas. Les prochaines étapes : des harnais d'évaluation pour la skill et une couche
-world-model pour l'état courant.
+J'ai arrêté de développer feezify en septembre 2026. Le code, la méthode et la doc restent
+ouverts : lis-les, juge-les, forke-les.
 
 ## Licence
 

@@ -5,9 +5,9 @@
 ## Général
 
 **Faut-il être développeur ?**
-Non. Le [parcours sans terminal](installation.md#a--sans-terminal-3-gestes) tient en trois
-gestes : connecter Strava, uploader le zip de la skill dans Claude, demander « comment je
-vais aujourd'hui ? ». Pas de code, pas de clés.
+Aujourd'hui, oui : assez pour utiliser un terminal. Le
+[parcours développeur](installation.md#b--parcours-développeur) consiste à cloner le repo et
+à le builder. Le zip sans terminal n'a jamais été publié.
 
 **Ai-je besoin de Strava ?**
 Non. Strava donne à feezify la moitié objective (ta charge d'entraînement). Sans lui,
@@ -34,9 +34,8 @@ Vérifie que **l'exécution de code est activée** pour la skill (Settings → C
 Skills). La skill lance un petit moteur Node embarqué pour calculer tes nombres.
 
 **Où récupérer le zip de la skill ?**
-Sur la [dernière release](https://github.com/jn-prod/feezify/releases/latest) —
-`feezify-skill-<version>.zip`. Upload-le dans Claude : Settings → Capabilities → Skills →
-Upload skill.
+Il n'a jamais été publié. Passe par le
+[parcours développeur](installation.md#b--parcours-développeur).
 
 **Mon journal/ma mémoire disparaît entre deux chats.**
 Un simple chat web n'a pas de fichiers persistants. Utilise **Claude Cowork** et donne-lui
@@ -75,14 +74,6 @@ node --env-file=.env dist/lecture.js ~/my-feezify-core 2026-06-29
 `tsb` + `tsbProvenance`, `score` + `scoreProvenance`, `reason`, `vigilance`, et
 `recentNarrative`.
 
-**Comment reconstruire le zip distribuable ?**
-
-```bash
-pnpm package:skill
-```
-
-Sortie : `packaging/feezify-skill-<version>.zip` (artefact de build gitignoré).
-
 **Tests / typecheck ?**
 
 ```bash
@@ -108,8 +99,8 @@ ressenti réel.
 
 ## Toujours bloqué ?
 
-Ouvre une issue sur le repo avec ce que tu attendais et ce que tu as vu — **les retours
-sont bienvenus** (c'est une beta précoce). Voir [`author.md`](../../author.md) pour savoir
+Ouvre une issue sur le repo avec ce que tu attendais et ce que tu as vu. J'ai arrêté de
+développer feezify en septembre 2026 : un correctif n'est pas garanti. Voir [`author.md`](../../author.md) pour savoir
 qui est derrière.
 
 ---

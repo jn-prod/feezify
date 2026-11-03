@@ -20,8 +20,8 @@ data in a folder you own, so your journal and the copilot's memory persist.
 - [ ] **1. Connect Strava** *(optional but recommended; Strava subscribers)* — in Claude:
   Customize → **Connectors** → add **Strava** → authorize (OAuth). Read-only, revocable
   anytime from your Strava settings. No API keys, no tokens to handle.
-- [ ] **2. Install the skill** — download **`feezify-skill-<version>.zip`** from the
-  [latest release](https://github.com/jn-prod/feezify/releases/latest), then in Claude:
+- [ ] **2. Install the skill** — upload **`feezify-skill-<version>.zip`** (never published: this step can't
+  be done today, use path B), then in Claude:
   Settings → Capabilities → **Skills** → **Upload skill** (code execution must be enabled).
 - [ ] **3. Ask for your read** — say *"how am I today?"*. On first run the copilot creates
   your **core** (a folder of markdown you own — profile, journal, its own memory of you) and

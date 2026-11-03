@@ -31,8 +31,7 @@ Choisis la porte qui te correspond — pas besoin de tout lire.
 
 1. **Connecte Strava** (optionnel) pour que feezify voie ta charge — via le connecteur
    Strava officiel de Claude (aucune clé), ou tes propres tokens en parcours développeur.
-2. **Installe la skill** sur ton IA (upload d'un zip dans Claude, ou pointe un setup dev
-   vers le `SKILL.md`).
+2. **Installe la skill** sur ton IA (pointe ton setup vers le `SKILL.md`).
 3. **Tiens un court journal** — quelques lignes honnêtes par jour (sommeil, fatigue,
    humeur, une gêne).
 4. **Demande « comment je vais aujourd'hui ? »** — feezify lance une lecture déterministe
@@ -44,8 +43,7 @@ Tout le reste ne fait que détailler ces quatre gestes.
 
 - **[C'est quoi feezify ?](presentation.md)** — l'idée, ce qu'il fait et ne fait *pas*, et
   comment l'ancien SaaS est devenu un agent AI-native.
-- **[Installation](installation.md)** — les deux portes : le parcours sans terminal en 3
-  gestes pour les athlètes, et le parcours développeur (clone, build, tokens).
+- **[Installation](installation.md)** — le parcours développeur (clone, build, tokens).
 - **[Utilisation au quotidien](utilisation-quotidienne.md)** — ton dossier cœur expliqué,
   comment journaliser, comment demander la lecture, comment la lire.
 - **[La méthode](la-methode.md)** — comment la lecture est calculée : charge (TSB),
@@ -67,6 +65,6 @@ l'emporte en cas de conflit :
 
 ## Statut & licence
 
-Build précoce — **beta, retours bienvenus**. Ouvre une issue avec ce qui sonne juste et ce
-qui ne va pas. Licence [Apache-2.0](../../LICENSE). Construit par Nicolas Jouanno — voir
+J'ai arrêté de développer feezify en septembre 2026. Le code, la méthode et la doc restent
+ouverts. Licence [Apache-2.0](../../LICENSE). Construit par Nicolas Jouanno — voir
 [`author.md`](../../author.md).

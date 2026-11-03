@@ -5,8 +5,8 @@
 ## General
 
 **Do I need to be a developer?**
-No. The [no-terminal path](install.md#a--no-terminal-3-steps) is three steps: connect
-Strava, upload the skill zip in Claude, ask "how am I today?". No code, no keys.
+Today, yes: enough to use a terminal. The [developer path](install.md#b--developer-path)
+means cloning the repo and building it. The no-terminal zip was never published.
 
 **Do I need Strava?**
 No. Strava gives feezify the objective half (your training load). Without it, feezify
@@ -33,9 +33,7 @@ Make sure **code execution is enabled** for the skill (Settings → Capabilities
 The skill runs a tiny bundled Node engine to compute your numbers.
 
 **Where do I get the skill zip?**
-From the [latest release](https://github.com/jn-prod/feezify/releases/latest) —
-`feezify-skill-<version>.zip`. Upload it in Claude: Settings → Capabilities → Skills →
-Upload skill.
+It was never published. Use the [developer path](install.md#b--developer-path).
 
 **My journal/memory disappears between chats.**
 A plain web chat has no persistent files. Use **Claude Cowork** and give it a folder you
@@ -72,14 +70,6 @@ node --env-file=.env dist/lecture.js ~/my-feezify-core 2026-06-29
 `tsbProvenance`, `score` + `scoreProvenance`, `reason`, `vigilance`, and
 `recentNarrative`.
 
-**How do I rebuild the distributable skill zip?**
-
-```bash
-pnpm package:skill
-```
-
-Output: `packaging/feezify-skill-<version>.zip` (git-ignored build artifact).
-
 **Tests / typecheck?**
 
 ```bash
@@ -103,8 +93,8 @@ never green; injury/illness is always red — no number overrides how you actual
 
 ## Still stuck?
 
-Open an issue on the repo with what you expected and what you saw — **feedback is welcome**
-(this is an early beta). See [`author.md`](../author.md) for who's behind it.
+Open an issue on the repo with what you expected and what you saw. I stopped developing
+feezify in September 2026, so a fix isn't guaranteed. See [`author.md`](../author.md) for who's behind it.
 
 ---
 

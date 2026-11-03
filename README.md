@@ -76,13 +76,12 @@ It's open on purpose: the method is the point, not a secret.
 
 ## Install / run
 
-Two ways in — full details in **[`onboarding.md`](onboarding.md)**:
+Two ways in were planned — full details in **[`onboarding.md`](onboarding.md)**. **Only B
+works today.**
 
-**A. No terminal (3 steps)** — for athletes on Claude:
+**A. No terminal (3 steps)** — not available, the skill zip was never published:
 1. Connect the official **Strava connector** in Claude (Connectors → Strava → OAuth).
-2. Download **`feezify-skill-<version>.zip`** from the
-   [latest release](https://github.com/jn-prod/feezify/releases/latest) and upload it in
-   Claude → Settings → Skills.
+2. Upload **`feezify-skill-<version>.zip`** in Claude → Settings → Skills.
 3. Ask *"how am I today?"* — the copilot creates your core and sets you up in conversation.
 
 **B. Developer path** — clone and build:
@@ -123,9 +122,8 @@ Built by Nicolas Jouanno — see **[`author.md`](author.md)** (who I am, my trai
 
 ## Status
 
-This is an early build — **beta, feedback welcome**. Open an issue with what reads true and
-what doesn't. The next steps are evaluation harnesses for the skill and a world-model layer
-for current state.
+I stopped developing feezify in September 2026. The code, the method and the docs stay
+open: read them, judge them, fork them.
 
 ## License
 

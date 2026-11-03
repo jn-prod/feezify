@@ -2,16 +2,14 @@
 
 ← [Retour à l'index de la doc](README.md)
 
-Il y a deux portes d'entrée. **Choisis-en une — pas besoin des deux.**
+Deux portes d'entrée étaient prévues. **Seul le parcours développeur fonctionne
+aujourd'hui.** J'ai arrêté de développer feezify en septembre 2026.
 
-- **[A — Sans terminal (3 gestes)](#a--sans-terminal-3-gestes)** — rien à installer, pas
-  de code, pas de clés. Pour les athlètes sur Claude. **Commence ici si tu n'es pas
-  développeur.**
+- **[A — Sans terminal (3 gestes)](#a--sans-terminal-3-gestes)** — indisponible : le zip de
+  la skill n'a jamais été publié. Conservé comme trace du parcours prévu.
 - **[B — Parcours développeur](#b--parcours-développeur)** — clone le repo, build-le,
-  utilise tes propres tokens. Pour les builders et les utilisateurs OpenClaw.
-
-Les deux mènent au même endroit : ton IA peut lire ta journée. Elles diffèrent seulement
-sur la façon dont le moteur y arrive.
+  utilise tes propres tokens. Pour les builders et les utilisateurs OpenClaw. **Commence
+  ici.**
 
 ---
 
@@ -34,8 +32,8 @@ Dans Claude : **Customize → Connectors → ajouter Strava → autoriser (OAuth
 
 ### Geste 2 — Installe la skill
 
-1. Télécharge **`feezify-skill-<version>.zip`** depuis la
-   [dernière release](https://github.com/jn-prod/feezify/releases/latest).
+1. Récupère **`feezify-skill-<version>.zip`** (jamais publié : ce geste n'est pas faisable
+   aujourd'hui).
 2. Dans Claude : **Settings → Capabilities → Skills → Upload skill**.
 3. Vérifie que **l'exécution de code est activée** (la skill lance un petit moteur Node
    embarqué pour calculer tes nombres de façon déterministe).
@@ -113,20 +111,7 @@ Pointe ton IA vers le bon `SKILL.md` :
 - **Claude** → [`src/adapters/claude-skill/SKILL.md`](../../src/adapters/claude-skill/SKILL.md)
 - **OpenClaw** → [`src/adapters/openclaw-skill/SKILL.md`](../../src/adapters/openclaw-skill/SKILL.md)
 
-Même moteur, enveloppe différente. (Le zip sans terminal du parcours A emballe le même
-`src/adapters/claude-skill-zip/SKILL.md`.)
-
-### Régénérer le zip sans terminal
-
-Pour reconstruire le zip distribuable de la skill (le fichier que les athlètes uploadent au
-parcours A) :
-
-```bash
-pnpm package:skill     # build le bundle autoportant, puis package le zip
-```
-
-Le résultat atterrit dans `packaging/feezify-skill-<version>.zip`. Il est gitignoré
-(artefact de build) et publié en asset de GitHub Release.
+Même moteur, enveloppe différente.
 
 ### Checklist complète
 

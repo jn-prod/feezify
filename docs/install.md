@@ -2,15 +2,13 @@
 
 ← [Back to docs index](README.md)
 
-There are two ways in. **Pick one — you don't need both.**
+Two ways in were planned. **Only the developer path works today.** I stopped developing
+feezify in September 2026.
 
-- **[A — No terminal (3 steps)](#a--no-terminal-3-steps)** — nothing to install, no
-  code, no keys. For athletes on Claude. **Start here if you're not a developer.**
+- **[A — No terminal (3 steps)](#a--no-terminal-3-steps)** — not available: the skill zip
+  was never published. Kept as a record of the intended path.
 - **[B — Developer path](#b--developer-path)** — clone the repo, build it, use your own
-  tokens. For builders and OpenClaw users.
-
-The two paths reach the same place: your AI can read your day. They differ only in how the
-engine gets there.
+  tokens. For builders and OpenClaw users. **Start here.**
 
 ---
 
@@ -33,8 +31,7 @@ In Claude: **Customize → Connectors → add Strava → authorize (OAuth)**.
 
 ### Step 2 — Install the skill
 
-1. Download **`feezify-skill-<version>.zip`** from the
-   [latest release](https://github.com/jn-prod/feezify/releases/latest).
+1. Get **`feezify-skill-<version>.zip`** (never published: this step can't be done today).
 2. In Claude: **Settings → Capabilities → Skills → Upload skill**.
 3. Make sure **code execution is enabled** (the skill runs a tiny bundled Node engine to
    compute your numbers deterministically).
@@ -110,19 +107,7 @@ Point your AI at the right `SKILL.md`:
 - **Claude** → [`src/adapters/claude-skill/SKILL.md`](../src/adapters/claude-skill/SKILL.md)
 - **OpenClaw** → [`src/adapters/openclaw-skill/SKILL.md`](../src/adapters/openclaw-skill/SKILL.md)
 
-Same engine, different envelope. (The no-terminal zip in path A wraps the same
-`src/adapters/claude-skill-zip/SKILL.md`.)
-
-### Building the no-terminal zip yourself
-
-If you want to regenerate the distributable skill zip (the file athletes upload in path A):
-
-```bash
-pnpm package:skill     # builds the self-contained bundle, then packages the zip
-```
-
-The result lands in `packaging/feezify-skill-<version>.zip`. It's git-ignored (a build
-artifact) and published as a GitHub Release asset.
+Same engine, different envelope.
 
 ### Full checklist
 
