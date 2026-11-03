@@ -4,7 +4,7 @@ import { load } from 'js-yaml'
 import { z } from 'zod'
 
 const configSchema = z.object({
-  connectors: z.record(z.boolean()).default({}),
+  connectors: z.record(z.string(), z.boolean()).default({}),
   support: z.object({ remind: z.boolean().default(true) }).default({ remind: true }),
 })
 
