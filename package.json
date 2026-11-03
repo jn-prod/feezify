@@ -28,7 +28,7 @@
   "dependencies": {
     "gray-matter": "^4.0.3",
     "js-yaml": "^5.5.0",
-    "zod": "^3.23.8"
+    "zod": "^4.6.6"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.0",
