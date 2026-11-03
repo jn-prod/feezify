@@ -1,8 +1,5 @@
 # feezify
 
-> 🚧 **feezify 2.0 — beta coming soon.** The AI-native rewrite of my old training SaaS.
-> Follow the build and beta news in **[Nicolas’s newsletter](https://bynicolasjd.substack.com/?utm_campaign=profile_chips)**.
-
 **A training copilot, gone AI-native.** A skill + a portable markdown core. Zero infra.
 
 feezify reads your day: your objective form (training load) crossed with how you actually
