@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
-    "js-yaml": "^5.2.1",
+    "js-yaml": "^5.5.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
@@ -38,11 +38,16 @@
     "husky": "^9.1.7",
     "tsup": "^8.1.0",
     "typescript": "^5.5.0",
-    "vitest": "^3.2.6"
+    "vitest": "^4.1.12"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild"
-    ]
+    ],
+    "overrides": {
+      "vite": "^7.3.7",
+      "js-yaml@3": "^3.15.2",
+      "js-yaml@4": "^4.3.2"
+    }
   }
 }
