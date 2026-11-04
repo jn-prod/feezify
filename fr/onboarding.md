@@ -20,8 +20,7 @@ tes données dans un dossier à toi, donc ton journal et la mémoire du copilote
 - [ ] **1. Connecte Strava** *(optionnel mais recommandé ; abonnés Strava)* — dans Claude :
   Customize → **Connectors** → ajouter **Strava** → autoriser (OAuth). Lecture seule,
   révocable à tout moment depuis tes réglages Strava. Aucune clé API à manipuler.
-- [ ] **2. Installe la skill** — uploade **`feezify-skill-<version>.zip`** (jamais publié : ce geste n'est pas
-  faisable aujourd'hui, passe par le parcours B), puis dans Claude :
+- [ ] **2. Installe la skill** — uploade **`feezify-skill-<version>.zip`** (jamais publié : construis-le depuis un clone avec `pnpm package:skill`, non testé sur claude.ai, ou passe par le parcours B), puis dans Claude :
   Settings → Capabilities → **Skills** → **Upload skill** (l'exécution de code doit être
   activée).
 - [ ] **3. Demande ta lecture** — dis *« comment je vais aujourd'hui ? »*. Au premier run le

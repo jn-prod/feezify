@@ -31,7 +31,7 @@ In Claude: **Customize → Connectors → add Strava → authorize (OAuth)**.
 
 ### Step 2 — Install the skill
 
-1. Get **`feezify-skill-<version>.zip`** (never published: this step can't be done today).
+1. Get **`feezify-skill-<version>.zip`** (never published: build it from a clone with `pnpm package:skill`, not tested on claude.ai, or use path B).
 2. In Claude: **Settings → Capabilities → Skills → Upload skill**.
 3. Make sure **code execution is enabled** (the skill runs a tiny bundled Node engine to
    compute your numbers deterministically).
