@@ -215,7 +215,7 @@ This repo follows the **same protected-hours rule as alfred**, enforced by husky
 
 - Commit at any time: `.husky/pre-commit` only scans for secrets.
 - `.husky/pre-push` runs the privacy scan of nicolasjouanno.com, then
-  `$HOME/alfred/hooks/push-programme.sh`: during the window a push is queued and leaves at the
+  `$HOME/alfred/hooks/scheduled-push.sh`: during the window a push is queued and leaves at the
   next slot, with its commits redated.
 
 Founder bypass (with risk mention): `git push --no-verify`.

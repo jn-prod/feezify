@@ -2,13 +2,13 @@
 # pre-push : mêmes contrôles que les deux sites, sans en recopier le code.
 # 1) Confidentialité avant que le contenu parte sur GitHub : scan de nj.com, denylist dans
 #    ~/alfred/.privacy-denylist.
-# 2) Programmation du push : alfred/hooks/push-programme.sh.
+# 2) Programmation du push : alfred/hooks/scheduled-push.sh.
 # Contrôle introuvable => push refusé (fail-closed).
 HOOKS="${ALFRED_HOOKS:-$HOME/alfred/hooks}"
 SCAN="${PRIVACY_SCAN:-$HOME/www-nicolasjouanno-com/scripts/privacy-scan.mjs}"
-if [ ! -f "$HOOKS/push-programme.sh" ] || [ ! -f "$SCAN" ]; then
+if [ ! -f "$HOOKS/scheduled-push.sh" ] || [ ! -f "$SCAN" ]; then
   echo "Push refuse : $HOOKS ou $SCAN introuvable. Regler ALFRED_HOOKS ou PRIVACY_SCAN."
   exit 1
 fi
 node "$SCAN" || { echo "Push refuse (confidentialite)."; exit 1; }
-exec bash "$HOOKS/push-programme.sh" verifier "$@"
+exec bash "$HOOKS/scheduled-push.sh" verifier "$@"
