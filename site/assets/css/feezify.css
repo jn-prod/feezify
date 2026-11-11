@@ -110,7 +110,7 @@
   gap: var(--size-8);
   margin: 0 var(--size-16) var(--size-16);
   min-height: var(--b-control-height);
-  padding: var(--size-8) var(--size-16);
+  padding: var(--size-4) var(--size-16);
   border: var(--border);
   border-radius: var(--b-control-radius);
   font-size: var(--b-control-font-size);
@@ -382,7 +382,7 @@ html:not(.js) .f-typing {
   align-items: center;
   justify-content: space-between;
   gap: var(--size-16);
-  min-height: var(--b-control-height);
+  min-height: var(--b-target-size);
   padding-block: var(--size-8);
   font-weight: bold;
   cursor: pointer;
@@ -431,7 +431,7 @@ html:not(.js) .f-typing {
 .f-docs__link {
   display: flex;
   align-items: center;
-  min-height: var(--b-control-height);
+  min-height: var(--b-target-size);
   padding-inline: var(--size-8);
   border-inline-start: var(--b-line-width-strong) solid transparent;
   color: var(--b-color-neutral-70);
