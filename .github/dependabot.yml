@@ -1,0 +1,21 @@
+# Maintenance only: monthly updates, grouped per ecosystem.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      npm:
+        patterns: ["*"]
+  - package-ecosystem: bundler
+    directory: /site
+    schedule:
+      interval: monthly
+    groups:
+      bundler:
+        patterns: ["*"]
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
